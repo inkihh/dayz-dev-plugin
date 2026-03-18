@@ -66,7 +66,7 @@ player.GetComponent<Inventory>().AddItem("AK74");  // NOT Enforce Script!
 ### Example - RIGHT:
 ```c
 // DO: Use verified Enforce Script with null checks
-PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 if (player)
 {
     EntityAI item = player.GetInventory().CreateInInventory("AKM");
@@ -326,7 +326,7 @@ dependency[] = {"DayZ Expansion Core", "DayZ Expansion Scripts"};
 ### Enforce Script Rules
 | Rule | Why |
 |------|-----|
-| Use `!GetGame().IsDedicatedServer()` for client check | `IsClient()` returns FALSE during init |
+| Use `!g_Game.IsDedicatedServer()` for client check | `IsClient()` returns FALSE during init |
 | Assign getter results to local var before foreach | `foreach` on inline getter returns fails |
 | Always parenthesize bitwise ops: `(a & b) == b` | Bitwise ops have lower precedence than comparisons |
 | Use `ref` ONLY for member variables | `ref` in function params is WRONG |
@@ -347,13 +347,13 @@ dependency[] = {"DayZ Expansion Core", "DayZ Expansion Scripts"};
 | Always check `Cast<>` results | `PlayerBase p = PlayerBase.Cast(entity); if (p) {...}` |
 | Always check `GetInventory()` | `if (player.GetInventory()) {...}` |
 | Always check `GetIdentity()` | `if (player.GetIdentity()) {...}` |
-| Always check `GetGame().GetPlayer()` | Can be null during init/cleanup |
+| Always check `g_Game.GetPlayer()` | Can be null during init/cleanup |
 
 ### Security Rules
 | Rule | Reason |
 |------|--------|
 | Validate on server side | Client can be tampered |
-| Check `GetGame().IsServer()` before gameplay logic | Prevent client-side exploitation |
+| Check `g_Game.IsServer()` before gameplay logic | Prevent client-side exploitation |
 | Use RPC callbacks, not direct events | Prevent event spoofing |
 | Validate player identity on server RPCs | Prevent impersonation |
 
@@ -380,14 +380,14 @@ MyMod/
 
 | Don't | Do |
 |-------|-----|
-| `GetGame().IsClient()` during init | `!GetGame().IsDedicatedServer()` |
+| `g_Game.IsClient()` during init | `!g_Game.IsDedicatedServer()` |
 | `foreach (auto x : GetSomething())` | `auto list = GetSomething(); foreach (auto x : list)` |
 | `if (flags & FLAG == FLAG)` | `if ((flags & FLAG) == FLAG)` |
 | `ref` in function parameters/returns/locals | `ref`/`autoptr` only for class member variables |
 | Add `: ParentClass` to `modded class` | `modded class` already inherits - never add inheritance |
 | `delete obj;` | `obj = null;` (let GC handle cleanup) |
 | Trust client data in RPCs | Always validate server-side |
-| `GetGame()` in hot paths | Use `g_Game` global (1.28+ optimization) |
+| `g_Game` in hot paths | Use `g_Game` global (1.28+ optimization) |
 | `SurfaceIsPond()` / `SurfaceIsSea()` | `g_Game.GetWaterDepth(pos) <= 0` (much faster) |
 | `GetObjectsAtPosition()` frequently | Use static arrays, triggers, or GetScene() |
 | Empty `#ifdef` / `#endif` blocks | Always have content or remove entirely |
