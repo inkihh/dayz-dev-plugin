@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>FXY File Format - Bohemia Interactive Community</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"1824c0419dcc8b77296295d1","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"FXY_File_Format","wgTitle":"FXY File Format","wgCurRevisionId":376491,"wgRevisionId":376491,"wgArticleId":4833,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Real Virtuality File Formats","ArmA: Armed Assault: File Formats"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"FXY_File_Format","wgRelevantArticleId":4833,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"simpleBatchUploadMaxFilesPerBatch":{"*":1000},"wgVector2022PreviewPages":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgEditSubmitButtonLabelPublish":false};RLSTATE={"skins.vector.user.styles":"ready","site.styles":"ready","user.styles":"ready","skins.vector.user":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","mediawiki.ui.button":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","mediawiki.ui.icon":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.SQFHighlighter.styles":"ready","ext.EnforceScriptHighlighter.styles":"ready","ext.BIKIHelper.styles":"ready","ext.BIKISpoiler.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","skins.vector.es6","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","mmv.head","mmv.bootstrap.autostart",
+"ext.SQFHighlighter","ext.EnforceScriptHighlighter","ext.BIKIHelper","ext.BIKISpoiler"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=ext.BIKIHelper.styles%7Cext.BIKISpoiler.styles%7Cext.EnforceScriptHighlighter.styles%7Cext.SQFHighlighter.styles%7Cext.pygments%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.ui.button%2Cicon%7Cskins.vector.icons%2Cstyles&amp;only=styles&amp;skin=vector-2022"/>
+<script async="" src="/wikidata/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector-2022"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/wikidata/opensearch_desc.php" title="Bohemia Interactive Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://community.bistudio.com/wikidata/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Bohemia Interactive Community Atom feed" href="/wiki?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://community.bistudio.com/wiki/FXY_File_Format"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSR8FCP');</script>
+</head>
+<body class="skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-FXY_File_Format rootpage-FXY_File_Format skin-vector-2022 action-view skin--responsive vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div class="mw-page-container">
+	<span id="top-page"></span>
+	<a class="mw-jump-link" href="#content">Jump to content</a>
+	<div class="mw-page-container-inner">
+		<input
+			type="checkbox"
+			id="mw-sidebar-checkbox"
+			class="mw-checkbox-hack-checkbox"
+			>
+		<header class="mw-header">
+			<div class="mw-header-aside">
+			<label
+				id="mw-sidebar-button"
+				class="mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet mw-ui-icon-element"
+				for="mw-sidebar-checkbox"
+				role="button"
+				aria-controls="mw-panel"
+				data-event-name="ui.sidebar"
+				tabindex="0"
+				title="Main menu">
+				<span>Toggle sidebar</span>
+			</label>
+			
+<a href="/wiki/Main_Page" class="mw-logo">
+	<span class="mw-logo-container">
+		<img class="mw-logo-wordmark" alt="Bohemia Interactive Community"
+			src="/wikidata/resources/assets/community-wiki_151x14.png" style="width: 9.4375em; height: 0.875em;">
+	</span>
+</a>
+
+			</div>
+			<div class="mw-header-content">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/wiki/Special:Search"
+	
+		
+		
+		
+		title="Search Bohemia Interactive Community [f]"
+		accesskey="f"
+		class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search search-toggle">
+		<span>Search</span>
+	</a>
+	
+	<div>
+		<form action="/wiki" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-moved">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Bohemia Interactive Community" aria-label="Search Bohemia Interactive Community" autocapitalize="none" title="Search Bohemia Interactive Community [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+			<nav class="vector-user-links" aria-label="Personal tools" role="navigation" >
+	
+
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet mw-portlet-vector-user-menu-overflow emptyPortlet vector-user-menu-overflow"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+	
+
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal emptyPortlet vector-user-menu vector-user-menu-logged-out vector-menu-dropdown"  title="More options" >
+	<input type="checkbox"
+		id="p-personal-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-personal"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-personal-label"
+		for="p-personal-checkbox"
+		class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"
+		
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		<div class="vector-user-menu-create-account"><a href="/wiki?title=Special:CreateAccount&amp;returnto=FXY+File+Format" class="vector-menu-content-item user-links-collapsible-item" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="mw-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></div>
+<div class="vector-user-menu-login"><a href="/wiki?title=Special:UserLogin&amp;returnto=FXY+File+Format" class="vector-menu-content-item vector-menu-content-item-login" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span class="mw-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span></a></div>
+<div class="vector-user-menu-anon-editor">
+	<p>
+		Pages for logged out editors <a href="/wiki/Help:Introduction" aria-label="Learn more about editing"><span>learn more</span></a>
+	</p>
+</div>
+
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+</nav>
+
+			</div>
+		</header>
+		<div class="vector-sidebar-container ">
+			<div id="mw-navigation">
+				
+
+<nav id="mw-panel" class="mw-sidebar" aria-label="Site" role="navigation">
+	
+
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation vector-menu-portal portal"  >
+	<div
+		id="p-navigation-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Navigation</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main Page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-All-categories" class="mw-list-item"><a href="/wiki/Special:Categories"><span>All categories</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+	
+
+<div id="p-Contribute" class="vector-menu mw-portlet mw-portlet-Contribute vector-menu-portal portal"  >
+	<div
+		id="p-Contribute-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Contribute</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Getting-started" class="mw-list-item"><a href="/wiki/Getting_Started"><span>Getting started</span></a></li><li id="n-Formatting" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Formatting"><span>Formatting</span></a></li><li id="n-Guidelines" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Guidelines"><span>Guidelines</span></a></li><li id="n-Wiki-Maintenance" class="mw-list-item"><a href="/wiki/Category:Maintenance"><span>Wiki Maintenance</span></a></li><li id="n-Templates" class="mw-list-item"><a href="/wiki/Category:Templates"><span>Templates</span></a></li><li id="n-Help" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Help:Contents#Welcome_to_MediaWiki.org_help_pages" title="The place to find out"><span>Help</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-Bohemia_Interactive" class="vector-menu mw-portlet mw-portlet-Bohemia_Interactive vector-menu-portal portal"  >
+	<div
+		id="p-Bohemia_Interactive-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Bohemia Interactive</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Arma-Platform" class="mw-list-item"><a href="https://www.armaplatform.com/" rel="nofollow"><span>Arma Platform</span></a></li><li id="n-DayZ.com" class="mw-list-item"><a href="https://www.dayz.com/" rel="nofollow"><span>DayZ.com</span></a></li><li id="n-Ylands.com" class="mw-list-item"><a href="https://ylands.com/" rel="nofollow"><span>Ylands.com</span></a></li><li id="n-Forums" class="mw-list-item"><a href="https://forums.bohemia.net/" rel="nofollow"><span>Forums</span></a></li><li id="n-Feedback" class="mw-list-item"><a href="https://feedback.bistudio.com/" rel="nofollow"><span>Feedback</span></a></li></ul>
+		<div class="after-portlet after-portlet-Bohemia_Interactive"><div id="bohemia-promo" style="margin: 1em auto 0 -10px"></div></div>
+	</div>
+</div>
+
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal"  >
+	<div
+		id="p-tb-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/FXY_File_Format" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/FXY_File_Format" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/wiki?title=FXY_File_Format&amp;oldid=376491" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/wiki?title=FXY_File_Format&amp;action=info" title="More information about this page"><span>Page information</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+</nav>
+
+			</div>
+		</div>
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+		<div class="mw-table-of-contents-container">
+			<div class="vector-sticky-toc-container mw-sticky-header-element">
+				<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
+	<div id="sidebar-toc-label" class="sidebar-toc-header">
+		<p class="sidebar-toc-title">
+		Contents
+		<button class="vector-toc-uncollapse-button">move to sidebar</button>
+		<button class="vector-toc-collapse-button">hide</button>
+		</p>
+	</div>
+	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="sidebar-toc-list-item sidebar-toc-level-1">
+			<a href="#top-page" class="sidebar-toc-link">
+				<div class="sidebar-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-Introduction"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Introduction">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">1</span>Introduction</div>
+			</a>
+			
+			<ul id="toc-Introduction-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Description"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Description">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2</span>Description</div>
+			</a>
+			
+				<button aria-controls="toc-Description-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Description subsection
+				</button>
+			
+			<ul id="toc-Description-sublist" class="sidebar-toc-list">
+				<li id="toc-Legend"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Legend">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.1</span>Legend</div>
+			</a>
+			
+			<ul id="toc-Legend-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Struct"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Struct">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.2</span>Struct</div>
+			</a>
+			
+			<ul id="toc-Struct-sublist" class="sidebar-toc-list">
+				<li id="toc-FxyEntry"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#FxyEntry">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.2.1</span>FxyEntry</div>
+			</a>
+			
+			<ul id="toc-FxyEntry-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CharCode"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#CharCode">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.2.2</span>CharCode</div>
+			</a>
+			
+			<ul id="toc-CharCode-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-PaaFileNumber"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#PaaFileNumber">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.2.3</span>PaaFileNumber</div>
+			</a>
+			
+			<ul id="toc-PaaFileNumber-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Usage"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Usage">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3</span>Usage</div>
+			</a>
+			
+			<ul id="toc-Usage-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Paa_Content"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Paa_Content">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4</span>Paa Content</div>
+			</a>
+			
+				<button aria-controls="toc-Paa_Content-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Paa Content subsection
+				</button>
+			
+			<ul id="toc-Paa_Content-sublist" class="sidebar-toc-list">
+				<li id="toc-Resistance"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Resistance">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.1</span>Resistance</div>
+			</a>
+			
+			<ul id="toc-Resistance-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Armed_Assault"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Armed_Assault">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.2</span>Armed Assault</div>
+			</a>
+			
+			<ul id="toc-Armed_Assault-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Available_Fonts"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Available_Fonts">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5</span>Available Fonts</div>
+			</a>
+			
+				<button aria-controls="toc-Available_Fonts-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Available Fonts subsection
+				</button>
+			
+			<ul id="toc-Available_Fonts-sublist" class="sidebar-toc-list">
+				<li id="toc-Arma_3"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Arma_3">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.1</span>Arma 3</div>
+			</a>
+			
+			<ul id="toc-Arma_3-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Arma_2"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Arma_2">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.2</span>Arma 2</div>
+			</a>
+			
+			<ul id="toc-Arma_2-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Armed_Assault_2"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Armed_Assault_2">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.3</span>Armed Assault</div>
+			</a>
+			
+			<ul id="toc-Armed_Assault_2-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Operation_Flashpoint:_Elite"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Operation_Flashpoint:_Elite">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.4</span>Operation Flashpoint: Elite</div>
+			</a>
+			
+			<ul id="toc-Operation_Flashpoint:_Elite-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Operation_Flashpoint"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Operation_Flashpoint">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.5</span>Operation Flashpoint</div>
+			</a>
+			
+			<ul id="toc-Operation_Flashpoint-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+</nav>
+
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				<header class="mw-body-header">
+				
+				
+					<label
+						id="vector-toc-collapsed-button"
+						class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet mw-checkbox-hack-button"
+						for="vector-toc-collapsed-checkbox"
+						role="button"
+						aria-controls="toc-toggle-list"
+						data-event-name="vector.toc-toggle-list"
+						tabindex="0"
+						title="Table of Contents">
+						Toggle the table of contents
+					</label>
+				    <h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">FXY File Format</span></h1>
+				</header>
+				<nav class="vector-article-toolbar" aria-label="Tools"
+					role="navigation">
+					<div class="mw-article-toolbar-container">
+						<div id="left-navigation">
+							
+
+<div id="p-associated-pages" class="vector-menu mw-portlet mw-portlet-associated-pages vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/wiki/FXY_File_Format" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/wiki?title=Talk:FXY_File_Format&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-label="Change language variant"
+		
+	/>
+	<label
+		id="p-variants-label"
+		for="p-variants-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+						</div>
+						<div id="right-navigation" class="vector-collapsible ">
+							
+
+<div id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/wiki/FXY_File_Format"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/wiki?title=FXY_File_Format&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/wiki?title=FXY_File_Format&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-has-collapsible-items"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-cactions-label"
+		for="p-cactions-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="/wiki/FXY_File_Format"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=FXY_File_Format&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=FXY_File_Format&amp;action=history"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+						</div>
+					</div>
+				</nav>
+				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+					<div class="mw-body-subheader">
+					        <div class="mw-indicators">
+        </div>
+
+					    <div id="siteSub" class="noprint">From Bohemia Interactive Community</div>
+					</div>
+					<div id="contentSub"><div id="biki-top-categories">Categories: <a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a><a href="/wiki/Category:ArmA:_Armed_Assault:_File_Formats" title="Category:ArmA: Armed Assault: File Formats">ArmA: Armed Assault: File Formats</a></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class=""><div class="toc-side"><mw:tocplace></mw:tocplace></div></div>
+<div class="biki-messagebox messagebox-bi"><div><a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive"><img alt="bi symbol white.png" src="/wikidata/images/thumb/3/3c/bi_symbol_white.png/28px-bi_symbol_white.png" decoding="async" width="28" height="30" srcset="/wikidata/images/thumb/3/3c/bi_symbol_white.png/42px-bi_symbol_white.png 1.5x, /wikidata/images/thumb/3/3c/bi_symbol_white.png/56px-bi_symbol_white.png 2x" data-file-width="621" data-file-height="662" /></a></div><div><b>Disclaimer: This page describes internal undocumented structures of <a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive">Bohemia Interactive</a> software.</b><br />
+<p>		This page contains unofficial information.
+</p>
+		Some usage of this information may constitute a violation of the rights of Bohemia Interactive and is in no way endorsed or recommended by Bohemia Interactive.<br />Bohemia Interactive is not willing to tolerate use of such tools if it contravenes any general licenses granted to end users of this community wiki or BI products.</div></div>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:152px;"><a href="/wiki/File:LucidaConsoleB11-01.paa.gif" class="image"><img alt="" src="/wikidata/images/thumb/e/ef/LucidaConsoleB11-01.paa.gif/150px-LucidaConsoleB11-01.paa.gif" decoding="async" width="150" height="147" class="thumbimage" srcset="/wikidata/images/thumb/e/ef/LucidaConsoleB11-01.paa.gif/225px-LucidaConsoleB11-01.paa.gif 1.5x, /wikidata/images/thumb/e/ef/LucidaConsoleB11-01.paa.gif/300px-LucidaConsoleB11-01.paa.gif 2x" data-file-width="418" data-file-height="411" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:LucidaConsoleB11-01.paa.gif" class="internal" title="Enlarge"></a></div>PAA layout of a font</div></div></div>
+<p>The <a href="/wiki/Category:Operation_Flashpoint" title="Category:Operation Flashpoint">Operation Flashpoint</a> and <a href="/wiki/Category:ArmA:_Armed_Assault" title="Category:ArmA: Armed Assault">ArmA: Armed Assault</a> engines use a limited set of bit mapped fonts developed by Bohemia Interactive for the engine. They are bitmaps and each glyph within is treated as a texture.
+</p><p>A character set (such as <span class="wikipedia" title="Read the &#39;ASCII&#39; Wikipedia article"><a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/ASCII">Ascii</a></span>) is a series of 'glyphs' (characters) where any one of these characters is always identified by the same index value. For example the letter <b>A</b> is always hex <b>41</b> and so on. Regardless of the font set employed, the character set within it, is set-in-concrete. Hex 41 always renders a glyph that 'looks like' the letter A. Be it <b>bold</b>, <i>italic</i>, or fills the entire screen, it is the letter 'A'.
+</p><p>The character set for all BI fonts in OFP is different for each language version. For Western languages it approximates <span class="wikipedia" title="Read the &#39;Code&#160;page&#160;858&#39; Wikipedia article"><a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Code_page_858">Latin codepage 858</a></span>. In ArmA Unicode is used for fonts.
+</p><p>A font set is a collection of displayable characters (termed glyphs) that have a common appearance. E.g all glyphs in THIS set are bold, or all the glyphs are italic, all the glyphs are Times Roman (seriffed).
+</p><p>Individual font sets exist for Tahoma, Garamond, and so on. The glyphs within these sets are contained in a series of <a href="/wiki/PAA" class="mw-redirect" title="PAA">.paa</a> files. 
+</p><p>And, because these are bitmapped fonts, eg fixed dimensions, non-scaleable, there are unique font sets, for, unique sizes.
+</p><p>For example, in <a href="/wiki/Operation_Flashpoint:_Resistance" title="Operation Flashpoint: Resistance">Resistance</a> engine, the popular Tahoma font is in three different font sets. 24 point, 36 point, 48 point.
+</p><p>A 'point' approximates 1/72th of an inch. Thus the Tahoma fonts available (for Resistance) are approximately a third, a half, and two thirds of an inch tall when displayed.
+</p>
+<h2><span class="mw-headline" id="Description">Description</span></h2>
+<p>An fxy file is the 'character set' index. It is, the codepage.
+</p><p>An fxy file is implicitly associated with one or more paa files within the same folder. The fxy file is the header entry for these files, it describes the position in the paa file and the size to be rendered on screen, for a 'glyph'.
+</p><p>Association of files between fxy and paa is implicit. The CourierNewB64.fxy is implicitly associated with the CourierNewB64-xx.paa file(s). xx indicating one of several CourierNewB64 paa's.
+</p>
+<h3><span class="mw-headline" id="Legend">Legend</span></h3>
+<p>see <a href="/wiki/Generic_FileFormat_Data_Types" title="Generic FileFormat Data Types">Generic FileFormat Data Types</a>.
+</p>
+<h3><span class="mw-headline" id="Struct">Struct</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Fxy</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="c1">// ===== ARMA ONLY ========</span>
+<span class="w">	</span><span class="kt">char</span><span class="w"> </span><span class="n">MimeType</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w">	</span><span class="c1">// e.g &quot;BIFo&quot;, BI Font</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w"> </span><span class="n">Version</span><span class="p">;</span><span class="w">		</span><span class="c1">// 0x101 == Arma 1 and 2</span>
+<span class="w">						</span><span class="c1">// 0x102 == Arma 3</span>
+<span class="c1">// =========================</span>
+<span class="w">	</span><span class="n">FxyEntry</span><span class="w">	</span><span class="n">Entry1</span><span class="p">;</span><span class="w"></span>
+<span class="c1">//	(...)</span>
+<span class="w">	</span><span class="n">FxyEntry</span><span class="w">	</span><span class="n">EntryLast</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="FxyEntry">FxyEntry</span></h4>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">FxyEntry</span><span class="w"> </span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">ushort</span><span class="w"> </span><span class="n">CharCode</span><span class="p">;</span><span class="w">		</span><span class="c1">// &#39;&#39;&#39;0x21&#39;&#39;&#39; = &#39;A&#39; &lt;&lt;&lt; see note</span>
+<span class="w">	</span><span class="n">ushort</span><span class="w"> </span><span class="n">PaaFileNumber</span><span class="p">;</span><span class="w">	</span><span class="c1">// 01</span>
+<span class="w">	</span><span class="n">ushort</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">;</span><span class="w">				</span><span class="c1">// Offset (in pixels) in the paa file, to the Top-left of this glyph.</span>
+<span class="w">	</span><span class="n">ushort</span><span class="w"> </span><span class="n">Width</span><span class="p">,</span><span class="n">Height</span><span class="p">;</span><span class="w">	</span><span class="c1">// area (number of) pixels used from the paa file for this glyph.</span>
+<span class="w">	</span><span class="n">ushort</span><span class="w"> </span><span class="n">KerningWidth</span><span class="p">;</span><span class="w">	</span><span class="c1">// ARMA only. Width used to determine this character spacing</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+<p>Apart from the ARMA header (in Arma fxy files only), the fxy is a contiguous series of 12 byte (ofp) or 14 byte (Arma) entries.
+</p>
+<h4><span class="mw-headline" id="CharCode">CharCode</span></h4>
+<p>OFP uses a USASCII character set. Arma uses Unicode.
+</p><p>The first 256 unicodes ARE us-ascii. For this reason, the first 32 (x20) glyphs in EITHER character set, are control characters, never intended for display, and not included in the paa file(s) nor the fxy header. For that reason, in all circumstances, *the* displayed character is charcode+x20. Thus
+</p>
+<pre>'Actual Character' = charcode + x20;
+</pre>
+<pre>Charcode x21 = index-entry = x21 = character x20 + x21 = 0x41 = Glyph 'A'.
+</pre>
+<p>This is a constant, irrespective of the number of fxy tables (fonts) now or in the future. Charcode x21 can only ever be glyph 'A' (rendered in whatever style and size the font wants to render it)
+</p>
+<ul><li>For Operation Flashpoint, there are 224 entries in any fxy table (which therefore covers the 256 (224 + 32) possible us ascii 'characters').</li>
+<li>Armed Assault fxy's have 448 character entries + 16 specials, as each font supports both Western European, Eastern European and Cyrillic character sets.</li></ul>
+<dl><dd>Bearing in mind that basic 16 bit Unicode can display 65,000 glyphs, standard Arma fonts only use (and are only capable of displaying) a small selection:</dd></dl>
+<ul><li>x20...17F Us Ascii + (most) European Languages</li>
+<li>400...45F Cyrillic</li>
+<li>2010...201F Special chars. unknown how they work.</li></ul>
+<p>You could extend this range in custom fonts of course to whatever you need from 16bit Unicode.
+</p><p>Note that index entries happen to be linear sequential. The nth index entry is also CharCode n. Which way, the engine actually accesses this table for character 'n' is up to the engine.
+</p>
+<h4><span class="mw-headline" id="PaaFileNumber">PaaFileNumber</span></h4>
+<p><var>-number</var> of texture file:
+This is simply a convenience to allow large fonts to be spread across several paa's. For example if font name is "CourierNewB64":
+</p>
+<ul><li>The fxy file is <var>CourierNewB64.fxy</var></li>
+<li>The first texture file is <var>CourierNewB64<b>-01</b>.paa</var></li>
+<li>The second texture file is <var>CourierNewB64<b>-02</b>.paa</var></li>
+<li>etc.</li></ul>
+<div class="biki-messagebox feature-informative"><div>ⓘ</div><div>Note that you cannot assume the glyph character 'A' (nor any other glyph) is ordered the same way in any given paa font-set, nor, in fact that the glyph will 'always be' in e.g fontfile 1.</div></div>
+<p>Order of glyphs is entirely random in the sense that binarising these files uses a 'best fit' method to squeeze as much content into that file. Not perfect, but not badly done either.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<p>This example uses the new font name in a <a href="/wiki/Description.ext" title="Description.ext">Description.ext</a>:
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RscText</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CT_STATIC</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">idc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ST_LEFT</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">colorBackground</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">	</span><span class="n">colorText</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">	</span><span class="n">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bitstream</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">sizeEx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.04</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Paa_Content">Paa Content</span></h2>
+<h3><span class="mw-headline" id="Resistance">Resistance</span></h3>
+<p><a href="/wiki/PAA" class="mw-redirect" title="PAA">.paa</a> files used for the font must be in 8080 format: (Alpha luminosity)
+</p>
+<ul><li>8bit - Brightness (all with 255 value - "white")</li>
+<li>8bit - Alpha (255 for character, 0 for space)</li></ul>
+<h3><span class="mw-headline" id="Armed_Assault">Armed Assault</span></h3>
+<p>ArmA Glyph files (paa) are formatted in DXT5 compressed textures. Using the TAGG labelling, they must additionally specify:
+</p>
+<pre>Avg Color: any
+Max Color: always FFFFFFFF
+AlphaFlag: 1
+</pre>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Available_Fonts">Available Fonts</span></h2>
+<h3><span class="mw-headline" id="Arma_3">Arma 3</span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:282px;"><a href="/wiki/File:Arma3Fonts.png" class="image"><img alt="" src="/wikidata/images/thumb/0/0e/Arma3Fonts.png/280px-Arma3Fonts.png" decoding="async" width="280" height="442" class="thumbimage" srcset="/wikidata/images/0/0e/Arma3Fonts.png 1.5x" data-file-width="300" data-file-height="474" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:Arma3Fonts.png" class="internal" title="Enlarge"></a></div>Some of Arma 3's fonts</div></div></div>
+<p>These fonts can be found in CfgFontFamilies:
+</p>
+<ul><li>Caveat</li>
+<li>EtelkaMonospacePro</li>
+<li>EtelkaMonospaceProBold</li>
+<li>EtelkaNarrowMediumPro</li>
+<li>LCD14</li>
+<li>LucidaConsoleB</li>
+<li>PuristaBold</li>
+<li>PuristaLight</li>
+<li>PuristaMedium</li>
+<li>PuristaSemibold</li>
+<li>RobotoCondensed</li>
+<li>RobotoCondensedBold</li>
+<li>RobotoCondensedLight</li>
+<li>TahomaB</li></ul>
+<div style="clear:both"></div>
+<h3><span class="mw-headline" id="Arma_2">Arma 2</span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:282px;"><a href="/wiki/File:ArmA2OAFonts_CO.png" class="image"><img alt="" src="/wikidata/images/thumb/f/f3/ArmA2OAFonts_CO.png/280px-ArmA2OAFonts_CO.png" decoding="async" width="280" height="267" class="thumbimage" srcset="/wikidata/images/f/f3/ArmA2OAFonts_CO.png 1.5x" data-file-width="368" data-file-height="351" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/wiki/File:ArmA2OAFonts_CO.png" class="internal" title="Enlarge"></a></div>Arma 2's fonts</div></div></div>
+<ul><li>LucidaConsoleB</li>
+<li>Zeppelin33</li>
+<li>Zeppelin33Italic</li>
+<li>Zeppelin32</li>
+<li>EtelkaNarrowMediumPro</li>
+<li>Bitstream</li>
+<li>TahomaB</li>
+<li>EtelkaMonospaceProBold</li></ul>
+<div style="clear:both"></div>
+<h3><span class="mw-headline" id="Armed_Assault_2">Armed Assault</span></h3>
+<ul><li>Arial Bold 7 -&gt; 24 pt</li>
+<li>BitStream</li>
+<li>Versans bold 7 -&gt; 20, 22, 28 pt</li>
+<li>Zeppelin32 12 -&gt; 20, 22, 28 pt</li>
+<li>Zeppelin33 12 -&gt; 20, 22, 28 pt</li>
+<li>Zeppelin33 italic 12 -&gt; 20, 22, 28pt</li></ul>
+<h3><span class="mw-headline" id="Operation_Flashpoint:_Elite">Operation Flashpoint: Elite</span></h3>
+<ul><li>Arial Bold 7, 8, 10, 11, 12 pt</li>
+<li>Arial Italic 9, 13, 18, 48 pt</li>
+<li>CourierNew 9pt</li>
+<li>Hel67-CM 10, 11 pt</li>
+<li>HelvCondLight 8, 9, 10 pt</li>
+<li>Helvetica-Narrow 11pt</li>
+<li>Helvetica-Narrow Bold 8pt</li>
+<li>Helvetica37-CondensedThin bold 10pt</li>
+<li>Helvetica57-Condensed 10, 13, 16pt</li>
+<li>Helvetica57-Condensed 9, 13, 14 pt Bold</li>
+<li>Helvetica67-Condensed 9, 10, 11pt Medium</li>
+<li>HelveticaNarrow 10, 11pt</li>
+<li>HelveticaNarrow bold 10, 13, 18, 22pt</li>
+<li>HelveticaNeue 10 -&gt; 14, 22pt</li>
+<li>HelveticaNeue Bold 22pt</li>
+<li>LucidaConsole Bold 8, 11pt</li>
+<li>MSS Bold 9pt</li>
+<li>System 10pt</li>
+<li>System Bold 10pt</li>
+<li>Tahoma 10, 11, 12, 14, 16, 20, 21pt</li>
+<li>Tahoma bold 5, 6, 7, 9 -&gt; 14, 16, 20, 21pt</li>
+<li>Tahoma Bold Italic 12pt</li></ul>
+<h3><span class="mw-headline" id="Operation_Flashpoint">Operation Flashpoint</span></h3>
+<ul><li>AudreysHand Italic 48pt</li>
+<li>AudreysHand Bold 48pt</li>
+<li>CourierNew Bold 64pt</li>
+<li>Garamond 64pt</li>
+<li>Steelfish bold 64, 128pt</li>
+<li>SteelfishCE bold 64 pt</li>
+<li>Tahoma bold 24, 36, 48pt</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20260326011825
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.091 seconds
+Real time usage: 0.688 seconds
+Preprocessor visited node count: 1541/1000000
+Post‐expand include size: 13020/20480000 bytes
+Template argument size: 8258/20480000 bytes
+Highest expansion depth: 20/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5275/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  654.667      1 -total
+  3.50%   22.884      2 Template:Feature
+  2.74%   17.922      1 Template:Messagebox/BI
+  2.49%   16.304      2 Template:Messagebox
+  1.53%    9.989      1 Template:Icon
+  1.49%    9.771      2 Template:Link
+  1.49%    9.768     16 Template:Name
+  1.34%    8.787      3 Template:GameCategory
+  1.02%    6.680      2 Template:Link/External
+  0.83%    5.435      4 Template:hl
+-->
+
+<!-- Saved in parser cache with key community:pcache:idhash:4833-0!canonical and timestamp 20260326011824 and revision id 376491.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://community.bistudio.com/wiki?title=FXY_File_Format&amp;oldid=376491">https://community.bistudio.com/wiki?title=FXY_File_Format&amp;oldid=376491</a>"</div></div>
+					<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></li><li><a href="/wiki/Category:ArmA:_Armed_Assault:_File_Formats" title="Category:ArmA: Armed Assault: File Formats">ArmA: Armed Assault: File Formats</a></li></ul></div></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 22 October 2025, at 16:56.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/wiki/Bohemia_Interactive_Community:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/Bohemia_Interactive_Community:About">About Bohemia Interactive Community</a></li>
+	<li id="footer-places-disclaimer"><a href="/wiki/Bohemia_Interactive_Community:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/wikidata/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wikidata/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wikidata/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+
+<script>
+		let bodies = document.getElementsByTagName('body');
+		if (bodies && bodies[0])
+		{
+			let divHeader = document.createElement('div');
+			divHeader.setAttribute('id', 'bohemia-header');
+			divHeader.innerHTML = '<div id="bohemia-header"><main-header v-bind:user-data="window.userData" login-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/login" logout-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/logout"></main-header></div>';
+
+
+			let body = bodies[0];
+			body.insertBefore(divHeader, body.firstChild);
+		}
+		</script>
+		<script async src="https://static.bistudio.com/bohemia/header/js/all.min.js"></script>
+			<script>
+					window.userData = null;
+			</script>
+			
+			<script>
+			   document.onreadystatechange = function () {
+				  if (document.readyState === 'complete') {
+					  var f = document.createElement('iframe');
+					  f.src = 'https://data.bistudio.com/pbp/index.php';
+					  f.width = '100%';
+					  f.height = 140;
+					  f.frameborder = 0;
+					  f.style.border = 0;
+					  f.scrolling = 'no';
+
+					  var c = document.getElementById('bohemia-promo');
+					  if (c)
+					    c.appendChild(f);
+				  }
+				}
+			</script>
+		
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.091","walltime":"0.688","ppvisitednodes":{"value":1541,"limit":1000000},"postexpandincludesize":{"value":13020,"limit":20480000},"templateargumentsize":{"value":8258,"limit":20480000},"expansiondepth":{"value":20,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":5275,"limit":5000000},"timingprofile":["100.00%  654.667      1 -total","  3.50%   22.884      2 Template:Feature","  2.74%   17.922      1 Template:Messagebox/BI","  2.49%   16.304      2 Template:Messagebox","  1.53%    9.989      1 Template:Icon","  1.49%    9.771      2 Template:Link","  1.49%    9.768     16 Template:Name","  1.34%    8.787      3 Template:GameCategory","  1.02%    6.680      2 Template:Link/External","  0.83%    5.435      4 Template:hl"]},"cachereport":{"timestamp":"20260326011825","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":893});});</script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>P3D File Format - MLOD - Bohemia Interactive Community</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"3ea2c27ab2fa2f28740fe136","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"P3D_File_Format_-_MLOD","wgTitle":"P3D File Format - MLOD","wgCurRevisionId":373432,"wgRevisionId":373432,"wgArticleId":7907,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Real Virtuality File Formats","ArmA: Armed Assault: File Formats"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"P3D_File_Format_-_MLOD","wgRelevantArticleId":7907,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":["sysop"],
+"wgRestrictionMove":["sysop"],"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"simpleBatchUploadMaxFilesPerBatch":{"*":1000},"wgVector2022PreviewPages":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgEditSubmitButtonLabelPublish":false};RLSTATE={"skins.vector.user.styles":"ready","site.styles":"ready","user.styles":"ready","skins.vector.user":"ready","user":"ready","user.options":"loading","mediawiki.ui.button":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","mediawiki.ui.icon":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.SQFHighlighter.styles":"ready","ext.EnforceScriptHighlighter.styles":"ready","ext.BIKIHelper.styles":"ready","ext.BIKISpoiler.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","skins.vector.es6","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","mmv.head","mmv.bootstrap.autostart",
+"ext.SQFHighlighter","ext.EnforceScriptHighlighter","ext.BIKIHelper","ext.BIKISpoiler"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=ext.BIKIHelper.styles%7Cext.BIKISpoiler.styles%7Cext.EnforceScriptHighlighter.styles%7Cext.SQFHighlighter.styles%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.ui.button%2Cicon%7Cskins.vector.icons%2Cstyles&amp;only=styles&amp;skin=vector-2022"/>
+<script async="" src="/wikidata/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector-2022"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/wikidata/opensearch_desc.php" title="Bohemia Interactive Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://community.bistudio.com/wikidata/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Bohemia Interactive Community Atom feed" href="/wiki?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://community.bistudio.com/wiki/P3D_File_Format_-_MLOD"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSR8FCP');</script>
+</head>
+<body class="skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-P3D_File_Format_-_MLOD rootpage-P3D_File_Format_-_MLOD skin-vector-2022 action-view skin--responsive vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div class="mw-page-container">
+	<span id="top-page"></span>
+	<a class="mw-jump-link" href="#content">Jump to content</a>
+	<div class="mw-page-container-inner">
+		<input
+			type="checkbox"
+			id="mw-sidebar-checkbox"
+			class="mw-checkbox-hack-checkbox"
+			>
+		<header class="mw-header">
+			<div class="mw-header-aside">
+			<label
+				id="mw-sidebar-button"
+				class="mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet mw-ui-icon-element"
+				for="mw-sidebar-checkbox"
+				role="button"
+				aria-controls="mw-panel"
+				data-event-name="ui.sidebar"
+				tabindex="0"
+				title="Main menu">
+				<span>Toggle sidebar</span>
+			</label>
+			
+<a href="/wiki/Main_Page" class="mw-logo">
+	<span class="mw-logo-container">
+		<img class="mw-logo-wordmark" alt="Bohemia Interactive Community"
+			src="/wikidata/resources/assets/community-wiki_151x14.png" style="width: 9.4375em; height: 0.875em;">
+	</span>
+</a>
+
+			</div>
+			<div class="mw-header-content">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/wiki/Special:Search"
+	
+		
+		
+		
+		title="Search Bohemia Interactive Community [f]"
+		accesskey="f"
+		class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search search-toggle">
+		<span>Search</span>
+	</a>
+	
+	<div>
+		<form action="/wiki" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-moved">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Bohemia Interactive Community" aria-label="Search Bohemia Interactive Community" autocapitalize="none" title="Search Bohemia Interactive Community [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+			<nav class="vector-user-links" aria-label="Personal tools" role="navigation" >
+	
+
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet mw-portlet-vector-user-menu-overflow emptyPortlet vector-user-menu-overflow"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+	
+
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal emptyPortlet vector-user-menu vector-user-menu-logged-out vector-menu-dropdown"  title="More options" >
+	<input type="checkbox"
+		id="p-personal-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-personal"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-personal-label"
+		for="p-personal-checkbox"
+		class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"
+		
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		<div class="vector-user-menu-create-account"><a href="/wiki?title=Special:CreateAccount&amp;returnto=P3D+File+Format+-+MLOD" class="vector-menu-content-item user-links-collapsible-item" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="mw-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></div>
+<div class="vector-user-menu-login"><a href="/wiki?title=Special:UserLogin&amp;returnto=P3D+File+Format+-+MLOD" class="vector-menu-content-item vector-menu-content-item-login" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span class="mw-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span></a></div>
+<div class="vector-user-menu-anon-editor">
+	<p>
+		Pages for logged out editors <a href="/wiki/Help:Introduction" aria-label="Learn more about editing"><span>learn more</span></a>
+	</p>
+</div>
+
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+</nav>
+
+			</div>
+		</header>
+		<div class="vector-sidebar-container ">
+			<div id="mw-navigation">
+				
+
+<nav id="mw-panel" class="mw-sidebar" aria-label="Site" role="navigation">
+	
+
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation vector-menu-portal portal"  >
+	<div
+		id="p-navigation-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Navigation</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main Page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-All-categories" class="mw-list-item"><a href="/wiki/Special:Categories"><span>All categories</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+	
+
+<div id="p-Contribute" class="vector-menu mw-portlet mw-portlet-Contribute vector-menu-portal portal"  >
+	<div
+		id="p-Contribute-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Contribute</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Getting-started" class="mw-list-item"><a href="/wiki/Getting_Started"><span>Getting started</span></a></li><li id="n-Formatting" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Formatting"><span>Formatting</span></a></li><li id="n-Guidelines" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Guidelines"><span>Guidelines</span></a></li><li id="n-Wiki-Maintenance" class="mw-list-item"><a href="/wiki/Category:Maintenance"><span>Wiki Maintenance</span></a></li><li id="n-Templates" class="mw-list-item"><a href="/wiki/Category:Templates"><span>Templates</span></a></li><li id="n-Help" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Help:Contents#Welcome_to_MediaWiki.org_help_pages" title="The place to find out"><span>Help</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-Bohemia_Interactive" class="vector-menu mw-portlet mw-portlet-Bohemia_Interactive vector-menu-portal portal"  >
+	<div
+		id="p-Bohemia_Interactive-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Bohemia Interactive</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Arma-Platform" class="mw-list-item"><a href="https://www.armaplatform.com/" rel="nofollow"><span>Arma Platform</span></a></li><li id="n-DayZ.com" class="mw-list-item"><a href="https://www.dayz.com/" rel="nofollow"><span>DayZ.com</span></a></li><li id="n-Ylands.com" class="mw-list-item"><a href="https://ylands.com/" rel="nofollow"><span>Ylands.com</span></a></li><li id="n-Forums" class="mw-list-item"><a href="https://forums.bohemia.net/" rel="nofollow"><span>Forums</span></a></li><li id="n-Feedback" class="mw-list-item"><a href="https://feedback.bistudio.com/" rel="nofollow"><span>Feedback</span></a></li></ul>
+		<div class="after-portlet after-portlet-Bohemia_Interactive"><div id="bohemia-promo" style="margin: 1em auto 0 -10px"></div></div>
+	</div>
+</div>
+
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal"  >
+	<div
+		id="p-tb-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/P3D_File_Format_-_MLOD" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/P3D_File_Format_-_MLOD" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/wiki?title=P3D_File_Format_-_MLOD&amp;oldid=373432" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/wiki?title=P3D_File_Format_-_MLOD&amp;action=info" title="More information about this page"><span>Page information</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+</nav>
+
+			</div>
+		</div>
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+		<div class="mw-table-of-contents-container">
+			<div class="vector-sticky-toc-container mw-sticky-header-element">
+				<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
+	<div id="sidebar-toc-label" class="sidebar-toc-header">
+		<p class="sidebar-toc-title">
+		Contents
+		<button class="vector-toc-uncollapse-button">move to sidebar</button>
+		<button class="vector-toc-collapse-button">hide</button>
+		</p>
+	</div>
+	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="sidebar-toc-list-item sidebar-toc-level-1">
+			<a href="#top-page" class="sidebar-toc-link">
+				<div class="sidebar-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-Acknowledgments"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Acknowledgments">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">1</span>Acknowledgments</div>
+			</a>
+			
+			<ul id="toc-Acknowledgments-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Legend"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Legend">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2</span>Legend</div>
+			</a>
+			
+			<ul id="toc-Legend-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Introduction"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Introduction">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3</span>Introduction</div>
+			</a>
+			
+			<ul id="toc-Introduction-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-File_Format"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#File_Format">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4</span>File Format</div>
+			</a>
+			
+				<button aria-controls="toc-File_Format-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle File Format subsection
+				</button>
+			
+			<ul id="toc-File_Format-sublist" class="sidebar-toc-list">
+				<li id="toc-P3DHeader"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#P3DHeader">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.1</span>P3DHeader</div>
+			</a>
+			
+			<ul id="toc-P3DHeader-sublist" class="sidebar-toc-list">
+				<li id="toc-OdolExplorer"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#OdolExplorer">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.1.1</span>OdolExplorer</div>
+			</a>
+			
+			<ul id="toc-OdolExplorer-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-MLOD_LOD"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#MLOD_LOD">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.2</span>MLOD_LOD</div>
+			</a>
+			
+			<ul id="toc-MLOD_LOD-sublist" class="sidebar-toc-list">
+				<li id="toc-Points"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#Points">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.2.1</span>Points</div>
+			</a>
+			
+			<ul id="toc-Points-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-FaceNormals"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#FaceNormals">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.2.2</span>FaceNormals</div>
+			</a>
+			
+			<ul id="toc-FaceNormals-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Taggs"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Taggs">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3</span>Taggs</div>
+			</a>
+			
+			<ul id="toc-Taggs-sublist" class="sidebar-toc-list">
+				<li id="toc-TagNames"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#TagNames">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1</span>TagNames</div>
+			</a>
+			
+			<ul id="toc-TagNames-sublist" class="sidebar-toc-list">
+				<li id="toc-#EndOfFile#"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##EndOfFile#">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.1</span>#EndOfFile#</div>
+			</a>
+			
+			<ul id="toc-#EndOfFile#-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#SharpEdges#"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##SharpEdges#">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.2</span>#SharpEdges#</div>
+			</a>
+			
+			<ul id="toc-#SharpEdges#-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#Property#"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##Property#">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.3</span>#Property#</div>
+			</a>
+			
+			<ul id="toc-#Property#-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#Mass#_(only_for_Geometry_LOD)"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##Mass#_(only_for_Geometry_LOD)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.4</span>#Mass# (only for Geometry LOD)</div>
+			</a>
+			
+			<ul id="toc-#Mass#_(only_for_Geometry_LOD)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#Animation#"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##Animation#">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.5</span>#Animation#</div>
+			</a>
+			
+			<ul id="toc-#Animation#-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#UVSet#_ARMA"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##UVSet#_ARMA">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.6</span>#UVSet# ARMA</div>
+			</a>
+			
+			<ul id="toc-#UVSet#_ARMA-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#Lock#_(only_used_in_O2)"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##Lock#_(only_used_in_O2)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.7</span>#Lock# (only used in O2)</div>
+			</a>
+			
+			<ul id="toc-#Lock#_(only_used_in_O2)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#Selected#_(only_used_in_O2)"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##Selected#_(only_used_in_O2)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.8</span>#Selected# (only used in O2)</div>
+			</a>
+			
+			<ul id="toc-#Selected#_(only_used_in_O2)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#Hide#_(only_used_in_O2)"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##Hide#_(only_used_in_O2)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.9</span>#Hide# (only used in O2)</div>
+			</a>
+			
+			<ul id="toc-#Hide#_(only_used_in_O2)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-#MaterialIndex#_(only_in_O2)"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="##MaterialIndex#_(only_in_O2)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.3.1.10</span>#MaterialIndex# (only in O2)</div>
+			</a>
+			
+			<ul id="toc-#MaterialIndex#_(only_in_O2)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+</nav>
+
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				<header class="mw-body-header">
+				
+				
+					<label
+						id="vector-toc-collapsed-button"
+						class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet mw-checkbox-hack-button"
+						for="vector-toc-collapsed-checkbox"
+						role="button"
+						aria-controls="toc-toggle-list"
+						data-event-name="vector.toc-toggle-list"
+						tabindex="0"
+						title="Table of Contents">
+						Toggle the table of contents
+					</label>
+				    <h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">P3D File Format - MLOD</span></h1>
+				</header>
+				<nav class="vector-article-toolbar" aria-label="Tools"
+					role="navigation">
+					<div class="mw-article-toolbar-container">
+						<div id="left-navigation">
+							
+
+<div id="p-associated-pages" class="vector-menu mw-portlet mw-portlet-associated-pages vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/wiki/P3D_File_Format_-_MLOD" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/wiki?title=Talk:P3D_File_Format_-_MLOD&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-label="Change language variant"
+		
+	/>
+	<label
+		id="p-variants-label"
+		for="p-variants-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+						</div>
+						<div id="right-navigation" class="vector-collapsible ">
+							
+
+<div id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/wiki/P3D_File_Format_-_MLOD"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/wiki?title=P3D_File_Format_-_MLOD&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/wiki?title=P3D_File_Format_-_MLOD&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-has-collapsible-items"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-cactions-label"
+		for="p-cactions-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="/wiki/P3D_File_Format_-_MLOD"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=P3D_File_Format_-_MLOD&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=P3D_File_Format_-_MLOD&amp;action=history"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+						</div>
+					</div>
+				</nav>
+				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+					<div class="mw-body-subheader">
+					        <div class="mw-indicators">
+        </div>
+
+					    <div id="siteSub" class="noprint">From Bohemia Interactive Community</div>
+					</div>
+					<div id="contentSub"><div id="biki-top-categories">Categories: <a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a><a href="/wiki/Category:ArmA:_Armed_Assault:_File_Formats" title="Category:ArmA: Armed Assault: File Formats">ArmA: Armed Assault: File Formats</a></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="biki-messagebox messagebox-bi"><div><a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive"><img alt="bi symbol white.png" src="/wikidata/images/thumb/3/3c/bi_symbol_white.png/28px-bi_symbol_white.png" decoding="async" width="28" height="30" srcset="/wikidata/images/thumb/3/3c/bi_symbol_white.png/42px-bi_symbol_white.png 1.5x, /wikidata/images/thumb/3/3c/bi_symbol_white.png/56px-bi_symbol_white.png 2x" data-file-width="621" data-file-height="662" /></a></div><div><b>Disclaimer: This page describes internal undocumented structures of <a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive">Bohemia Interactive</a> software.</b><br />
+<p>		This page contains unofficial information.
+</p>
+		Some usage of this information may constitute a violation of the rights of Bohemia Interactive and is in no way endorsed or recommended by Bohemia Interactive.<br />Bohemia Interactive is not willing to tolerate use of such tools if it contravenes any general licenses granted to end users of this community wiki or BI products.</div></div>
+<mw:tocplace></mw:tocplace>
+<h1><span class="mw-headline" id="Acknowledgments">Acknowledgments</span></h1>
+<p>This information comes largely from the long defunct 'ofpinternals', who in turn acknowledge
+</p>
+<pre>Thanks to FlipeR (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="284e414441585d5b6840475c45494144064b4745">[email&#160;protected]</a>) for helping in research
+</pre>
+<p>This is archive material is held at http:\\www.ofpec.com
+</p>
+<h1><span class="mw-headline" id="Legend">Legend</span></h1>
+<p>see <a href="/wiki/Generic_FileFormat_Data_Types" title="Generic FileFormat Data Types">Generic FileFormat Data Types</a>
+</p>
+<h1><span class="mw-headline" id="Introduction">Introduction</span></h1>
+<p>Any given P3D file is THE 3 dimensional model reference for a specific model. Tank, Man, House, sausage. The P3d contains references to pac/paa files which are individual 'surfaces' for *this* model. Some / Most / All of the pac/paa files *might* also be used in other models, but this p3d is THE T80 tank, THE civilian man, or THE tangerine sausage with pink spots.
+</p><p>Arma P3D files also contain references to materials (rvmats).
+</p><p>There are three basic P3D types
+</p>
+<ul><li>DEMO: P3d's supplied for the 1977 demo of operation flashpoint.</li>
+<li>MLOD: An editable version as used by Oxygen2/3 eg.</li>
+<li>ODOL: A binarised and compressed version as used by various engines. (OFP, ARMA eg)</li></ul>
+<p>This document describes MLOD and DEMO P3D's
+</p><p>The FILE header (if present) defines which type of p3d this is. 
+</p>
+<ul><li>DEMO P3D's have no header, and a single lod.
+<ul><li>File headers were introduced at the launch of Operation Flashpoint to distinguish between binarised an unbinarised content. Prior to the launch, the p3d was, in effect, a single sp3 lod.</li></ul></li></ul>
+<p>Every LOD contains a LOD Header or Signature which defines the type of lod as being 
+</p>
+<ul><li>SP3D: Only used in Operation Flashpoint demo.</li>
+<li>SP3X: used in OFP and demo: Uses O2Light for editing</li>
+<li>P3DM used in ARMA:Uses O2PE for editing</li></ul>
+<p>Arma can read SP3X and P3DM.
+</p><p>Because each of the contiguous lods declares what 'type' it is (SP3X, or P3DM), architecturally, you could have mixtures of both types. Materials however, can only be defined by P3DM lods.
+</p><p>Although the overall structure of a P3DM mlod model file is similar to SP3X mlod model files there are some notable differences. Namely, Materials, Multiple UVSets and Animations.
+</p>
+<hr />
+<h1><span class="mw-headline" id="File_Format">File Format</span></h1>
+<pre>if MLOD_P3D
+{
+  P3DHeader P3DHeader;
+  MLOD_LOD  MLOD_LODs[Header.NoOfLods];
+  char      SP3X_DefaultPath[32]; // optional OFP only
+}
+//else a single sp3lod
+</pre>
+<ul><li>There is no header for demo p3d's instead they supply a single sp3x or sp3d lod in the standard manner.</li></ul>
+<ul><li>SP3X Lods contain a rarely encountered, optional, Default File path (probably for the editor)</li></ul>
+<h2><span class="mw-headline" id="P3DHeader">P3DHeader</span></h2>
+<pre>P3DHeader
+{
+ char   Signature[4];        //"MLOD"
+ ulong  Version;             // 0x101 see note
+ ulong  NoOfLods;            // at least one
+};
+</pre>
+<h3><span class="mw-headline" id="OdolExplorer">OdolExplorer</span></h3>
+<p>OdolExplorer sets the version to a float value of 1.1 with no ill-effect
+</p>
+<h2><span class="mw-headline" id="MLOD_LOD">MLOD_LOD</span></h2>
+<pre>Struct
+{
+  char[4]                     Signature;           //"SP3X" or "P3DM" or "SP3D" (demo)
+  ============if NOT SP3D==========================
+  ulong                       MajorVersion;        //28 (x1C)
+  ulong                       MinorVersion;        //0x99 (SP3X) or 0x100 (P3DM)
+  ===============endif=============================
+  ulong                       NoOfPoints;
+  ulong                       NoOfFaceNormals;         //(perpendicular)
+  ulong                       NoOfFaces;
+  ============if NOT SP3D==========================
+  ulong                       UnknownFlagBits;     //Probably 'Model Flags' - Unused.
+  ===============endif=============================
+  Point                       Points[NoOfPoints];
+  XYZTriplet                  FaceNormals[NoOfFaceNormals];
+  LodFace                     LodFaces[NoOfFaces]; //see <a href="/wiki/P3D_Lod_Faces" title="P3D Lod Faces">P3D Lod Faces</a>
+  ============if NOT DEMO==========================
+  char                        TagSig;              //Always 'TAGG'
+  Tagg[]                      Taggs;               //Always, minimum of #EndOfFile# tag exists.
+  float                       Resolution;          //See <a href="/wiki/P3D_Model_Info" title="P3D Model Info">P3D_Model_Info</a> 
+  ===============endif=============================
+  ============if DEMO==========================
+            ****optional****
+  char                        SS3DSig;              //Always 'SS3D'
+  ulong                       nPoints
+  ulong                       nFaces
+  ulong                       nNormals              //identical counts to above
+  ulong                       nBytes
+  Bytes                       TinyBools[nPoints+nFaces+nNormals] // 0, or 1
+  ulong                       Indexes[nBytes/4]
+  NamedSelections             NamedSelections[until eof] // optional            
+  ===============endif=============================
+}
+</pre>
+<ul><li>The end of each lod *always* contains an #EndOfFile# TAGG followed by the resolution (of that lod)</li>
+<li>Demo Lods contain an optional SS3D structure</li>
+<li>Demo Lod named selections (optional)</li></ul>
+<pre>{
+  char Name[32]; // "velka_vitrule"
+  Bytes    Undecoded[...];
+}.....
+</pre>
+<p>the above structure is repeated for an indeterminate number of 'names'
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Points">Points</span></h3>
+<pre>struct
+{
+   XYZTriplet    Position
+   if NOT SP3D
+   ulong         PointFlags;// see <a href="/wiki/P3D_Point_and_Face_Flags" title="P3D Point and Face Flags">P3D Point and Face Flags</a>
+   endif
+}
+</pre>
+<h3><span class="mw-headline" id="FaceNormals">FaceNormals</span></h3>
+<p>Each LodFace contains index values into the FaceNormals Table. There are generally as many Normals Triplets, as there are index entries in LodFaces.
+</p><p>Because of the varying number of faces in the face table (eg 3 or 4)
+</p>
+<pre>NoOfFaceNormals (= nNormalsTriplets) = 3*LodFaces.NoOfTriangles + 4*LodFaces.NoOfQuads
+</pre>
+<p>Generally.
+</p><p><br />
+</p>
+<ul><li>FaceNormals must be inverted (-X, -Y, -Z) for clockwise vertex order (default for DirectX), and not changed for counterclockwise order.</li></ul>
+<h2><span class="mw-headline" id="Taggs">Taggs</span></h2>
+<ul><li>Taggs do not exist for DEMO p3ds, neither SP3X nor SP3D</li></ul>
+<pre> struct
+ {
+   //////// P3DM ONLY ///////////
+   TinyBool Active;            // always 1
+   Asciiz   TaggName;          // "#EndOfFile#\0" eg
+   ///////  SP3X ONLY ///////////
+   Asciiz   TaggName[64];      // "#EndOfFile#\0" eg
+   //////////////////////////////
+   ulong    NoOfBytes;         // offset to next tagg
+   byte     TaggData[NoOfBytes];// arbitrary data
+ };
+</pre>
+<h3><span class="mw-headline" id="TagNames">TagNames</span></h3>
+<p>Every Lod contains one or more Tagname entries. The #EndOfFile# tag is a mandatory entry in every Lod to indicate no more tags! The contiguous tags that make up the tag section are always in the above format. The actual structure of the 'ArbitraryData' is dependant on the TagName.
+</p><p>TaggNames consist of a mixure of pre-defined Taggs indicated with  #.....#  marks, and <a href="/wiki/P3D_Named_Selections" title="P3D Named Selections">'Named Selections'</a>
+</p><p><a href="/wiki/P3D_Named_Selections" title="P3D Named Selections">Named Selection</a> tagg names can contain Proxy names beginning with 'proxy:' + ProxyName + '.' + ProxyNumber ('01' ...
+</p>
+<ul><li>Every Lod has an #EndOfFile# Tagg</li>
+<li>Every Arma Lod has at least one #UVSet# Tagg. The first of which is a duplicate of that found in LodFaces. (ofp has no #UVset# because there is only ever one)</li>
+<li>The #Mass# tag is mandatory for Geometry LODs and only present in Geometry LODs.</li></ul>
+<p><br />
+Tagg names listed below are a mish mash of obsolete, and still used, commands. This because, the p3d was a still in development at time of CWC release.
+</p><p><br />
+</p>
+<h4><span id=".23EndOfFile.23"></span><span class="mw-headline" id="#EndOfFile#">#EndOfFile#</span></h4>
+<pre>ulong   NoOfBytes; //always 0
+</pre>
+<p>Mandatory for every Lod. This is the last tag of <b>current</b> LOD. It contains no data.
+</p>
+<h4><span id=".23SharpEdges.23"></span><span class="mw-headline" id="#SharpEdges#">#SharpEdges#</span></h4>
+<pre>ulong          NoOfBytes;
+ulong          PointsIndex[NoOfIndexes][2]; // NoOfIndexes= NoOfBytes /  2 * sizeof(ulong)..// 1st and 2nd indexes into the VertexTable 
+</pre>
+<p>Sharp edge means that these vertices normals are not calculated as average (normalized) between polygons.
+</p>
+<h4><span id=".23Property.23"></span><span class="mw-headline" id="#Property#">#Property#</span></h4>
+<pre> ulong                      NoOfBytes;            //Always 128
+ Asciiz                     TokenKey[64];         //"lodnoshadow" (=) "1"
+ Asciiz                     TokenValue[64];       //
+</pre>
+<p>Additional Properties (if any) for the lod are contained in a series of one or more property tags. Each one contains one, and one only Token-Pair. The Asciiz strings each have a fixed length of 64 characters. Regardless, they are null terminated.
+</p><p>Examples:
+</p>
+<pre>damage=tree;
+CanOcclude=0;
+</pre>
+<h4><span id=".23Mass.23_.28only_for_Geometry_LOD.29"></span><span class="mw-headline" id="#Mass#_(only_for_Geometry_LOD)">#Mass# (only for Geometry LOD)</span></h4>
+<pre>ulong          NoOfBytes;
+float          PointsMass[NoOfPoints];  // == NoOfBytes / sizeof(float).. same as Lod.NoOfPoints
+</pre>
+<p><b>Must</b> be present for Geometry LOD, and <b>only</b> for Geometry lod. It refers to the mass of each Point entry.
+</p>
+<h4><span id=".23Animation.23"></span><span class="mw-headline" id="#Animation#">#Animation#</span></h4>
+<p>see <a href="/wiki/P3D_Lod_Frames" title="P3D Lod Frames">P3D Lod Frames</a>
+</p>
+<h4><span id=".23UVSet.23_ARMA"></span><span class="mw-headline" id="#UVSet#_ARMA">#UVSet# ARMA</span></h4>
+<pre>ulong       NoOfBytes;                   //see below
+ulong       ID;
+UVPair      FaceUV[NoOfFaces][FaceType]; //see <a href="/wiki/P3D_Lod_Faces" title="P3D Lod Faces">P3D Lod Faces</a>
+</pre>
+<p>Introduced for Arma to supply up to 8 distinct #UVset#s per lod.
+</p>
+<ul><li>There is at least one (and generally only one) #UVSet# for every lod.</li></ul>
+<p>This #UVSet# (ID=0) is a redundant duplication of that found in Lodfaces.
+</p><p>There is a slight re-arrangement of the UV array in the UVset vs that found in LodFaces. The amount of data however, is identical. (And in the case of uvset0, the data is identical).
+</p><p>note that 'identical' floating point values are rare because the IEEE represention of any given value is a range of precisions. The value 0.02 eg cannot be represented exactly, as a float (or double for that matter). 
+</p><p>The following code compares, in a general sense, two floats for 'identicalness'
+</p>
+<pre>bool AlmostEqual(float A, float B)
+{
+   if (A == B)  return true; // gets over neg and positive zero
+   return abs(*(int*)&amp;A - *(int*)&amp;B)==0; // gets around nans' qnans
+}
+</pre>
+<p>For a very, very good article on this subject <a rel="nofollow" class="external free" href="http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm">http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm</a>
+</p><p>A UVpair matches each vertex in every <a href="/wiki/P3D_Lod_Faces" title="P3D Lod Faces">LodFace</a>
+</p><p>LodFaces themselves can have either 3, or 4, UVPairs per index. Thus, the amount of data in this structure varies.
+</p><p>The number of bytes therefore used by <i>this</i> #UVset and every other UVset in this lod is calculated as
+</p>
+<pre>sizeof(ulong)+ sizeof(UVPair)* (3*LodFace.NoOfTriangles+4*LodFace.NoOfQuads)
+</pre>
+<h4><span id=".23Lock.23_.28only_used_in_O2.29"></span><span class="mw-headline" id="#Lock#_(only_used_in_O2)">#Lock# (only used in O2)</span></h4>
+<h4><span id=".23Selected.23_.28only_used_in_O2.29"></span><span class="mw-headline" id="#Selected#_(only_used_in_O2)">#Selected# (only used in O2)</span></h4>
+<h4><span id=".23Hide.23_.28only_used_in_O2.29"></span><span class="mw-headline" id="#Hide#_(only_used_in_O2)">#Hide# (only used in O2)</span></h4>
+<pre>ulong      NoOfBytes;                  // ==Lod.NoOfPoints + lod.NoOfFaces
+TinyBool   PointsIndex[NoOfPoints];    // nonzero = true
+TinyBool   FaceIndex[NoOfFaces];
+</pre>
+<p>These 3 are used so that O2 can save your last selections in the edited file. They serve no other purpose outside of editing the model in O2.
+</p><p>These table correspond to each entry of Points and Faces respectively and indicate whether that Point (or Face) at that index is 'selected/locked/hidden' or not and is a a persisted selection within the P3DM at this time. 
+</p><p>The values are supposed to be 0 and 1. This is mostly the case, however, some 'bytes' contain values such as 2 or 6, but also mean, 'true'
+</p><p><br />
+</p>
+<h4><span id=".23MaterialIndex.23_.28only_in_O2.29"></span><span class="mw-headline" id="#MaterialIndex#_(only_in_O2)">#MaterialIndex# (only in O2)</span></h4>
+<p>Used only in O2. Possibly Operation Flashpoint only. 
+</p><p>material properties
+</p>
+<pre>{
+ RGBA diffuse; //default  51, 75, 55, 0 
+ RGBA ambient  // Default 0
+ RGBA specular // Default -1
+ RGBA emissive // Default -1
+}nBytes/4;
+</pre>
+<p>only seen these in clusters of 4x4
+They appear to be set for all lods if present at all
+Each lod appears to have identical info
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20260326010435
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.046 seconds
+Real time usage: 0.063 seconds
+Preprocessor visited node count: 470/1000000
+Post‐expand include size: 7357/20480000 bytes
+Template argument size: 4125/20480000 bytes
+Highest expansion depth: 20/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   40.385      1 -total
+ 70.46%   28.454      1 Template:Feature
+ 57.38%   23.174      1 Template:Messagebox/BI
+ 50.00%   20.192      1 Template:Messagebox
+ 31.21%   12.605      1 Template:Icon
+ 20.14%    8.132      1 Template:GameCategory
+ 18.50%    7.470      6 Template:Name
+ 10.92%    4.409      5 Template:Trim
+  9.75%    3.939      1 Template:GameCategory/SortKey
+  8.26%    3.337      3 Template:ofp
+-->
+
+<!-- Saved in parser cache with key community:pcache:idhash:7907-0!canonical and timestamp 20260326010435 and revision id 373432.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://community.bistudio.com/wiki?title=P3D_File_Format_-_MLOD&amp;oldid=373432">https://community.bistudio.com/wiki?title=P3D_File_Format_-_MLOD&amp;oldid=373432</a>"</div></div>
+					<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></li><li><a href="/wiki/Category:ArmA:_Armed_Assault:_File_Formats" title="Category:ArmA: Armed Assault: File Formats">ArmA: Armed Assault: File Formats</a></li></ul></div></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 8 May 2025, at 12:27.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/wiki/Bohemia_Interactive_Community:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/Bohemia_Interactive_Community:About">About Bohemia Interactive Community</a></li>
+	<li id="footer-places-disclaimer"><a href="/wiki/Bohemia_Interactive_Community:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/wikidata/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wikidata/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wikidata/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+		let bodies = document.getElementsByTagName('body');
+		if (bodies && bodies[0])
+		{
+			let divHeader = document.createElement('div');
+			divHeader.setAttribute('id', 'bohemia-header');
+			divHeader.innerHTML = '<div id="bohemia-header"><main-header v-bind:user-data="window.userData" login-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/login" logout-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/logout"></main-header></div>';
+
+
+			let body = bodies[0];
+			body.insertBefore(divHeader, body.firstChild);
+		}
+		</script>
+		<script async src="https://static.bistudio.com/bohemia/header/js/all.min.js"></script>
+			<script>
+					window.userData = null;
+			</script>
+			
+			<script>
+			   document.onreadystatechange = function () {
+				  if (document.readyState === 'complete') {
+					  var f = document.createElement('iframe');
+					  f.src = 'https://data.bistudio.com/pbp/index.php';
+					  f.width = '100%';
+					  f.height = 140;
+					  f.frameborder = 0;
+					  f.style.border = 0;
+					  f.scrolling = 'no';
+
+					  var c = document.getElementById('bohemia-promo');
+					  if (c)
+					    c.appendChild(f);
+				  }
+				}
+			</script>
+		
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.046","walltime":"0.063","ppvisitednodes":{"value":470,"limit":1000000},"postexpandincludesize":{"value":7357,"limit":20480000},"templateargumentsize":{"value":4125,"limit":20480000},"expansiondepth":{"value":20,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%   40.385      1 -total"," 70.46%   28.454      1 Template:Feature"," 57.38%   23.174      1 Template:Messagebox/BI"," 50.00%   20.192      1 Template:Messagebox"," 31.21%   12.605      1 Template:Icon"," 20.14%    8.132      1 Template:GameCategory"," 18.50%    7.470      6 Template:Name"," 10.92%    4.409      5 Template:Trim","  9.75%    3.939      1 Template:GameCategory/SortKey","  8.26%    3.337      3 Template:ofp"]},"cachereport":{"timestamp":"20260326010435","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":270});});</script>
+</body>
+</html>

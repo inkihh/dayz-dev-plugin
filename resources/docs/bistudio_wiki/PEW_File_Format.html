@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>PEW File Format - Bohemia Interactive Community</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"daa414607104705f33935465","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PEW_File_Format","wgTitle":"PEW File Format","wgCurRevisionId":373448,"wgRevisionId":373448,"wgArticleId":7669,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Real Virtuality File Formats"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"PEW_File_Format","wgRelevantArticleId":7669,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVisualEditor":{"pageLanguageCode":"en",
+"pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"simpleBatchUploadMaxFilesPerBatch":{"*":1000},"wgVector2022PreviewPages":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgEditSubmitButtonLabelPublish":false};RLSTATE={"skins.vector.user.styles":"ready","site.styles":"ready","user.styles":"ready","skins.vector.user":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","mediawiki.ui.button":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","mediawiki.ui.icon":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.SQFHighlighter.styles":"ready","ext.EnforceScriptHighlighter.styles":"ready","ext.BIKIHelper.styles":"ready","ext.BIKISpoiler.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","skins.vector.es6","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","mmv.head","mmv.bootstrap.autostart","ext.SQFHighlighter","ext.EnforceScriptHighlighter",
+"ext.BIKIHelper","ext.BIKISpoiler"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=ext.BIKIHelper.styles%7Cext.BIKISpoiler.styles%7Cext.EnforceScriptHighlighter.styles%7Cext.SQFHighlighter.styles%7Cext.pygments%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.ui.button%2Cicon%7Cskins.vector.icons%2Cstyles&amp;only=styles&amp;skin=vector-2022"/>
+<script async="" src="/wikidata/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector-2022"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/wikidata/opensearch_desc.php" title="Bohemia Interactive Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://community.bistudio.com/wikidata/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Bohemia Interactive Community Atom feed" href="/wiki?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://community.bistudio.com/wiki/PEW_File_Format"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSR8FCP');</script>
+</head>
+<body class="skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-PEW_File_Format rootpage-PEW_File_Format skin-vector-2022 action-view skin--responsive vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div class="mw-page-container">
+	<span id="top-page"></span>
+	<a class="mw-jump-link" href="#content">Jump to content</a>
+	<div class="mw-page-container-inner">
+		<input
+			type="checkbox"
+			id="mw-sidebar-checkbox"
+			class="mw-checkbox-hack-checkbox"
+			>
+		<header class="mw-header">
+			<div class="mw-header-aside">
+			<label
+				id="mw-sidebar-button"
+				class="mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet mw-ui-icon-element"
+				for="mw-sidebar-checkbox"
+				role="button"
+				aria-controls="mw-panel"
+				data-event-name="ui.sidebar"
+				tabindex="0"
+				title="Main menu">
+				<span>Toggle sidebar</span>
+			</label>
+			
+<a href="/wiki/Main_Page" class="mw-logo">
+	<span class="mw-logo-container">
+		<img class="mw-logo-wordmark" alt="Bohemia Interactive Community"
+			src="/wikidata/resources/assets/community-wiki_151x14.png" style="width: 9.4375em; height: 0.875em;">
+	</span>
+</a>
+
+			</div>
+			<div class="mw-header-content">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/wiki/Special:Search"
+	
+		
+		
+		
+		title="Search Bohemia Interactive Community [f]"
+		accesskey="f"
+		class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search search-toggle">
+		<span>Search</span>
+	</a>
+	
+	<div>
+		<form action="/wiki" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-moved">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Bohemia Interactive Community" aria-label="Search Bohemia Interactive Community" autocapitalize="none" title="Search Bohemia Interactive Community [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+			<nav class="vector-user-links" aria-label="Personal tools" role="navigation" >
+	
+
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet mw-portlet-vector-user-menu-overflow emptyPortlet vector-user-menu-overflow"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+	
+
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal emptyPortlet vector-user-menu vector-user-menu-logged-out vector-menu-dropdown"  title="More options" >
+	<input type="checkbox"
+		id="p-personal-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-personal"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-personal-label"
+		for="p-personal-checkbox"
+		class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"
+		
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		<div class="vector-user-menu-create-account"><a href="/wiki?title=Special:CreateAccount&amp;returnto=PEW+File+Format" class="vector-menu-content-item user-links-collapsible-item" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="mw-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></div>
+<div class="vector-user-menu-login"><a href="/wiki?title=Special:UserLogin&amp;returnto=PEW+File+Format" class="vector-menu-content-item vector-menu-content-item-login" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span class="mw-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span></a></div>
+<div class="vector-user-menu-anon-editor">
+	<p>
+		Pages for logged out editors <a href="/wiki/Help:Introduction" aria-label="Learn more about editing"><span>learn more</span></a>
+	</p>
+</div>
+
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+</nav>
+
+			</div>
+		</header>
+		<div class="vector-sidebar-container ">
+			<div id="mw-navigation">
+				
+
+<nav id="mw-panel" class="mw-sidebar" aria-label="Site" role="navigation">
+	
+
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation vector-menu-portal portal"  >
+	<div
+		id="p-navigation-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Navigation</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main Page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-All-categories" class="mw-list-item"><a href="/wiki/Special:Categories"><span>All categories</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+	
+
+<div id="p-Contribute" class="vector-menu mw-portlet mw-portlet-Contribute vector-menu-portal portal"  >
+	<div
+		id="p-Contribute-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Contribute</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Getting-started" class="mw-list-item"><a href="/wiki/Getting_Started"><span>Getting started</span></a></li><li id="n-Formatting" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Formatting"><span>Formatting</span></a></li><li id="n-Guidelines" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Guidelines"><span>Guidelines</span></a></li><li id="n-Wiki-Maintenance" class="mw-list-item"><a href="/wiki/Category:Maintenance"><span>Wiki Maintenance</span></a></li><li id="n-Templates" class="mw-list-item"><a href="/wiki/Category:Templates"><span>Templates</span></a></li><li id="n-Help" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Help:Contents#Welcome_to_MediaWiki.org_help_pages" title="The place to find out"><span>Help</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-Bohemia_Interactive" class="vector-menu mw-portlet mw-portlet-Bohemia_Interactive vector-menu-portal portal"  >
+	<div
+		id="p-Bohemia_Interactive-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Bohemia Interactive</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Arma-Platform" class="mw-list-item"><a href="https://www.armaplatform.com/" rel="nofollow"><span>Arma Platform</span></a></li><li id="n-DayZ.com" class="mw-list-item"><a href="https://www.dayz.com/" rel="nofollow"><span>DayZ.com</span></a></li><li id="n-Ylands.com" class="mw-list-item"><a href="https://ylands.com/" rel="nofollow"><span>Ylands.com</span></a></li><li id="n-Forums" class="mw-list-item"><a href="https://forums.bohemia.net/" rel="nofollow"><span>Forums</span></a></li><li id="n-Feedback" class="mw-list-item"><a href="https://feedback.bistudio.com/" rel="nofollow"><span>Feedback</span></a></li></ul>
+		<div class="after-portlet after-portlet-Bohemia_Interactive"><div id="bohemia-promo" style="margin: 1em auto 0 -10px"></div></div>
+	</div>
+</div>
+
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal"  >
+	<div
+		id="p-tb-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/PEW_File_Format" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/PEW_File_Format" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/wiki?title=PEW_File_Format&amp;oldid=373448" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/wiki?title=PEW_File_Format&amp;action=info" title="More information about this page"><span>Page information</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+</nav>
+
+			</div>
+		</div>
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+		<div class="mw-table-of-contents-container">
+			<div class="vector-sticky-toc-container mw-sticky-header-element">
+				<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
+	<div id="sidebar-toc-label" class="sidebar-toc-header">
+		<p class="sidebar-toc-title">
+		Contents
+		<button class="vector-toc-uncollapse-button">move to sidebar</button>
+		<button class="vector-toc-collapse-button">hide</button>
+		</p>
+	</div>
+	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="sidebar-toc-list-item sidebar-toc-level-1">
+			<a href="#top-page" class="sidebar-toc-link">
+				<div class="sidebar-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-Legend"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Legend">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">1</span>Legend</div>
+			</a>
+			
+			<ul id="toc-Legend-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-File_Format"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#File_Format">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2</span>File Format</div>
+			</a>
+			
+				<button aria-controls="toc-File_Format-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle File Format subsection
+				</button>
+			
+			<ul id="toc-File_Format-sublist" class="sidebar-toc-list">
+				<li id="toc-PoseHeader"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#PoseHeader">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.1</span>PoseHeader</div>
+			</a>
+			
+			<ul id="toc-PoseHeader-sublist" class="sidebar-toc-list">
+				<li id="toc-Texture_And_Terrain_Sizes"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#Texture_And_Terrain_Sizes">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.1.1</span>Texture And Terrain Sizes</div>
+			</a>
+			
+			<ul id="toc-Texture_And_Terrain_Sizes-sublist" class="sidebar-toc-list">
+				<li id="toc-TerrainGridSize"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#TerrainGridSize">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.1.1.1</span>TerrainGridSize</div>
+			</a>
+			
+			<ul id="toc-TerrainGridSize-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-IslandRvMatPath"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#IslandRvMatPath">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.1.1.2</span>IslandRvMatPath</div>
+			</a>
+			
+			<ul id="toc-IslandRvMatPath-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-IslandObjectPath"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#IslandObjectPath">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.1.1.3</span>IslandObjectPath</div>
+			</a>
+			
+			<ul id="toc-IslandObjectPath-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-OFPTexture"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#OFPTexture">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.2</span>OFPTexture</div>
+			</a>
+			
+			<ul id="toc-OFPTexture-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-ObjectTemplate"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#ObjectTemplate">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.3</span>ObjectTemplate</div>
+			</a>
+			
+			<ul id="toc-ObjectTemplate-sublist" class="sidebar-toc-list">
+				<li id="toc-NamedVector"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#NamedVector">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.3.1</span>NamedVector</div>
+			</a>
+			
+			<ul id="toc-NamedVector-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-OFPTerrain"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#OFPTerrain">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.4</span>OFPTerrain</div>
+			</a>
+			
+			<ul id="toc-OFPTerrain-sublist" class="sidebar-toc-list">
+				<li id="toc-OFPSurface"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#OFPSurface">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.4.1</span>OFPSurface</div>
+			</a>
+			
+			<ul id="toc-OFPSurface-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-OFPForest"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#OFPForest">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.5</span>OFPForest</div>
+			</a>
+			
+			<ul id="toc-OFPForest-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-NamedZone"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#NamedZone">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.6</span>NamedZone</div>
+			</a>
+			
+			<ul id="toc-NamedZone-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-AltNamedZone"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#AltNamedZone">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.7</span>AltNamedZone</div>
+			</a>
+			
+			<ul id="toc-AltNamedZone-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-RoadNetworkTemplates"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#RoadNetworkTemplates">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8</span>RoadNetworkTemplates</div>
+			</a>
+			
+			<ul id="toc-RoadNetworkTemplates-sublist" class="sidebar-toc-list">
+				<li id="toc-RoadNetTemplate"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#RoadNetTemplate">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8.1</span>RoadNetTemplate</div>
+			</a>
+			
+			<ul id="toc-RoadNetTemplate-sublist" class="sidebar-toc-list">
+				<li id="toc-StraightPart"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#StraightPart">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8.1.1</span>StraightPart</div>
+			</a>
+			
+			<ul id="toc-StraightPart-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CurvePart"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#CurvePart">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8.1.2</span>CurvePart</div>
+			</a>
+			
+			<ul id="toc-CurvePart-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-SpecialPart"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#SpecialPart">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8.1.3</span>SpecialPart</div>
+			</a>
+			
+			<ul id="toc-SpecialPart-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-TerminatorPart"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#TerminatorPart">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8.1.4</span>TerminatorPart</div>
+			</a>
+			
+			<ul id="toc-TerminatorPart-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-CrossroadTemplate"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#CrossroadTemplate">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.8.2</span>CrossroadTemplate</div>
+			</a>
+			
+			<ul id="toc-CrossroadTemplate-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Elevation"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Elevation">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.9</span>Elevation</div>
+			</a>
+			
+			<ul id="toc-Elevation-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Object"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Object">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.10</span>Object</div>
+			</a>
+			
+			<ul id="toc-Object-sublist" class="sidebar-toc-list">
+				<li id="toc-TransformMatrix"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#TransformMatrix">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.10.1</span>TransformMatrix</div>
+			</a>
+			
+			<ul id="toc-TransformMatrix-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-ObjectID"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#ObjectID">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.10.2</span>ObjectID</div>
+			</a>
+			
+			<ul id="toc-ObjectID-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-ModelID"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#ModelID">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.10.3</span>ModelID</div>
+			</a>
+			
+			<ul id="toc-ModelID-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Layer"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Layer">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.11</span>Layer</div>
+			</a>
+			
+			<ul id="toc-Layer-sublist" class="sidebar-toc-list">
+				<li id="toc-RvmatIndexTable"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#RvmatIndexTable">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.11.1</span>RvmatIndexTable</div>
+			</a>
+			
+			<ul id="toc-RvmatIndexTable-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Rvmat_Conventions"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#Rvmat_Conventions">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.11.2</span>Rvmat Conventions</div>
+			</a>
+			
+			<ul id="toc-Rvmat_Conventions-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-RoadNetworks"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#RoadNetworks">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.12</span>RoadNetworks</div>
+			</a>
+			
+			<ul id="toc-RoadNetworks-sublist" class="sidebar-toc-list">
+				<li id="toc-DirectionHeader"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#DirectionHeader">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.12.1</span>DirectionHeader</div>
+			</a>
+			
+			<ul id="toc-DirectionHeader-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Direction"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#Direction">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.12.2</span>Direction</div>
+			</a>
+			
+			<ul id="toc-Direction-sublist" class="sidebar-toc-list">
+				<li id="toc-RoadPart"
+			class="sidebar-toc-list-item sidebar-toc-level-4">
+			<a class="sidebar-toc-link" href="#RoadPart">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.12.2.1</span>RoadPart</div>
+			</a>
+			
+			<ul id="toc-RoadPart-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-KeyPoint"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#KeyPoint">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.13</span>KeyPoint</div>
+			</a>
+			
+			<ul id="toc-KeyPoint-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Background"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Background">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.14</span>Background</div>
+			</a>
+			
+			<ul id="toc-Background-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Selection"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Selection">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.15</span>Selection</div>
+			</a>
+			
+			<ul id="toc-Selection-sublist" class="sidebar-toc-list">
+				<li id="toc-SelectionObject"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#SelectionObject">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2.15.1</span>SelectionObject</div>
+			</a>
+			
+			<ul id="toc-SelectionObject-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Enums"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Enums">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3</span>Enums</div>
+			</a>
+			
+				<button aria-controls="toc-Enums-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Enums subsection
+				</button>
+			
+			<ul id="toc-Enums-sublist" class="sidebar-toc-list">
+				<li id="toc-ObjectTemplateTypeEnum"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#ObjectTemplateTypeEnum">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.1</span>ObjectTemplateTypeEnum</div>
+			</a>
+			
+			<ul id="toc-ObjectTemplateTypeEnum-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-MarkerTypeEnum"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#MarkerTypeEnum">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.2</span>MarkerTypeEnum</div>
+			</a>
+			
+			<ul id="toc-MarkerTypeEnum-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-StraightPartEnum"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#StraightPartEnum">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.3</span>StraightPartEnum</div>
+			</a>
+			
+			<ul id="toc-StraightPartEnum-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-CurvePartEnum"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#CurvePartEnum">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.4</span>CurvePartEnum</div>
+			</a>
+			
+			<ul id="toc-CurvePartEnum-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-SpecialPartEnum"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#SpecialPartEnum">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.5</span>SpecialPartEnum</div>
+			</a>
+			
+			<ul id="toc-SpecialPartEnum-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-KeyPartTypeEnum"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#KeyPartTypeEnum">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.6</span>KeyPartTypeEnum</div>
+			</a>
+			
+			<ul id="toc-KeyPartTypeEnum-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+</nav>
+
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				<header class="mw-body-header">
+				
+				
+					<label
+						id="vector-toc-collapsed-button"
+						class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet mw-checkbox-hack-button"
+						for="vector-toc-collapsed-checkbox"
+						role="button"
+						aria-controls="toc-toggle-list"
+						data-event-name="vector.toc-toggle-list"
+						tabindex="0"
+						title="Table of Contents">
+						Toggle the table of contents
+					</label>
+				    <h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">PEW File Format</span></h1>
+				</header>
+				<nav class="vector-article-toolbar" aria-label="Tools"
+					role="navigation">
+					<div class="mw-article-toolbar-container">
+						<div id="left-navigation">
+							
+
+<div id="p-associated-pages" class="vector-menu mw-portlet mw-portlet-associated-pages vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/wiki/PEW_File_Format" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="mw-list-item"><a href="/wiki/Talk:PEW_File_Format" rel="discussion" title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-label="Change language variant"
+		
+	/>
+	<label
+		id="p-variants-label"
+		for="p-variants-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+						</div>
+						<div id="right-navigation" class="vector-collapsible ">
+							
+
+<div id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/wiki/PEW_File_Format"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/wiki?title=PEW_File_Format&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/wiki?title=PEW_File_Format&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-has-collapsible-items"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-cactions-label"
+		for="p-cactions-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="/wiki/PEW_File_Format"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=PEW_File_Format&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=PEW_File_Format&amp;action=history"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+						</div>
+					</div>
+				</nav>
+				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+					<div class="mw-body-subheader">
+					        <div class="mw-indicators">
+        </div>
+
+					    <div id="siteSub" class="noprint">From Bohemia Interactive Community</div>
+					</div>
+					<div id="contentSub"><div id="biki-top-categories">Category: <a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="biki-messagebox messagebox-bi"><div><a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive"><img alt="bi symbol white.png" src="/wikidata/images/thumb/3/3c/bi_symbol_white.png/28px-bi_symbol_white.png" decoding="async" width="28" height="30" srcset="/wikidata/images/thumb/3/3c/bi_symbol_white.png/42px-bi_symbol_white.png 1.5x, /wikidata/images/thumb/3/3c/bi_symbol_white.png/56px-bi_symbol_white.png 2x" data-file-width="621" data-file-height="662" /></a></div><div><b>Disclaimer: This page describes internal undocumented structures of <a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive">Bohemia Interactive</a> software.</b><br />
+<p>		This page contains unofficial information.
+</p>
+		Some usage of this information may constitute a violation of the rights of Bohemia Interactive and is in no way endorsed or recommended by Bohemia Interactive.<br />Bohemia Interactive is not willing to tolerate use of such tools if it contravenes any general licenses granted to end users of this community wiki or BI products.</div></div>
+<div class="" style="font-size: 0.8em"><div class="toc-side"><mw:tocplace></mw:tocplace></div></div>
+<p>PEW files are <a href="/wiki/Visitor_3" title="Visitor 3">Visitor</a>'s project files. Visitor is <a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive">Bohemia Interactive</a>'s tool for creating Islands.
+</p><p>Visitor is a GUI tool interface that interacts with <a href="/wiki/Bulldozer" class="mw-redirect" title="Bulldozer">Bulldozer</a>, an in-built 'world' viewer inside any <a href="/wiki/Category:ArmA:_Armed_Assault" title="Category:ArmA: Armed Assault">Armed Assault</a> engine.
+</p><p>The contents of the PEW project file are not directly related to the ultimate output, a WRP file.
+However, that data contains all similar elements, such as road networks, elevations, cell matrices, models (P3D files) and textures (RVMAT files).
+</p><p>Exporting a PEW file into WRP format involves the use of Bulldozer, since it is Bulldozer that decides how it wants that data presented rather than anything Visitor might like to decide.
+It is Bulldozer that determines the format and version of the resulting WRP file (in 8WVR format), so the WRP version is based on the version of the <a href="/wiki/Real_Virtuality" title="Real Virtuality">Real Virtuality</a> engine used to create it.
+This is not the same thing as saying the VERSION of the engine. It is the engine, that decides, the VERSION of wrp it needs to generate.
+</p><p>Furthermore, the resulting Wrp file is (for want of a better expression) 'unbinarised' 8WVR format. It is nothing more or less, than a (modified) copy of texture, elevations and models. Period.
+Roadnetworks and other ancilliary data is only processed into a 'binarised' OPRW format wrp, using Bi's binarizer tool.
+</p><p>Note that it is possible to generate 8WVR format without involving bulldozer (or arma) using [<span title="Old link: http&#58;//dev-heaven.net/projects/list_files/mikero-pbodll"><i>party tools</i> <sub style="font-size: .8em">(dead link)</sub></span>].
+</p><p><br />
+While there have been several PEW versions, the ones listed here are:
+</p>
+<ul><li>POSEW59</li>
+<li>POSEW60</li></ul>
+<p>There are only a few subtle differences to their makeup.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Legend">Legend</span></h2>
+<p>See <a href="/wiki/Generic_FileFormat_Data_Types" title="Generic FileFormat Data Types">Generic FileFormat Data Types</a>.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="File_Format">File Format</span></h2>
+<div class="biki-messagebox feature-informative"><div>ⓘ</div><div>This file format is principally used with Armed Assault v1.09 and later, with the ArmA Tools Suite final release (v1.14).</div></div>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">POSEW59</span><span class="w"></span>
+<span class="n">POSEW60</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">PoseHeader</span><span class="w">				</span><span class="n">Header</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">nOFPTextures</span><span class="p">;</span><span class="w">			</span><span class="c1">// none in Arma</span>
+<span class="w">	</span><span class="n">OFPTexture</span><span class="w">				</span><span class="n">OFPTextures</span><span class="p">[</span><span class="n">nOFPTextures</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">nObjectTemplates</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ObjectTemplate</span><span class="w">			</span><span class="n">ObjectTemplates</span><span class="p">[</span><span class="n">nObjectTemplates</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">				</span><span class="n">NoOfpTerrains</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(!</span><span class="n">NoOfpTerrains</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">nOFPTerrains</span><span class="p">;</span><span class="w">			</span><span class="c1">// none in Arma</span>
+<span class="w">		</span><span class="n">OFPTerrain</span><span class="w">			</span><span class="n">OFPTerrains</span><span class="p">[</span><span class="n">nOFPTerrains</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">				</span><span class="n">NoOFPForests</span><span class="p">;</span><span class="w">			</span><span class="c1">// none in Arma</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(!</span><span class="n">NoOFPForests</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">nOFPForests</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">OFPForest</span><span class="w">			</span><span class="n">OFPForests</span><span class="p">[</span><span class="n">nOFPForests</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="n">RoadNetworkTemplate</span><span class="w">		</span><span class="n">RoadNetworkTemplates</span><span class="p">[...];</span><span class="w"></span>
+<span class="w">	</span><span class="n">Elevation</span><span class="w">				</span><span class="n">Elevation</span><span class="p">[...];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">NoOfObjects</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">Object</span><span class="w">					</span><span class="n">Objects</span><span class="p">[</span><span class="n">NoOfObjects</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">NoOfLayers</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">					</span><span class="n">CurrentLayerName</span><span class="p">;</span><span class="w">		</span><span class="c1">// &quot;Base&quot;</span>
+<span class="w">	</span><span class="n">Layer</span><span class="w">					</span><span class="n">Layers</span><span class="p">[</span><span class="n">NoOfLayers</span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">nNamedZones</span><span class="p">;</span><span class="c1">// almost never present on pose60</span>
+<span class="w">	</span><span class="n">NamedZone</span><span class="w">				</span><span class="n">NamedZones</span><span class="p">[</span><span class="n">nNamedZones</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">nRoadNetworks</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nRoadNetworks</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="n">RoadNetwork</span><span class="w">			</span><span class="n">RoadNetworks</span><span class="p">[</span><span class="n">nRoadNetworks</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">nKeyPoints</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">KeyPoint</span><span class="w">				</span><span class="n">KeyPoints</span><span class="p">[</span><span class="n">nKeyPoints</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">NoOfBackgrounds</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">Background</span><span class="w">				</span><span class="n">Backgrounds</span><span class="p">[</span><span class="n">NoOfBackgrounds</span><span class="p">];</span><span class="w"> </span><span class="c1">// not checked for 59</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">TotalSizeOfSelections</span><span class="p">;</span><span class="w"> </span><span class="c1">// from here, to end of file</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">					</span><span class="n">nSelections</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">Selection</span><span class="w">				</span><span class="n">Selections</span><span class="p">[</span><span class="n">nSelections</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="PoseHeader">PoseHeader</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Header</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="n">Signature</span><span class="p">[</span><span class="m">7</span><span class="p">];</span><span class="w">		</span><span class="c1">// &quot;POSEW59&quot; or &quot;POSEW60&quot; note: NOT null terminated</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">	</span><span class="n">Length</span><span class="p">;</span><span class="w">				</span><span class="c1">// of PEW file;</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">	</span><span class="n">UnknownLong</span><span class="p">;</span><span class="w">		</span><span class="c1">// typically 0</span>
+<span class="w">	</span><span class="n">String</span><span class="w">	</span><span class="n">IslandRvMatPath</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;SomePboPrefix\SomeIsland\data\0&quot; see below</span>
+<span class="w">	</span><span class="n">String</span><span class="w">	</span><span class="n">IslandP3dPath</span><span class="p">;</span><span class="w">		</span><span class="c1">// &quot;&quot; (objects)</span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">TerrainGridSize</span><span class="p">;</span><span class="w">	</span><span class="c1">// 10.0 metres</span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">SegmentSize</span><span class="p">;</span><span class="w">		</span><span class="c1">// 400.0 (==SegmentSize - SegmentOverlap)</span>
+<span class="w">	</span><span class="n">String</span><span class="w">	</span><span class="n">IslandClassname</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;&quot;</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="Texture_And_Terrain_Sizes">Texture And Terrain Sizes</span></h4>
+<ul><li>Pew files deal with <b>terrain</b>. There is no 'texture' size as such. Therefore the gridsize specified in the header pertains to <b>terrain</b> cells.</li>
+<li>In contrast, the gridsize specified in a WRP pertains to TEXTURE(rvmat) cells.</li></ul>
+<p>"Texture", 'Material', 'Surface', 'Layer' are synonomous to rvmat files.
+They are the island's unique surface as generated by importing from a sat mask image. There can be multipler layers of rvmat files.
+</p><p><i>Terrain</i>, are the cell grids of the map and as often as not specified at a different (larger) dimension.
+</p><p>Unlike Wrp files, Textures and Terrain sizes are not declared in a pew directly. At least, not, in the header.
+</p><p>The Terrain (Map) Size is declared in the elevations structure.
+</p><p>TextureSizeS (plural) are derived, not declared, in each surface 'Layer' of pew. Since, ultimately, each layer must 'fit' onto the map.
+Each layer contains a shift value of how much SMALLER the surface is, relative to the map.
+For OFP, and OFP converted-to-arma, islands, this is 0 (there is no difference betweem a 256x256 cell Terrain and a 256x256 cell Texture.
+</p><p>For Arma, it is *generally* x 4 (shift value=2).
+</p>
+<h5><span class="mw-headline" id="TerrainGridSize">TerrainGridSize</span></h5>
+<p>A wrp file's GridSize is the OPPOSITE of a PewFile's GridSize.
+</p><p>In a wrp, it defines the size (in meters) of each cell of the TEXTURE (rvmats).
+</p><p>In a pew, there is no direct TEXTURE dimension since there can be multiple layers, each with different (derived) dimensions.
+</p><p>So this value, in a pew, is the TERRAIN dimension.
+</p><p><br />
+</p>
+<h5><span class="mw-headline" id="IslandRvMatPath">IslandRvMatPath</span></h5>
+<p>RVMAT file references in the Layers structure are listed as <i>relative</i> addresses to the IslandRvMatPath.
+This is in contradistinction to the general Bis way-of-doing-things where all references are hard references.
+</p><p>Traditionally, an RVMAT(Island) data path is declared as "Layers\some.rvmat".
+It is expected, therefore, that you do indeed have a "P:\SomePboPrefix\SomeIsland\...\Layers" folder.
+Put another way, the <i>prefix</i> of the PBO must be "SomePboPrefix\SomeIsland\...".
+</p><p>The SubFolder 'Layers' is hard wired by Visitor. It is generated automatically when importing a satmask image.
+Thus, all relative reverences to the rvmats that Visitor produces, are prefaced by 'Layers\'.
+</p><p>Using 3rd party tools, you can, should you wish to, alter this prefixing and location of the rvmats to anywhere at all, including no path at all (Visitor, the engine, and the binarizer don't actually care).
+The purpose in doing so is somewhat moot, since, unlike p3d's, rvmat's for an island are unique to an island.
+The chances or need of referencing them by something else is zilch. Hence, unlike p3d's, they may just as well stay in the wrp's pbo. Point being, they don't have to.
+</p>
+<h5><span class="mw-headline" id="IslandObjectPath">IslandObjectPath</span></h5>
+<p>IslandObjectPath uses the same mechanics as above.
+However, since P3D files are almost inevitable declared from multiple locations (any PBO, including the base 'CA' PBO included in the game) its use is moot.
+Be that as it may, the mechanism exists and works, identically to <a href="#IslandRvMatPath">IslandRvMatPath</a>.
+</p><p><br />
+PEW files are not known to contain anything in IslandObjectPath or IslandClassname. 
+</p>
+<h3><span class="mw-headline" id="OFPTexture">OFPTexture</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">OFPTexture</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">TextureID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">TextureFileName</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;snih3.paa&quot;</span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">TextureName</span><span class="p">;</span><span class="w">		</span><span class="c1">// &quot;snih3&quot;</span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">RvmatName</span><span class="p">;</span><span class="w">			</span><span class="c1">// &quot;snih3.rvmat&quot;</span>
+<span class="w">	</span><span class="kt">byte</span><span class="w">		</span><span class="n">UnknownBytes</span><span class="p">[</span><span class="m">14</span><span class="p">];</span><span class="w">	</span><span class="c1">// (typically 0)</span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">Colour</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="ObjectTemplate">ObjectTemplate</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">ObjectTemplate</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">ModelFilename</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;SomePrefixRoot\data\jablon.p3d\0&quot;</span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">ModelName</span><span class="p">;</span><span class="w">		</span><span class="c1">// &quot;jablon&quot;</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">ObjectType</span><span class="p">;</span><span class="w">		</span><span class="c1">// 0..5 (so far...)</span>
+<span class="w">								</span><span class="c1">// 0 Undefined - This type should never be encountered.</span>
+<span class="w">								</span><span class="c1">// 1 Natural</span>
+<span class="w">								</span><span class="c1">// 2 Artificial</span>
+<span class="w">								</span><span class="c1">// 3 Road (RoadFlag will be true)</span>
+<span class="w">								</span><span class="c1">// 4 Forest</span>
+<span class="w">								</span><span class="c1">// 5 Road2 (RoadFlag will be false)</span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">OutlineColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">ObjectColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">GeometryBounds</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">				</span><span class="c1">// 50.0</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">ModelID</span><span class="p">;</span><span class="w">						</span><span class="c1">// uniqueID, used by objects to lookup this model(p3d)</span>
+<span class="w">	</span><span class="n">XYZTriplet</span><span class="w">	</span><span class="n">GeometryAutocenterPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">ResolutionBounds</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">			</span><span class="c1">// 50.0</span>
+<span class="w">	</span><span class="n">XYZTriplet</span><span class="w">	</span><span class="n">ResolutionAutoCenterPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">Generally0x01</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">RandomScaleFlag</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">RandomScaleMinMax</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">			</span><span class="c1">// 50.0</span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">RandomRotateFlag</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">RandomRotateMinMax</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">			</span><span class="c1">// 20.0</span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">RandomOrientationFlag</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">RanmdomOrientationMinMax</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">	</span><span class="c1">// 180.0</span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">RoadFlag</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RoadFlag</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">TransformMatrix</span><span class="w"> </span><span class="n">RoadNamedSelections</span><span class="p">;</span><span class="w">	</span><span class="c1">// (LB, PB, LE, PE)</span>
+<span class="w">		</span><span class="n">TransformMatrix</span><span class="w"> </span><span class="n">XRoadNamedSelections</span><span class="p">;</span><span class="w">	</span><span class="c1">// (LD, LH, PD, PH)</span>
+<span class="w">	</span><span class="p">};</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">nNamedVectors</span><span class="p">;</span><span class="w">					</span><span class="c1">// Usually 0 (zero)</span>
+<span class="w">	</span><span class="n">NamedVector</span><span class="w">	</span><span class="n">NamedVectors</span><span class="p">[</span><span class="n">nNamedVectors</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">MarkerType</span><span class="p">;</span><span class="w">						</span><span class="c1">// Rectangular = 0, Elliptical = 1</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>As opposed to layers (material RVMAT surfaces), 'objects' are instances of models placed onto the map.
+Irrespective of the number of objects there is only one reference to the model used, which is then referenced as often as needed.
+</p><p>ModelFilename, ModelName, and ModelID are unique unduplicated entries.
+</p><p>The ModelID is not zero based; its value is incremental according to the number of times <i>any</i> model has been added while editing, even if previous models have been deleted; model IDs do not rearrange themselves and deleted IDs are not recycled for re-use.
+The ObjectID illustrated on maps is, in contrast, the unique InstanceID of each object in the objects structure below.
+'Road2' type cannot be defined with Visitor3 Personal Edition. It's a type specific to VBS2 V3 edition.
+</p>
+<h4><span class="mw-headline" id="NamedVector">NamedVector</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">NamedVector</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">Name</span><span class="p">;</span><span class="w">		</span><span class="c1">// &quot;pohrada&quot;</span>
+<span class="w">	</span><span class="n">LongBool</span><span class="w">	</span><span class="n">Unknown</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">nTriplets</span><span class="p">;</span><span class="w"> </span><span class="c1">// generally 2 sometimes 1</span>
+<span class="w">	</span><span class="n">XYZTriplet</span><span class="w">	</span><span class="n">StartEndPos</span><span class="p">[</span><span class="n">nTriplets</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>As of v60 a rarely used sub structure with ObjTemplates.
+</p>
+<h3><span class="mw-headline" id="OFPTerrain">OFPTerrain</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">OFPTerrain</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">TerrainName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">byte</span><span class="w">		</span><span class="n">UnknownBytes</span><span class="p">[</span><span class="m">11</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">nSurfaces</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">OFPSurface</span><span class="w">	</span><span class="n">OFPSurfaces</span><span class="p">[</span><span class="n">nSurfaces</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="OFPSurface">OFPSurface</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">OFPSurface</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">	</span><span class="n">SurfaceName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">Surfacefloat</span><span class="p">[</span><span class="m">4</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">byte</span><span class="w">	</span><span class="n">UnknownBytes</span><span class="p">[</span><span class="m">16</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="OFPForest">OFPForest</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">OFPForest</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">ForestName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">OutlineColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">ObjectColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">SquareFillModelID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">SquareModelID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">TriangleModelID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">Unknown1</span><span class="p">;</span><span class="w"> </span><span class="c1">// (typically 0)</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">Unknown2</span><span class="p">;</span><span class="w"> </span><span class="c1">// (typically 0)</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="NamedZone">NamedZone</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">NamedZone</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ushort</span><span class="w">		</span><span class="n">IsPresent</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ushort</span><span class="w">		</span><span class="n">Moveable</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">Name</span><span class="p">;</span><span class="w"> </span><span class="c1">// Les_new</span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">AreaColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">OutlineColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">DisplayStyle</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">nFloats</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">Floats</span><span class="p">[</span><span class="n">nFloats</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">ID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">Name2</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="AltNamedZone">AltNamedZone</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">AltNamedZone</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ushort</span><span class="w">		</span><span class="n">IsPresent</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ushort</span><span class="w">		</span><span class="n">Moveable</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">Name</span><span class="p">;</span><span class="w"> </span><span class="c1">// Les_new</span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">AreaColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">OutlineColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">DisplayStyle</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">nFloats</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">Floats</span><span class="p">[</span><span class="n">nFloats</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">ID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">Visible</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="RoadNetworkTemplates">RoadNetworkTemplates</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">RoadNetworkTemplates</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">RoadNetworkTemplatesDefined</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(!</span><span class="n">RoadNetworkTemplatesDefined</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="c1">//RoadNetworkTemplates</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">	</span><span class="n">NoOfRoadNetworkTemplates</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NoOfRoadNetworkTemplates</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">RoadNetTemplate</span><span class="w"> </span><span class="n">RoadNetTemplates</span><span class="p">[</span><span class="n">NoOfRoadNetworkTemplates</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="p">}</span><span class="w"></span>
+
+<span class="w">		</span><span class="c1">//CrossroadTemplates</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">	</span><span class="n">NoOfCrossroadTemplates</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NoOfCrossroadTemplates</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">CrossroadTemplate</span><span class="w"> </span><span class="n">CrossroadTemplates</span><span class="p">[</span><span class="n">NoOfCrossroadTemplates</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="RoadNetTemplate">RoadNetTemplate</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">RoadNetTemplate</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">TemplateName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">KeyPartsColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">NormalPartsColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">FilledLine</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">MaxAngle</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">MaxBankAngle</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">NoOfStraightParts</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NoOfStraightParts</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="n">StraightPart</span><span class="w"> </span><span class="n">StraightParts</span><span class="p">[</span><span class="n">NoOfStraightParts</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">NoOfCurveParts</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NoOfCurveParts</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="n">CurvePart</span><span class="w"> </span><span class="n">CurveParts</span><span class="p">[</span><span class="n">NoOfCurveParts</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">NoOfSpecialParts</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NoOfSpecialParts</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="n">SpecialPart</span><span class="w"> </span><span class="n">SpecialParts</span><span class="p">[</span><span class="n">NoOfSpecialParts</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">NoOfTerminatorParts</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NoOfTerminatorParts</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">		</span><span class="n">TerminatorPart</span><span class="w"> </span><span class="n">TerminatorParts</span><span class="p">[</span><span class="n">NoOfTerminatorParts</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h5><span class="mw-headline" id="StraightPart">StraightPart</span></h5>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">StraightPart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">StraightPartName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">				</span><span class="n">ObjectTemplateID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">StraightPartEnum</span><span class="w">	</span><span class="n">StraightPartType</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">			</span><span class="n">CanChangeBankAngle</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h5><span class="mw-headline" id="CurvePart">CurvePart</span></h5>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">CurvePart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="n">String</span><span class="w">			</span><span class="n">CurvePartName</span><span class="p">;</span><span class="w"></span>
+<span class="kt">ulong</span><span class="w">			</span><span class="n">ObjectTemplateID</span><span class="p">;</span><span class="w"></span>
+<span class="n">CurvePartEnum</span><span class="w">	</span><span class="n">CurvePartType</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h5><span class="mw-headline" id="SpecialPart">SpecialPart</span></h5>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">SpecialPart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">SpecialPartName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">				</span><span class="n">ObjectTemplateID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">SpecialPartEnum</span><span class="w">		</span><span class="n">SpecialPartType</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h5><span class="mw-headline" id="TerminatorPart">TerminatorPart</span></h5>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">TerminatorPart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">	</span><span class="n">TerminatorPartName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">	</span><span class="n">ObjectTemplateID</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="CrossroadTemplate">CrossroadTemplate</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">CrossroadTemplate</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">TemplateName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">CrossroadTypeEnum</span><span class="w">	</span><span class="n">Shape</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">			</span><span class="n">Color</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">			</span><span class="n">FilledLine</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">				</span><span class="n">ObjectTemplateID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">Net_A</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">Net_B</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">Net_C</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">				</span><span class="n">Net_D</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<table class="wikitable">
+<caption>MeterType Values
+</caption>
+<tbody><tr>
+<th>Type
+</th>
+<th>Straights
+</th>
+<th>Curves
+</th></tr>
+<tr>
+<td>0</td>
+<td>6 m</td>
+<td>25 m
+</td></tr>
+<tr>
+<td>1</td>
+<td>12 m</td>
+<td>50 m
+</td></tr>
+<tr>
+<td>2</td>
+<td>25 m</td>
+<td>75 m
+</td></tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>100 m
+</td></tr>
+</tbody></table>
+<p>Broadly speaking, there are a few basic road types:
+</p>
+<ul><li><b>asfalt</b>: Bitumen</li>
+<li><b>silnice</b>: Paved</li>
+<li><b>cesta</b>: Dirt</li></ul>
+<p>Each RoadType describes the general characteristics of the corresponding road, and can have multiple curved, straight, special, and termination P3D models associated with it.
+</p><p>Generally speaking, there are:
+</p>
+<ul><li>3 'straight' models, approximately 6, 12, and 25 meters long respectively.</li>
+<li>4 'curved' models, approximately 25, 50, 75, and 100 meters long.</li>
+<li>1 'termination' type.</li></ul>
+<p>The termination type is a road like any other but tends to be a fixed 6 meter fade out of the general road texture.
+</p><p>Although "CrossRoads" could conceivably have any number of intersections, only two types are handled.
+</p>
+<ul><li>Type 1: A T_Junction (3 intersections)</li>
+<li>Type 3: A genuine crossroad (4 way intersection)</li></ul>
+<p>For T_Junctions, there is obviously no 4th intersection and this is null filled.
+</p><p>Without taking too literal an interpretation, there are some major types of road.
+</p>
+<ul><li>asfaltka: Bitumen (sealed)</li>
+<li>silnice: Paved</li>
+<li>cesta: Dirt</li></ul>
+<p>Thus the names of each intersection reflect the road type of that intersection, sometimes resulting in (up to) four identical names.
+</p><p>The overall name of the crossroad itself, tries to reflect the nature of it is makeup thus
+</p>
+<ul><li><var>kr_asfaltka_asfaltka_t</var>: an bitumen T_Junction</li>
+<li><var>kr_silince_x_cesta</var>: a crossroad of paved and dirt roads.</li></ul>
+<h3><span class="mw-headline" id="Elevation">Elevation</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Elevation</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">XYPair</span><span class="w">	</span><span class="n">TerrainSize</span><span class="p">;</span><span class="w"> </span><span class="c1">// 256 x 256 eg</span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">Heights</span><span class="p">[</span><span class="n">TerrainSize</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">BlueEdgeTerrainHeights</span><span class="p">[</span><span class="n">NoOfBlueFloats</span><span class="p">];</span><span class="w"> </span><span class="c1">// Always zero values</span>
+<span class="w">	</span><span class="c1">// NoOfBlueFloats = (TerrainSize_Y * TerrainSize_X) / 16;</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">	</span><span class="n">Always0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="Object">Object</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Object</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">ShortBool</span><span class="w"> </span><span class="n">IsPresent</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsPresent</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">ShortBool</span><span class="w">			</span><span class="n">Moveable</span><span class="p">;</span><span class="w">				</span><span class="c1">// always 0</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">ObjectID</span><span class="p">;</span><span class="w">				</span><span class="c1">// See Below</span>
+<span class="w">		</span><span class="n">TransformMatrix</span><span class="w">		</span><span class="n">ColumnFormat</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">		</span><span class="kt">double</span><span class="w">				</span><span class="n">ObjectRelativeSize</span><span class="p">;</span><span class="w">		</span><span class="c1">// decimal percentage</span>
+<span class="w">		</span><span class="n">String</span><span class="w">				</span><span class="n">InstanceName</span><span class="p">;</span><span class="w">			</span><span class="c1">// &quot;&quot; mostly. &quot;minimalStrelPos&quot; eg for artifical objects</span>
+<span class="w">		</span><span class="kt">float</span><span class="w">				</span><span class="n">RelativeSurfaceElevation</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">RGBA</span><span class="w">				</span><span class="n">OutlineColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">RGBA</span><span class="w">				</span><span class="n">ObjectColour</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">ModelID</span><span class="p">;</span><span class="w">				</span><span class="c1">// See below</span>
+<span class="w">	</span><span class="p">};</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="TransformMatrix">TransformMatrix</span></h4>
+<p>Note that a <b>pew</b> TransformMatrix is the only instance in the entire repertoire of bis file formats where the transform is specified in columns.
+All other TransformMatrices of BI (notably models) are in Row format.
+It makes diddly squat difference to the <b>values</b> in the matrix, only the positions of those values are different.
+</p><p>The XYZ positional component is the absolute position. If a relative elevation has been specified in the pew, that value has been added to the component at this storage time.
+</p>
+<div class="biki-messagebox feature-informative"><div>ⓘ</div><div>See <a href="/wiki/Generic_FileFormat_Data_Types#TransformMatrices" title="Generic FileFormat Data Types">TransformMatrix</a>.</div></div>
+<h4><span class="mw-headline" id="ObjectID">ObjectID</span></h4>
+<p>Every object entry has a zero-based, linear sequential ObjectID.
+ObjectID is unique for every object and is the value displayed on a map for all models placed on it (including roads, grass, etc.).
+Thus, every tree and every road section has its own unique ObjectID.
+</p><p>The first Object in the PEW file is ObjectID==0, the next 1,2,3,4 etc.
+</p><p>If an object has been deleted, that entry retains its unique object ID, even though the ObjectID is no longer stored.
+If an object is not present (IsPresent is false), the ObjectID is calculated based on the last used object ID.
+The next real object (IsPresent is true) will always be the <i>N</i>th ObjectID because the number always increases by the number of object entries, present or not.
+The reason for this is to maintain consistent IDs for objects so that missions can rely on a bush having the same NearestObject ID as it always had, irrespective of map upgrades.
+</p><p>When you add a new object, it is thus always is added to end of table with a new object ID.
+When you remove an object, the object ID remains reserved even though the object no longer exists.
+</p><p>This mechanism works well within the ArmA engine, but fails to help at all for conversion of OFP islands unless you methodically and manually enter all of the entries in the correct order.
+With upwards of 100,000 entries per island, this is practically impossible.
+</p>
+<h4><span class="mw-headline" id="ModelID">ModelID</span></h4>
+<p>Note that this is the unique ID of the ModelID in the object Template. It is not an index into the template structures.
+Unusual, and slow as a result.
+</p>
+<h3><span class="mw-headline" id="Layer">Layer</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Layer</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">SizeType</span><span class="p">;</span><span class="w">			</span><span class="c1">// 0..2 - see below</span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">Name</span><span class="p">;</span><span class="w">				</span><span class="c1">// &quot;Base&quot;</span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">DefaultIndicator</span><span class="p">;</span><span class="w">	</span><span class="c1">// 0 ... 1</span>
+
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DefaultIndicator</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">	</span><span class="n">SurfaceTable</span><span class="p">[</span><span class="n">TableSize</span><span class="p">.</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">	</span><span class="n">TextureTable</span><span class="p">[</span><span class="n">TableSize</span><span class="p">.</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">byte</span><span class="w">	</span><span class="n">UnknownTable</span><span class="p">[(</span><span class="n">TableSize</span><span class="p">.</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">/</span><span class="m">4</span><span class="p">)];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ushort</span><span class="w">	</span><span class="n">UnknownShort</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="p">};</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">DefaultIndicator</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">	</span><span class="n">NoOfTerrainMaterials</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">TerrainMaterial</span><span class="p">[</span><span class="n">NoOfTerrainMaterials</span><span class="p">]</span><span class="w"></span>
+<span class="w">		</span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="kt">ulong</span><span class="w">	</span><span class="n">BitFlags</span><span class="p">;</span><span class="w">		</span><span class="c1">// 1 = label, 0x40 = rvmatfile,,,,</span>
+<span class="w">			</span><span class="n">String</span><span class="w">	</span><span class="n">MaterialName</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;---sea---&quot;, &quot;Layers\P_000-000_L00.rvmat&quot;</span>
+<span class="w">			</span><span class="kt">ulong</span><span class="w">	</span><span class="n">TypeID</span><span class="p">;</span><span class="w">			</span><span class="c1">// 0..3</span>
+<span class="w">		</span><span class="p">};</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">	</span><span class="n">RvmatIndexTable</span><span class="p">[</span><span class="n">TableSize</span><span class="p">.</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="p">};</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="n">TableSize</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Elevations</span><span class="p">.</span><span class="n">TerrainSize</span><span class="w"> </span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="n">SizeType</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="RvmatIndexTable">RvmatIndexTable</span></h4>
+<p>The texture table contains 1-based indexes into the rvmats.
+This is a traditional bis way-of-doing-things in that the 0th 'rvmat' is, by default 'sea' texture and does not have an associated file, nor is it referenced in this table.
+</p><p>The organisation of 'cells' differs from its equivalent wrp. They are the reversed, mirror image of each other. Thus for a pew file with a 'poetic' 4x4 island:
+</p>
+<table>
+<caption>PEW vs WRP format
+</caption>
+<tbody><tr>
+<td>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="4">PEW
+</th></tr>
+<tr>
+<td>C</td>
+<td>8</td>
+<td>4</td>
+<td><b>0</b>
+</td></tr>
+<tr>
+<td>D</td>
+<td>9</td>
+<td>5</td>
+<td>1
+</td></tr>
+<tr>
+<td>E</td>
+<td>A</td>
+<td>6</td>
+<td>2
+</td></tr>
+<tr>
+<td>F</td>
+<td>B</td>
+<td>7</td>
+<td>3
+</td></tr></tbody></table>
+</td>
+<td>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="4">WRP
+</th></tr>
+<tr>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F
+</td></tr>
+<tr>
+<td>8</td>
+<td>9</td>
+<td>A</td>
+<td>B
+</td></tr>
+<tr>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7
+</td></tr>
+<tr>
+<td><b>0</b></td>
+<td>1</td>
+<td>2</td>
+<td>3
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p><br />
+Unlike a wrp there is no Texture Size (256x256) eg. It is a derived value from the Elevations size (ergo the TerrainSize) (1024x1024 eg)
+The size of this table, the 'Texture Size' is defined as a ratio via LayerSizeType.
+</p>
+<ul><li>0 same</li>
+<li>1 half</li>
+<li>2 quarter</li></ul>
+<h4><span class="mw-headline" id="Rvmat_Conventions">Rvmat Conventions</span></h4>
+<p>Naming of rvmat files (generally) follows a simple convention largely because the files are auto_generated when importing the satmask.
+The resolved Texture size (dependent on the pixels and resoltion wanted) are divided into x and y numbered co-ordinates thus
+</p><p>p_(x)00..(x)nn_(y)00..nn_L00..zz
+</p><p>where:
+</p><p>(x) and (y) are the cellgrid position (and not part of the label)
+</p><p>Lzz is the layer
+</p><p>For a mythical single layer island with an 8x8 TEXTURE , files names will range from
+</p><p>p_00_00_L00 to p_07_07_L00
+</p><p><br />
+PxxPyy
+</p>
+<h3><span class="mw-headline" id="RoadNetworks">RoadNetworks</span></h3>
+<p>A 'RoadNetwork' essentially is comprised of a 'KeyPart' and 1-4 Directions. A Direction comprsises 0 to 'N' number of 'Parts'.
+When the Visitor3 user starts placing a 'RoadNetwork' on a map they are 'forced' to place a 'KeyPart'. Each 'RoadNetwork' has at least 1 'Direction' defined. A 'Direction' may have zero 'RoadParts' placed on the map.
+</p>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">RoadNetworks</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">				</span><span class="n">NetworkDefined</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NetworkDefined</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">shortBool</span><span class="w">			</span><span class="n">Always0x01</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">shortBool</span><span class="w">			</span><span class="n">Movable</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">NetworkID</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">float</span><span class="w">				</span><span class="n">Network_XZY</span><span class="p">[</span><span class="m">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">float</span><span class="w">				</span><span class="n">Direction</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">shortBool</span><span class="w">			</span><span class="n">KeyPartDefined</span><span class="p">;</span><span class="w">		</span><span class="c1">// Should always be 1=Yes &#39;cause you cant start a road without placing a KeyPart</span>
+<span class="w">		</span><span class="kt">float</span><span class="w">				</span><span class="n">KeyPart_XZY</span><span class="p">[</span><span class="m">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">float</span><span class="w">				</span><span class="n">KeyPart_Direction</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">KeyPart_TemplateObjectID</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">KeyPartTypeEnum</span><span class="w">		</span><span class="n">KeyPart_Type</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ushort</span><span class="w">				</span><span class="n">KeyPart_FamilyType</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">String</span><span class="w">				</span><span class="n">KeyPart_RoadNetworkTemplateName</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">String</span><span class="w">				</span><span class="n">KeyPart_ModelName</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">RGBAColor</span><span class="w">			</span><span class="n">KeyPart_Color</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">shortBool</span><span class="w">			</span><span class="n">DirectionsDefined</span><span class="p">;</span><span class="w">	</span><span class="c1">// Should always be 0x0100=yes because every RoadNetwork has at least 1 direction.</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">NoOfDirections</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">Direction_A_Something</span><span class="p">;</span><span class="w"> </span><span class="c1">//Always 0x0000 0000</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">Direction_B_Something</span><span class="p">;</span><span class="w"> </span><span class="c1">//Always 0x0000 0000</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">Direction_C_Something</span><span class="p">;</span><span class="w"> </span><span class="c1">//Always 0x0000 0000</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">Direction_D_Something</span><span class="p">;</span><span class="w"> </span><span class="c1">//Always 0x0000 0000</span>
+<span class="w">		</span><span class="n">DirectionHeader</span><span class="w">		</span><span class="n">DirectionHeaders</span><span class="p">[</span><span class="n">NoOfDirections</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">byte</span><span class="w">				</span><span class="n">Unknown</span><span class="p">[</span><span class="m">92</span><span class="p">];</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">				</span><span class="n">NoOfDirections</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">Direction</span><span class="w">			</span><span class="n">Directions</span><span class="p">[</span><span class="n">NoOfDirections</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="DirectionHeader">DirectionHeader</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">DirectionHeader</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">	</span><span class="n">RoadNetworkTemplateName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">DirectionOffsetXZY</span><span class="p">[</span><span class="m">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">	</span><span class="n">DirectionOffsetDirection</span><span class="p">;</span><span class="w"> </span><span class="c1">// 180.0 degrees.</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="Direction">Direction</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Direction</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">NoOfParts</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RoadPart</span><span class="w">	</span><span class="n">RoadParts</span><span class="p">[</span><span class="n">NoOfParts</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">RoadNetworkTemplateName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">DirectionOffsetXZY</span><span class="p">[</span><span class="m">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">DirectionOffsetDirection</span><span class="p">;</span><span class="w"> </span><span class="c1">// 180.0 degrees.</span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">KeyPartColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">RGBAColor</span><span class="w">	</span><span class="n">NormalPartColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">FilledLine</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">MaxAngle</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">double</span><span class="w">		</span><span class="n">MaxBankAngle</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h5><span class="mw-headline" id="RoadPart">RoadPart</span></h5>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">RoadPart</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">Defined</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">Enabled</span><span class="p">;</span><span class="w"> </span><span class="c1">// Possibly incorrect.</span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">RoadPartXZY</span><span class="p">[</span><span class="m">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">RoadPartDirection</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">RoadPart_ObjectTemplateID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ushort</span><span class="w">		</span><span class="n">PartTypeUIListboxIndex</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">ModelName</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">byte</span><span class="w">		</span><span class="n">Unknown</span><span class="p">[</span><span class="m">102</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="KeyPoint">KeyPoint</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">KeyPoint</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">ShortBool</span><span class="w"> </span><span class="n">IsPresent</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsPresent</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">ShortBool</span><span class="w">	</span><span class="n">Always0</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">String</span><span class="w">		</span><span class="n">ClassName</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;Noe_Lany&quot;</span>
+<span class="w">		</span><span class="n">RGBA</span><span class="w">		</span><span class="n">AreaColor</span><span class="p">,</span><span class="n">OutlineColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">		</span><span class="n">DisplayStyle</span><span class="p">;</span><span class="w">	</span><span class="c1">// 0 solid</span>
+<span class="w">									</span><span class="c1">// 1..6 hatch-horz,vert,cross,skew right,skew left,skewcross</span>
+<span class="w">									</span><span class="c1">// 7 standard</span>
+<span class="w">		</span><span class="n">ShortBool</span><span class="w">	</span><span class="n">Visible</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="kt">float</span><span class="w">		</span><span class="n">Offset</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">	</span><span class="c1">// map relative</span>
+<span class="w">		</span><span class="kt">float</span><span class="w">		</span><span class="n">Size</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w">	</span><span class="c1">// 250 x 250.0 eg (width and height)</span>
+<span class="w">		</span><span class="kt">ulong</span><span class="w">		</span><span class="n">ID</span><span class="p">;</span><span class="w">			</span><span class="c1">// 0,1,2,3,4,5,6....</span>
+<span class="w">		</span><span class="n">BisString</span><span class="w">	</span><span class="n">TownName</span><span class="p">;</span><span class="w"> 	</span><span class="c1">// &quot;Lipany&quot;, &quot;Hill&quot;</span>
+<span class="w">		</span><span class="n">BisString</span><span class="w">	</span><span class="n">LocaleType</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;NameCity&quot; NameCityCapital, NameVillage, NameLocal, VegetationBroadLeaf, Hill, Marine, ViewPoint</span>
+<span class="w">		</span><span class="n">BisString</span><span class="w">	</span><span class="n">ClassText</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;canOcclude=1; BumbleButt=&#39;FlowControl2&quot;; ++=)#4555Semi&quot;</span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>There is <b>always</b> a classname associated with this Keypoint,
+</p>
+<ul><li>Forest_Owls</li>
+<li>Abel_LaTrinite</li>
+<li>MyPinkElephant</li></ul>
+<p>and in most cases a text name that is 'seen' on the map
+</p>
+<pre>"Le Refuge Des Chasseurs"
+</pre>
+<p>Viewpoint and Marine types normally don't have names associated with them. There is no "place" in the sea.
+</p><p>Each of these Keypoints have a Locale <b>Type</b>. Some of which are:
+</p>
+<ul><li>NameCity</li>
+<li>NameCityCapital</li>
+<li>NameVillage</li>
+<li>VegetationBroadLeaf (Forest)</li></ul>
+<div class="biki-messagebox feature-informative"><div>ⓘ</div><div>See <a href="/wiki/Location" title="Location">Location</a>.</div></div>
+<h3><span class="mw-headline" id="Background">Background</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Background</span><span class="w"> </span><span class="c1">// this structure has not been seen</span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">BackgroundFilename</span><span class="p">;</span><span class="w">	</span><span class="c1">// &quot;sat_lco.bmp&quot;</span>
+<span class="w">	</span><span class="n">String</span><span class="w">		</span><span class="n">BackgroundName</span><span class="p">;</span><span class="w">		</span><span class="c1">// &quot;overlay1&quot;</span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">OffsetXY</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">float</span><span class="w">		</span><span class="n">SizeXY</span><span class="p">[</span><span class="m">2</span><span class="p">];</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">		</span><span class="n">Transparency</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">shortBool</span><span class="w">	</span><span class="n">Visible</span><span class="p">;</span><span class="w">			</span><span class="c1">// or ulong?</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="Selection">Selection</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Selection</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ushort</span><span class="w">				</span><span class="n">strlen</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="p">[]</span><span class="w">				</span><span class="n">SelectionName</span><span class="p">[</span><span class="n">strlen</span><span class="p">];</span><span class="w"> </span><span class="c1">// NOT null terminated</span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">				</span><span class="n">nObjects</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">SelectionObject</span><span class="w">		</span><span class="n">SelectionObjects</span><span class="p">[</span><span class="n">nObjects</span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h4><span class="mw-headline" id="SelectionObject">SelectionObject</span></h4>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="n">SelectionObject</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">ulong</span><span class="w">	</span><span class="n">ObjectInstanceID</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="kt">byte</span><span class="w">	</span><span class="n">Unknown</span><span class="p">[</span><span class="m">8</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h2><span class="mw-headline" id="Enums">Enums</span></h2>
+<h3><span class="mw-headline" id="ObjectTemplateTypeEnum">ObjectTemplateTypeEnum</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">ObjectTemplateTypeEnum</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">Undefined</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Natural</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Artificial</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Road</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Forest</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Road2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">5</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="MarkerTypeEnum">MarkerTypeEnum</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">MarkerTypeEnum</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">Rectangular</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Elliptical</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">1</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="StraightPartEnum">StraightPartEnum</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">StraightPartEnum</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">ushort</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">SixBy25</span><span class="p">,</span><span class="w">	</span><span class="c1">// 6,25m</span>
+<span class="w">	</span><span class="n">TwelveBy5</span><span class="p">,</span><span class="w">	</span><span class="c1">// 12,5m</span>
+<span class="w">	</span><span class="n">TwentyFive</span><span class="w">	</span><span class="c1">// 25m</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="CurvePartEnum">CurvePartEnum</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">CurvePartEnum</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">ushort</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">Radius25m</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Radius50m</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Radius75m</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Radius100m</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="SpecialPartEnum">SpecialPartEnum</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">SpecialPartEnum</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">ushort</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">SixBy25</span><span class="p">,</span><span class="w">	</span><span class="c1">// 6,25m</span>
+<span class="w">	</span><span class="n">TwelveBy5</span><span class="p">,</span><span class="w">	</span><span class="c1">// 12,5m</span>
+<span class="w">	</span><span class="n">TwentyFive</span><span class="w">	</span><span class="c1">// 25m</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="KeyPartTypeEnum">KeyPartTypeEnum</span></h3>
+<div class="mw-highlight mw-highlight-lang-c# mw-content-ltr" dir="ltr"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">KeyPartTypeEnum</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">Crossroad</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Straight</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Special</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="n">Terminator</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<!-- 
+NewPP limit report
+Cached time: 20260326011848
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.261 seconds
+Real time usage: 8.990 seconds
+Preprocessor visited node count: 1375/1000000
+Post‐expand include size: 12688/20480000 bytes
+Template argument size: 10392/20480000 bytes
+Highest expansion depth: 24/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 67898/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 6595.693      1 -total
+  0.48%   31.487      4 Template:Feature
+  0.35%   22.970      4 Template:Messagebox
+  0.35%   22.772      3 Template:Link
+  0.32%   21.113      1 Template:Messagebox/BI
+  0.17%   11.316      1 Template:Icon
+  0.15%    9.632      1 Template:Link/External
+  0.14%    9.229      2 Template:Link/Internal
+  0.11%    7.574     15 Template:Trim
+  0.10%    6.606      5 Template:Name
+-->
+
+<!-- Saved in parser cache with key community:pcache:idhash:7669-0!canonical and timestamp 20260326011839 and revision id 373448.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://community.bistudio.com/wiki?title=PEW_File_Format&amp;oldid=373448">https://community.bistudio.com/wiki?title=PEW_File_Format&amp;oldid=373448</a>"</div></div>
+					<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></li></ul></div></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 8 May 2025, at 12:27.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/wiki/Bohemia_Interactive_Community:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/Bohemia_Interactive_Community:About">About Bohemia Interactive Community</a></li>
+	<li id="footer-places-disclaimer"><a href="/wiki/Bohemia_Interactive_Community:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/wikidata/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wikidata/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wikidata/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+
+<script>
+		let bodies = document.getElementsByTagName('body');
+		if (bodies && bodies[0])
+		{
+			let divHeader = document.createElement('div');
+			divHeader.setAttribute('id', 'bohemia-header');
+			divHeader.innerHTML = '<div id="bohemia-header"><main-header v-bind:user-data="window.userData" login-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/login" logout-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/logout"></main-header></div>';
+
+
+			let body = bodies[0];
+			body.insertBefore(divHeader, body.firstChild);
+		}
+		</script>
+		<script async src="https://static.bistudio.com/bohemia/header/js/all.min.js"></script>
+			<script>
+					window.userData = null;
+			</script>
+			
+			<script>
+			   document.onreadystatechange = function () {
+				  if (document.readyState === 'complete') {
+					  var f = document.createElement('iframe');
+					  f.src = 'https://data.bistudio.com/pbp/index.php';
+					  f.width = '100%';
+					  f.height = 140;
+					  f.frameborder = 0;
+					  f.style.border = 0;
+					  f.scrolling = 'no';
+
+					  var c = document.getElementById('bohemia-promo');
+					  if (c)
+					    c.appendChild(f);
+				  }
+				}
+			</script>
+		
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.261","walltime":"8.990","ppvisitednodes":{"value":1375,"limit":1000000},"postexpandincludesize":{"value":12688,"limit":20480000},"templateargumentsize":{"value":10392,"limit":20480000},"expansiondepth":{"value":24,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":67898,"limit":5000000},"timingprofile":["100.00% 6595.693      1 -total","  0.48%   31.487      4 Template:Feature","  0.35%   22.970      4 Template:Messagebox","  0.35%   22.772      3 Template:Link","  0.32%   21.113      1 Template:Messagebox/BI","  0.17%   11.316      1 Template:Icon","  0.15%    9.632      1 Template:Link/External","  0.14%    9.229      2 Template:Link/Internal","  0.11%    7.574     15 Template:Trim","  0.10%    6.606      5 Template:Name"]},"cachereport":{"timestamp":"20260326011848","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":9180});});</script>
+</body>
+</html>

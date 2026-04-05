@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Wrp File Format - 8WVR - Bohemia Interactive Community</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b591f2a9b4c0bc758945da0f","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Wrp_File_Format_-_8WVR","wgTitle":"Wrp File Format - 8WVR","wgCurRevisionId":376782,"wgRevisionId":376782,"wgArticleId":7679,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Real Virtuality File Formats","ArmA: Armed Assault: File Formats"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Wrp_File_Format_-_8WVR","wgRelevantArticleId":7679,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],
+"wgRestrictionMove":[],"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"simpleBatchUploadMaxFilesPerBatch":{"*":1000},"wgVector2022PreviewPages":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgEditSubmitButtonLabelPublish":false};RLSTATE={"skins.vector.user.styles":"ready","site.styles":"ready","user.styles":"ready","skins.vector.user":"ready","user":"ready","user.options":"loading","mediawiki.ui.button":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","mediawiki.ui.icon":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.SQFHighlighter.styles":"ready","ext.EnforceScriptHighlighter.styles":"ready","ext.BIKIHelper.styles":"ready","ext.BIKISpoiler.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","skins.vector.es6","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","mmv.head","mmv.bootstrap.autostart",
+"ext.SQFHighlighter","ext.EnforceScriptHighlighter","ext.BIKIHelper","ext.BIKISpoiler"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=ext.BIKIHelper.styles%7Cext.BIKISpoiler.styles%7Cext.EnforceScriptHighlighter.styles%7Cext.SQFHighlighter.styles%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.ui.button%2Cicon%7Cskins.vector.icons%2Cstyles&amp;only=styles&amp;skin=vector-2022"/>
+<script async="" src="/wikidata/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector-2022"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/wikidata/opensearch_desc.php" title="Bohemia Interactive Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://community.bistudio.com/wikidata/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Bohemia Interactive Community Atom feed" href="/wiki?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://community.bistudio.com/wiki/Wrp_File_Format_-_8WVR"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSR8FCP');</script>
+</head>
+<body class="skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Wrp_File_Format_-_8WVR rootpage-Wrp_File_Format_-_8WVR skin-vector-2022 action-view skin--responsive vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div class="mw-page-container">
+	<span id="top-page"></span>
+	<a class="mw-jump-link" href="#content">Jump to content</a>
+	<div class="mw-page-container-inner">
+		<input
+			type="checkbox"
+			id="mw-sidebar-checkbox"
+			class="mw-checkbox-hack-checkbox"
+			>
+		<header class="mw-header">
+			<div class="mw-header-aside">
+			<label
+				id="mw-sidebar-button"
+				class="mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet mw-ui-icon-element"
+				for="mw-sidebar-checkbox"
+				role="button"
+				aria-controls="mw-panel"
+				data-event-name="ui.sidebar"
+				tabindex="0"
+				title="Main menu">
+				<span>Toggle sidebar</span>
+			</label>
+			
+<a href="/wiki/Main_Page" class="mw-logo">
+	<span class="mw-logo-container">
+		<img class="mw-logo-wordmark" alt="Bohemia Interactive Community"
+			src="/wikidata/resources/assets/community-wiki_151x14.png" style="width: 9.4375em; height: 0.875em;">
+	</span>
+</a>
+
+			</div>
+			<div class="mw-header-content">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/wiki/Special:Search"
+	
+		
+		
+		
+		title="Search Bohemia Interactive Community [f]"
+		accesskey="f"
+		class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search search-toggle">
+		<span>Search</span>
+	</a>
+	
+	<div>
+		<form action="/wiki" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-moved">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Bohemia Interactive Community" aria-label="Search Bohemia Interactive Community" autocapitalize="none" title="Search Bohemia Interactive Community [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+			<nav class="vector-user-links" aria-label="Personal tools" role="navigation" >
+	
+
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet mw-portlet-vector-user-menu-overflow emptyPortlet vector-user-menu-overflow"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+	
+
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal emptyPortlet vector-user-menu vector-user-menu-logged-out vector-menu-dropdown"  title="More options" >
+	<input type="checkbox"
+		id="p-personal-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-personal"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-personal-label"
+		for="p-personal-checkbox"
+		class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"
+		
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		<div class="vector-user-menu-create-account"><a href="/wiki?title=Special:CreateAccount&amp;returnto=Wrp+File+Format+-+8WVR" class="vector-menu-content-item user-links-collapsible-item" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="mw-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></div>
+<div class="vector-user-menu-login"><a href="/wiki?title=Special:UserLogin&amp;returnto=Wrp+File+Format+-+8WVR" class="vector-menu-content-item vector-menu-content-item-login" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span class="mw-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span></a></div>
+<div class="vector-user-menu-anon-editor">
+	<p>
+		Pages for logged out editors <a href="/wiki/Help:Introduction" aria-label="Learn more about editing"><span>learn more</span></a>
+	</p>
+</div>
+
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+</nav>
+
+			</div>
+		</header>
+		<div class="vector-sidebar-container ">
+			<div id="mw-navigation">
+				
+
+<nav id="mw-panel" class="mw-sidebar" aria-label="Site" role="navigation">
+	
+
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation vector-menu-portal portal"  >
+	<div
+		id="p-navigation-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Navigation</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main Page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-All-categories" class="mw-list-item"><a href="/wiki/Special:Categories"><span>All categories</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+	
+
+<div id="p-Contribute" class="vector-menu mw-portlet mw-portlet-Contribute vector-menu-portal portal"  >
+	<div
+		id="p-Contribute-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Contribute</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Getting-started" class="mw-list-item"><a href="/wiki/Getting_Started"><span>Getting started</span></a></li><li id="n-Formatting" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Formatting"><span>Formatting</span></a></li><li id="n-Guidelines" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Guidelines"><span>Guidelines</span></a></li><li id="n-Wiki-Maintenance" class="mw-list-item"><a href="/wiki/Category:Maintenance"><span>Wiki Maintenance</span></a></li><li id="n-Templates" class="mw-list-item"><a href="/wiki/Category:Templates"><span>Templates</span></a></li><li id="n-Help" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Help:Contents#Welcome_to_MediaWiki.org_help_pages" title="The place to find out"><span>Help</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-Bohemia_Interactive" class="vector-menu mw-portlet mw-portlet-Bohemia_Interactive vector-menu-portal portal"  >
+	<div
+		id="p-Bohemia_Interactive-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Bohemia Interactive</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Arma-Platform" class="mw-list-item"><a href="https://www.armaplatform.com/" rel="nofollow"><span>Arma Platform</span></a></li><li id="n-DayZ.com" class="mw-list-item"><a href="https://www.dayz.com/" rel="nofollow"><span>DayZ.com</span></a></li><li id="n-Ylands.com" class="mw-list-item"><a href="https://ylands.com/" rel="nofollow"><span>Ylands.com</span></a></li><li id="n-Forums" class="mw-list-item"><a href="https://forums.bohemia.net/" rel="nofollow"><span>Forums</span></a></li><li id="n-Feedback" class="mw-list-item"><a href="https://feedback.bistudio.com/" rel="nofollow"><span>Feedback</span></a></li></ul>
+		<div class="after-portlet after-portlet-Bohemia_Interactive"><div id="bohemia-promo" style="margin: 1em auto 0 -10px"></div></div>
+	</div>
+</div>
+
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal"  >
+	<div
+		id="p-tb-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/Wrp_File_Format_-_8WVR" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/Wrp_File_Format_-_8WVR" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/wiki?title=Wrp_File_Format_-_8WVR&amp;oldid=376782" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/wiki?title=Wrp_File_Format_-_8WVR&amp;action=info" title="More information about this page"><span>Page information</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+</nav>
+
+			</div>
+		</div>
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+		<div class="mw-table-of-contents-container">
+			<div class="vector-sticky-toc-container mw-sticky-header-element">
+				<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
+	<div id="sidebar-toc-label" class="sidebar-toc-header">
+		<p class="sidebar-toc-title">
+		Contents
+		<button class="vector-toc-uncollapse-button">move to sidebar</button>
+		<button class="vector-toc-collapse-button">hide</button>
+		</p>
+	</div>
+	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="sidebar-toc-list-item sidebar-toc-level-1">
+			<a href="#top-page" class="sidebar-toc-link">
+				<div class="sidebar-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-Introduction"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Introduction">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">1</span>Introduction</div>
+			</a>
+			
+			<ul id="toc-Introduction-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Legend"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Legend">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2</span>Legend</div>
+			</a>
+			
+			<ul id="toc-Legend-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-File_Format"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#File_Format">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3</span>File Format</div>
+			</a>
+			
+				<button aria-controls="toc-File_Format-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle File Format subsection
+				</button>
+			
+			<ul id="toc-File_Format-sublist" class="sidebar-toc-list">
+				<li id="toc-WrpHeader"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#WrpHeader">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.1</span>WrpHeader</div>
+			</a>
+			
+			<ul id="toc-WrpHeader-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-RvmatLayer"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#RvmatLayer">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.2</span>RvmatLayer</div>
+			</a>
+			
+			<ul id="toc-RvmatLayer-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-MaterialName"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#MaterialName">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.3</span>MaterialName</div>
+			</a>
+			
+			<ul id="toc-MaterialName-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Object"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Object">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3.4</span>Object</div>
+			</a>
+			
+			<ul id="toc-Object-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Changes"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Changes">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4</span>Changes</div>
+			</a>
+			
+				<button aria-controls="toc-Changes-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Changes subsection
+				</button>
+			
+			<ul id="toc-Changes-sublist" class="sidebar-toc-list">
+				<li id="toc-9VBW"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#9VBW">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.1</span>9VBW</div>
+			</a>
+			
+			<ul id="toc-9VBW-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-0WZD"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#0WZD">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4.2</span>0WZD</div>
+			</a>
+			
+			<ul id="toc-0WZD-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-FilePaths"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#FilePaths">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5</span>FilePaths</div>
+			</a>
+			
+			<ul id="toc-FilePaths-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				<header class="mw-body-header">
+				
+				
+					<label
+						id="vector-toc-collapsed-button"
+						class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet mw-checkbox-hack-button"
+						for="vector-toc-collapsed-checkbox"
+						role="button"
+						aria-controls="toc-toggle-list"
+						data-event-name="vector.toc-toggle-list"
+						tabindex="0"
+						title="Table of Contents">
+						Toggle the table of contents
+					</label>
+				    <h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Wrp File Format - 8WVR</span></h1>
+				</header>
+				<nav class="vector-article-toolbar" aria-label="Tools"
+					role="navigation">
+					<div class="mw-article-toolbar-container">
+						<div id="left-navigation">
+							
+
+<div id="p-associated-pages" class="vector-menu mw-portlet mw-portlet-associated-pages vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/wiki/Wrp_File_Format_-_8WVR" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/wiki?title=Talk:Wrp_File_Format_-_8WVR&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-label="Change language variant"
+		
+	/>
+	<label
+		id="p-variants-label"
+		for="p-variants-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+						</div>
+						<div id="right-navigation" class="vector-collapsible ">
+							
+
+<div id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/wiki/Wrp_File_Format_-_8WVR"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/wiki?title=Wrp_File_Format_-_8WVR&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/wiki?title=Wrp_File_Format_-_8WVR&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-has-collapsible-items"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-cactions-label"
+		for="p-cactions-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="/wiki/Wrp_File_Format_-_8WVR"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=Wrp_File_Format_-_8WVR&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=Wrp_File_Format_-_8WVR&amp;action=history"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+						</div>
+					</div>
+				</nav>
+				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+					<div class="mw-body-subheader">
+					        <div class="mw-indicators">
+        </div>
+
+					    <div id="siteSub" class="noprint">From Bohemia Interactive Community</div>
+					</div>
+					<div id="contentSub"><div id="biki-top-categories">Categories: <a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a><a href="/wiki/Category:ArmA:_Armed_Assault:_File_Formats" title="Category:ArmA: Armed Assault: File Formats">ArmA: Armed Assault: File Formats</a></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="biki-messagebox messagebox-bi"><div><a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive"><img alt="bi symbol white.png" src="/wikidata/images/thumb/3/3c/bi_symbol_white.png/28px-bi_symbol_white.png" decoding="async" width="28" height="30" srcset="/wikidata/images/thumb/3/3c/bi_symbol_white.png/42px-bi_symbol_white.png 1.5x, /wikidata/images/thumb/3/3c/bi_symbol_white.png/56px-bi_symbol_white.png 2x" data-file-width="621" data-file-height="662" /></a></div><div><b>Disclaimer: This page describes internal undocumented structures of <a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive">Bohemia Interactive</a> software.</b><br />
+<p>		This page contains unofficial information.
+</p>
+		Some usage of this information may constitute a violation of the rights of Bohemia Interactive and is in no way endorsed or recommended by Bohemia Interactive.<br />Bohemia Interactive is not willing to tolerate use of such tools if it contravenes any general licenses granted to end users of this community wiki or BI products.</div></div>
+<mw:tocplace></mw:tocplace>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<pre>The 8WVR.wrp file should be viewed as an intermediate file format and of little use to the community at large. 
+The reason being it is not editable in Visitor directly (it is the product of exporting a .pew file) and the format is
+in an <i>unoptimized</i> state for use in the Real Virtuality game engine.
+Note: Bohemia Interactive's .WRP is <b>unrelated</b> to 3D System's Geomagic .WRP file format.
+</pre>
+<p>A wrp file is the 'world map' for the given island. The simplicity of the requirements for the map are very neatly exposed in the structure below.
+</p><p>A 'world' is a square dimension divided into equidistant grids. Each Cell of the grid is a uniform 50 meter square of the map surface (be it land, or sea). The overall size of the map is a fixed-in-concrete dimension of the number of grids and their uniform cell size.
+</p><p>There are in fact only two components to a wrp.
+</p>
+<ul><li>A cell grid of textures (alias materials, alias RvMat files) that 'texture' the surface of the world with hills, sea, land.</li>
+<li>A contiguous list of 'objects' (alias 'models', alias p3dFiles) that are placed on the map independently of the cells with pine trees, houses, etc.</li></ul>
+<p>All that is required within each of cell are definitions of 
+</p>
+<ul><li>The mean elevation (above or below sea level) of it is texture,</li>
+<li>And, the texture for it is surface.</li></ul>
+<p>The textures themselves are height independent. Meaning the same 'sand' texture (eg) could be used at different 'elevations'. As such,
+the 'elevation' is clearly a mean, or average value, since chunks of cells don't suddenly jump 200 meters etc. Instead, the engine smooths the differences.
+</p><p>Naturally, and of course, the same 'texture' can be repeated in many cells, often with the same elevation (sea), and often not. Therefore, the wrp file 'cell' is an index to a list of rvmat files. This is a neat way of preventing repetitious structures.
+</p><p>Textures in arma can be very simple 'sea' or quite complex 'land terrain' and are represented in .rvmat files. Textures don't, of themselves, complicate the structure of a wrp file. 
+</p><p>Provisions exist to alter the map to
+</p>
+<ul><li>Non Square dimensions</li>
+<li>Separate grids for Textures versus Elevations.</li>
+<li>Something other than 50 meter cells.</li></ul>
+<p>Official BI maps have never used it. And I am unaware of any Oem map that does so.
+</p><p>The only other necessary component of a wrp file is to populate it with objects.
+Objects are models, and as such, any single model is represented by a p3d file. Naturally and of course, the same model (Pine tree) can be referred to multiple times. Each one is a unique Object from the perspective of the wrp file.
+P3d models can of course be quite complex, even to the point of being inter-active, eg opening doors, but again, of themselves, they do no complicate the structural arrangement of a wrp file.
+Objects are independent of the cell grid structure. They are placed on the map using their own dimensional space transform. For all the engine cares, the building could be upside down and buried 10 meters under the sea.
+</p><p>Unlike cell indexes however, each identical pine tree is listed separately, rather than simply have a table. There's no particular reason why a table (and indexes) were not used to conserve space, but done, it was not.
+</p><p>For the purposes of game play, and no other reason, each, identical pine tree has a unique 'ID' number. (as does every other object). A soldier is told to goto THAT pine tree (as opposed to any other). The IDvalue, while guaranteed to be unique, is highly arbitrary. Any alterations / additions / deletions to the map and it is objects will result in different numbers for some / most / all of the objects. This represents no problem with game commands using NearestObject() style functions that return the ID of relevance, but, missions relying on a specific building ID (eg) will mostly fail if the 'island' is revised. This has particular relevance to porting OFP islands into Arma.
+</p>
+<h2><span class="mw-headline" id="Legend">Legend</span></h2>
+<p>see <a href="/wiki/Generic_FileFormat_Data_Types" title="Generic FileFormat Data Types">Generic FileFormat Data Types</a>
+</p>
+<h2><span class="mw-headline" id="File_Format">File Format</span></h2>
+<dl><dd><dl><dd><dl><dd><ul><li>This file format is principally used with Armed Assault and a derivation of it was used for Elite.</li></ul></dd></dl></dd></dl></dd></dl>
+<h3><span class="mw-headline" id="WrpHeader">WrpHeader</span></h3>
+<pre>WrpHeader
+{
+  char    Filetype;        // "8WVR"
+  XYPair  TextureGridSize; // 256 x 256 eg
+  XYPair  TerrainGridSize; // ditto
+  float   CellSize;        // generally 50.0 meters
+}
+</pre>
+<p>This is a fairly traditional Header for all Wrp types (including "OPWRxx").
+</p>
+<ul><li>OFP Resistance first introduced the cell Grid dimensions  (formerly hardwired to 256 in Cwc).</li>
+<li>This, Arma format, simply adds a small wrinkle of a cellGrid Size. (Formerly set at 50 meters).</li></ul>
+<h3><span class="mw-headline" id="RvmatLayer">RvmatLayer</span></h3>
+<pre> RvmatLayer
+ {
+    ulong               nMaterials; // including the dummy index0 entry;
+    MaterialName  MaterialNames[nMaterials];
+ }
+</pre>
+<p>There is only one RvmatLayer for 8WVR. WBV9 has as many layers as a piece of string. The end of WBV9 layers is when NoOfMaterials=0
+</p>
+<h3><span class="mw-headline" id="MaterialName">MaterialName</span></h3>
+<pre>MaterialName
+{
+  ConcatStrings[...];// in practice only one
+}
+</pre>
+<pre> concatString
+ {
+   ulong BufferLength; // a 0 terminates the chain
+   char  Name[BufferLength];
+ };
+</pre>
+<ul><li>The first, entry (or 0th index) has no filename associated with it and hence nothing further</li></ul>
+<ul><li>The Material<b>Index</b> declares a specific rvmat file to use for each cell of the map. Thus, you should fully expect to see a lot of the same index value for 'sea' material, as it refers to one, common 'sea' rvmat.</li></ul>
+<ul><li>Note that this list of rvmat files while intended to only contain unique instances, does not. Occasionally, the very same rvmat file is listed more than once (with an obviously different index entry to each).</li>
+<li>BufferLengthh  this value is NOT a strlen. It is the number of bytes used to hold the rvmat filename. It sometimes may(WBV9), or may not (8WVR) be null terminated.</li></ul>
+<h3><span class="mw-headline" id="Object">Object</span></h3>
+<pre>   Object 
+   {
+     float  TransformMatrix[3][4]; // standard directX transform matrix
+     ulong  ObjectId;
+     String P3dFileName[Length];   // "ca\buildings\ryb_domek.p3d"
+   }
+</pre>
+<p>The 'TransformMatrix' for a given object is a standard 4 x 3 transform matrix which when decomposed determines the objects x,z,y position, scale &amp; orientation (NB: Special logic must be applied to decompose the orientation from a Matrix.).
+</p><p>Objects extend to end of file. There is no count as such.
+</p><p>There is at least one Object entry.
+</p><p>The last (or only) object entry is a dummy. There is ZERO length (and consequently no p3d file associated) for this dummy entry. (the other data content is that of the penultimate object, and ignored). The engine uses this fact to iterate thru the list of Objects when hunting down the ObjectID (par exemple). (end-of-file is a useless concept for the engine which has long since dispensed with file io and simply malloc'd this chunk into memory)
+</p><p>Note that unlike the cell-indexes which refer to a single unique rvmat file. There is no index-list of p3d files (but perhaps should be, because of the enormous quantity of repetitions silver oak pine trees etc).
+</p>
+<h2><span class="mw-headline" id="Changes">Changes</span></h2>
+<h3><span class="mw-headline" id="9VBW">9VBW</span></h3>
+<p>vbs 9VBW files exported from Visitor 4 are identical to 8WVR except that there can be multiple rvmat layers.
+</p><p><br />
+</p>
+<pre> 8WVR/9VBW 
+ {
+   WRPHeader     Header
+   float         Elevations   [TerrainGridSize.y][TerrainGridSize.x];
+   ushort        MaterialIndex[TextureGridSize.y][TextureGridSize.x]; //zero based index into MaterialNames
+   RvmatLayer    RvmatLayers[...];
+   Object        Objects[...];
+}
+</pre>
+<ul><li>The 'Elevations' array is Cartesian mapped. It extends from Bottom-Left to Top-Right in Visitor;</li></ul>
+<ul><li>The Objects extend to end of file. There is no count as such.</li>
+<li>There is always at least one Object entry.</li>
+<li>The last, (and possibly only) entry, has no p3d filename associated with it. This is the 'default' object specifying the 'center' of the map.</li></ul>
+<h3><span class="mw-headline" id="0WZD">0WZD</span></h3>
+<p>(above is a numeric zero)  
+WZD files exported from DayZ Terrain Builder are almost identical to 8WVR. The exceptions being they have no numeric format number (8WVR is type25). Nor 4 (arma) or 8 (dayz) byte Appid. 0WZD signals to the DayZ engine that the object IDs are generated by a version of DayZ Terrain Builder that exports with persistent object IDs.
+</p>
+<h2><span class="mw-headline" id="FilePaths">FilePaths</span></h2>
+<ul><li>Note that file paths are *always* hard - wired to the (virtual) PrefixRoot\ directory. Like ArmA P3d files, there is NO, relative addressing. See <a href="/wiki/P3D_File_Format_-_ODOLV40_Revised" class="mw-redirect" title="P3D File Format - ODOLV40 Revised">P3D file formats</a> for a description of the PrefixRoot\</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20260326005504
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.031 seconds
+Real time usage: 0.040 seconds
+Preprocessor visited node count: 387/1000000
+Post‐expand include size: 7215/20480000 bytes
+Template argument size: 4122/20480000 bytes
+Highest expansion depth: 20/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   27.128      1 -total
+ 76.49%   20.749      1 Template:Feature
+ 60.77%   16.487      1 Template:Messagebox/BI
+ 52.86%   14.340      1 Template:Messagebox
+ 32.95%    8.938      1 Template:Icon
+ 22.99%    6.236      1 Template:GameCategory
+ 19.21%    5.212      5 Template:Name
+ 11.76%    3.191      5 Template:Trim
+ 10.91%    2.961      1 Template:GameCategory/SortKey
+-->
+
+<!-- Saved in parser cache with key community:pcache:idhash:7679-0!canonical and timestamp 20260326005504 and revision id 376782.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://community.bistudio.com/wiki?title=Wrp_File_Format_-_8WVR&amp;oldid=376782">https://community.bistudio.com/wiki?title=Wrp_File_Format_-_8WVR&amp;oldid=376782</a>"</div></div>
+					<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></li><li><a href="/wiki/Category:ArmA:_Armed_Assault:_File_Formats" title="Category:ArmA: Armed Assault: File Formats">ArmA: Armed Assault: File Formats</a></li></ul></div></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 18 November 2025, at 03:47.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/wiki/Bohemia_Interactive_Community:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/Bohemia_Interactive_Community:About">About Bohemia Interactive Community</a></li>
+	<li id="footer-places-disclaimer"><a href="/wiki/Bohemia_Interactive_Community:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/wikidata/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wikidata/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wikidata/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+
+<script>
+		let bodies = document.getElementsByTagName('body');
+		if (bodies && bodies[0])
+		{
+			let divHeader = document.createElement('div');
+			divHeader.setAttribute('id', 'bohemia-header');
+			divHeader.innerHTML = '<div id="bohemia-header"><main-header v-bind:user-data="window.userData" login-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/login" logout-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/logout"></main-header></div>';
+
+
+			let body = bodies[0];
+			body.insertBefore(divHeader, body.firstChild);
+		}
+		</script>
+		<script async src="https://static.bistudio.com/bohemia/header/js/all.min.js"></script>
+			<script>
+					window.userData = null;
+			</script>
+			
+			<script>
+			   document.onreadystatechange = function () {
+				  if (document.readyState === 'complete') {
+					  var f = document.createElement('iframe');
+					  f.src = 'https://data.bistudio.com/pbp/index.php';
+					  f.width = '100%';
+					  f.height = 140;
+					  f.frameborder = 0;
+					  f.style.border = 0;
+					  f.scrolling = 'no';
+
+					  var c = document.getElementById('bohemia-promo');
+					  if (c)
+					    c.appendChild(f);
+				  }
+				}
+			</script>
+		
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.031","walltime":"0.040","ppvisitednodes":{"value":387,"limit":1000000},"postexpandincludesize":{"value":7215,"limit":20480000},"templateargumentsize":{"value":4122,"limit":20480000},"expansiondepth":{"value":20,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%   27.128      1 -total"," 76.49%   20.749      1 Template:Feature"," 60.77%   16.487      1 Template:Messagebox/BI"," 52.86%   14.340      1 Template:Messagebox"," 32.95%    8.938      1 Template:Icon"," 22.99%    6.236      1 Template:GameCategory"," 19.21%    5.212      5 Template:Name"," 11.76%    3.191      5 Template:Trim"," 10.91%    2.961      1 Template:GameCategory/SortKey"]},"cachereport":{"timestamp":"20260326005504","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":193});});</script>
+</body>
+</html>

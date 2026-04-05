@@ -105,12 +105,97 @@ if (player)
 
 ---
 
+## Local Resources
+
+**This skill has offline reference material. Read these BEFORE fetching online when the topic matches.**
+
+### BI Wiki — File Format Reference
+
+**Path:** `resources/docs/bistudio_wiki/`
+
+Offline copies of Bohemia Interactive wiki pages covering all Enfusion/Real Virtuality file formats. Read these when the user asks about binary formats, file specs, or data structures.
+
+| Topic | File | When to Read |
+|-------|------|--------------|
+| P3D MLOD format | `P3D_File_Format_MLOD.html` | Building/parsing unbinarized models |
+| P3D ODOL format | `P3D_File_Format_ODOLV4x.html` | Understanding binarized models |
+| P3D overview | `P3D_File_Formats.html` | General model format questions |
+| P3D named selections | `P3D_Named_Selections.html` | hiddenSelections, bone selections |
+| P3D LOD structure | `P3D_Lod_Faces.html`, `P3D_Lod_Edges.html`, `P3D_Lod_Sections.html`, `P3D_Lod_Proxies.html`, `P3D_Lod_Frames.html` | LOD internals |
+| P3D point/face flags | `P3D_Point_and_Face_Flags.html` | Vertex/face flag meanings |
+| P3D model info | `P3D_Model_Info.html` | Bounding boxes, mass, center of mass |
+| PAA texture format | `PAA_File_Format.html` | Texture format, DXT compression |
+| PBO archive format | `PBO_File_Format.html` | Addon packaging |
+| Rvmat material format | `Rvmat_File_Format.html` | Material definitions, shader params |
+| RTM animation format | `Rtm_Animation_File_Format.html`, `Rtm_Binarised_File_Format.html` | Animation data |
+| Config.cpp binary | `Config.cpp_bin_File_Format.html`, `CPP_File_Format.html` | Binarized config internals |
+| WRP terrain formats | `Wrp_File_Format_*.html` | Terrain/map data |
+| BIN format | `BIN_File_Formats.html` | Generic binary format overview |
+| Bimpas format | `Bimpas_File_Format.html` | Binarized rvmat |
+| Stringtable | `Stringtable.xml.html`, `Stringtable.csv.html` | Localization files |
+| squad.xml | `squad.xml.html` | Squad/unit definition |
+| texHeaders | `texHeaders.bin_File_Format.html` | Texture header format |
+| meta.cpp | `Arma_3_meta.cpp.html` | Workshop metadata |
+| Array operations | `Array+=.html` | Config array append syntax |
+| LZO/LZSS compression | `Compressed_LZO_File_Format.html`, `Compressed_LZSS_File_Format.html` | Data compression in PBOs/models |
+| Generic data types | `Generic_FileFormat_Data_Types.html` | Common binary data types |
+| FXY format | `FXY_File_Format.html` | Face/vertex data |
+| DSKeys | `DSKeys.html` | Server key signing |
+| Sound formats | `WSS_File_Format.html`, `Lip_File_Format.html`, `OGV_File_Format.html` | Audio/video |
+| Product.bin / mod.cpp | `Product.Bin_File_Format.html`, `Product.cpp_bin_File_Format.html`, `Mod.cpp_bin_File_Format.html` | Mod metadata formats |
+| PEW format | `PEW_File_Format.html` | Workbench project files |
+| Resource.cpp | `Resource.cpp_bin.html` | Resource config |
+
+### Working Mod Examples — Spurgurgle-DayZ
+
+**Path:** `resources/repos/Spurgurgle-DayZ/`
+
+Complete, working DayZ mod examples. **Read these as ground-truth references** when creating new items, clothing, vehicles, or containers. Each mod has full config.cpp, model.cfg (where needed), scripts, rvmats, and textures.
+
+| Mod | Type | Key Patterns Demonstrated |
+|-----|------|--------------------------|
+| `Spur_ClotheZ/` | **Clothing** | Clothing config (male/female/ground models), `ClothingTypes` block, `DayzTemporarySkeleton` in model.cfg, `hiddenSelections` (camoGround/camoMale/camoFemale), `DamageSystem` with `GlobalArmor`, `inventorySlot` Body, simple script extending `Clothing` |
+| `Spur_Hatchet/` | **Melee weapon** | `Inventory_Base` item, `MeleeModes` (Default/Heavy/Sprint), `isMeleeWeapon=1`, `lootCategory`/`lootTag`, `AnimEvents` with sound sets, melee ammo types |
+| `Spur_BeltBag/` | **Wearable container** | Small wearable item config, rvmat set (normal/damage/destruct), hiddenSelections with multiple color variants |
+| `Spur_RustyMetalBox/` | **Deployable container** | `Container_Base` with `Cargo`, `OpenableBehaviour`, `AnimationSources` (Lid), proxy attachments (`CfgNonAIVehicles`), custom `CfgSlots`, imageset for slot icons, custom actions (Open/Close), `RegisterNetSyncVariableBool`, `OnStoreSave`/`OnStoreLoad` persistence, `CanPutInCargo`/`CanReceiveItemIntoCargo` overrides, advanced placement |
+| `Source_Car/` | **Vehicle** | Full vehicle config (large), proxy parts (wheels, doors, hood, trunk), separate proxy model.cfg, vehicle lights (front/rear `SpotLightBase`), sounds config, camera setup |
+| `Spur_BillBoard/` | **Static object** | Simple static world object, model.cfg, multiple material selections |
+| `Spur_Shoulders/` | **Attachment item** | Simple attachment/accessory item |
+| `BeginnerBasics/` | **Starter template** | Minimal mod: retexture existing items via `hiddenSelectionsTextures`, basic script module setup |
+
+**How to use:** When creating a new mod item, read the most relevant example's `config.cpp`, `model.cfg`, and script files. Use the patterns — don't copy names or assets.
+
+### Official BI Assets — DayZ-Misc
+
+**Path:** `resources/repos/DayZ-Misc/`
+
+Official Bohemia Interactive repository with reference assets for modding.
+
+| Asset | Path | Use |
+|-------|------|-----|
+| Character rig FBX | `Rig and Animations/animation_rig_character.fbx` | 114-bone armature for clothing/item rigging. Note: FBX is in centimeters with origin near pelvis — scale to meters and reposition feet to Z=0 |
+| Male body mesh | `Body parts/character_male.p3d` | ODOL format. Authoritative weight reference (7499 verts, 111 bone groups) |
+| Female body mesh | `Body parts/character_female.p3d` | ODOL format |
+| Character proxies | `Character Proxies/character_proxies.p3d` | Attachment proxy positions |
+| Road parts | `Road Parts/Chernarus/`, `Road Parts/Livonia/`, `Road Parts/Sakhal/` | Map terrain road segments |
+| Water meshes | `Water/` | Lake/ice water surfaces |
+| Underwear test | `Rig and Animations/underwear_male_test.max` | BI's own clothing test (3dsMax format) |
+
+---
+
 ## Dynamic Fetching - Decision Tree
 
 ### Step 1: Classify the Request
 
 | If user asks about... | Action |
 |-----------------------|--------|
+| File format (P3D, PAA, PBO, rvmat, RTM, WRP, etc.) | **READ local BI wiki HTML** (see table above) |
+| Creating clothing, items, vehicles, containers | **READ local Spurgurgle examples** first, then fetch if needed |
+| Character rigging, skeleton, bone weights | **READ local DayZ-Misc** assets info + BI wiki P3D format |
+| Config.cpp structure for a specific item type | **READ matching Spurgurgle example** + fetch BI wiki if needed |
+| model.cfg / CfgModels / CfgSkeletons | **READ `Spur_ClotheZ/model.cfg`** as reference |
+| Proxy attachments / CfgNonAIVehicles / CfgSlots | **READ `Spur_RustyMetalBox/config.cpp`** as reference |
+| Vehicle config | **READ `Source_Car/config.cpp`** as reference |
 | Enforce Script class/method (EntityAI, PlayerBase, etc.) | **FETCH from DayZ Scripts API** |
 | Config.cpp tokens (CfgVehicles, CfgWeapons) | **FETCH from BI Wiki** |
 | Central Economy (types.xml, events.xml) | **FETCH from DayZ-Central-Economy repo** |

@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>PAA File Format - Bohemia Interactive Community</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"cf1ee2b21be913dac5b83767","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PAA_File_Format","wgTitle":"PAA File Format","wgCurRevisionId":373446,"wgRevisionId":373446,"wgArticleId":3635,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Real Virtuality File Formats"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"PAA_File_Format","wgRelevantArticleId":3635,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgVisualEditor":{"pageLanguageCode":"en",
+"pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"simpleBatchUploadMaxFilesPerBatch":{"*":1000},"wgVector2022PreviewPages":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgEditSubmitButtonLabelPublish":false};RLSTATE={"skins.vector.user.styles":"ready","site.styles":"ready","user.styles":"ready","skins.vector.user":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","mediawiki.ui.button":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","mediawiki.ui.icon":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.SQFHighlighter.styles":"ready","ext.EnforceScriptHighlighter.styles":"ready","ext.BIKIHelper.styles":"ready","ext.BIKISpoiler.styles":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","skins.vector.es6","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","mmv.head","mmv.bootstrap.autostart","ext.SQFHighlighter","ext.EnforceScriptHighlighter",
+"ext.BIKIHelper","ext.BIKISpoiler"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=ext.BIKIHelper.styles%7Cext.BIKISpoiler.styles%7Cext.EnforceScriptHighlighter.styles%7Cext.SQFHighlighter.styles%7Cext.pygments%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.ui.button%2Cicon%7Cskins.vector.icons%2Cstyles&amp;only=styles&amp;skin=vector-2022"/>
+<script async="" src="/wikidata/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/wikidata/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector-2022"/>
+<meta name="generator" content="MediaWiki 1.39.0"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0"/>
+<link rel="icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/wikidata/opensearch_desc.php" title="Bohemia Interactive Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://community.bistudio.com/wikidata/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Bohemia Interactive Community Atom feed" href="/wiki?title=Special:RecentChanges&amp;feed=atom"/>
+<link rel="canonical" href="https://community.bistudio.com/wiki/PAA_File_Format"/>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSR8FCP');</script>
+</head>
+<body class="skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-PAA_File_Format rootpage-PAA_File_Format skin-vector-2022 action-view skin--responsive vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled"><div class="mw-page-container">
+	<span id="top-page"></span>
+	<a class="mw-jump-link" href="#content">Jump to content</a>
+	<div class="mw-page-container-inner">
+		<input
+			type="checkbox"
+			id="mw-sidebar-checkbox"
+			class="mw-checkbox-hack-checkbox"
+			>
+		<header class="mw-header">
+			<div class="mw-header-aside">
+			<label
+				id="mw-sidebar-button"
+				class="mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet mw-ui-icon-element"
+				for="mw-sidebar-checkbox"
+				role="button"
+				aria-controls="mw-panel"
+				data-event-name="ui.sidebar"
+				tabindex="0"
+				title="Main menu">
+				<span>Toggle sidebar</span>
+			</label>
+			
+<a href="/wiki/Main_Page" class="mw-logo">
+	<span class="mw-logo-container">
+		<img class="mw-logo-wordmark" alt="Bohemia Interactive Community"
+			src="/wikidata/resources/assets/community-wiki_151x14.png" style="width: 9.4375em; height: 0.875em;">
+	</span>
+</a>
+
+			</div>
+			<div class="mw-header-content">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/wiki/Special:Search"
+	
+		
+		
+		
+		title="Search Bohemia Interactive Community [f]"
+		accesskey="f"
+		class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search search-toggle">
+		<span>Search</span>
+	</a>
+	
+	<div>
+		<form action="/wiki" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-moved">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Bohemia Interactive Community" aria-label="Search Bohemia Interactive Community" autocapitalize="none" title="Search Bohemia Interactive Community [f]" accesskey="f" id="searchInput"
+				>
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+			<nav class="vector-user-links" aria-label="Personal tools" role="navigation" >
+	
+
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet mw-portlet-vector-user-menu-overflow emptyPortlet vector-user-menu-overflow"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+	
+
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal emptyPortlet vector-user-menu vector-user-menu-logged-out vector-menu-dropdown"  title="More options" >
+	<input type="checkbox"
+		id="p-personal-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-personal"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-personal-label"
+		for="p-personal-checkbox"
+		class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"
+		
+	>
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		<div class="vector-user-menu-create-account"><a href="/wiki?title=Special:CreateAccount&amp;returnto=PAA+File+Format" class="vector-menu-content-item user-links-collapsible-item" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="mw-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></div>
+<div class="vector-user-menu-login"><a href="/wiki?title=Special:UserLogin&amp;returnto=PAA+File+Format" class="vector-menu-content-item vector-menu-content-item-login" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o"><span class="mw-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span></a></div>
+<div class="vector-user-menu-anon-editor">
+	<p>
+		Pages for logged out editors <a href="/wiki/Help:Introduction" aria-label="Learn more about editing"><span>learn more</span></a>
+	</p>
+</div>
+
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+</nav>
+
+			</div>
+		</header>
+		<div class="vector-sidebar-container ">
+			<div id="mw-navigation">
+				
+
+<nav id="mw-panel" class="mw-sidebar" aria-label="Site" role="navigation">
+	
+
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation vector-menu-portal portal"  >
+	<div
+		id="p-navigation-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Navigation</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage" class="mw-list-item"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main Page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-All-categories" class="mw-list-item"><a href="/wiki/Special:Categories"><span>All categories</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+	
+
+<div id="p-Contribute" class="vector-menu mw-portlet mw-portlet-Contribute vector-menu-portal portal"  >
+	<div
+		id="p-Contribute-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Contribute</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Getting-started" class="mw-list-item"><a href="/wiki/Getting_Started"><span>Getting started</span></a></li><li id="n-Formatting" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Formatting"><span>Formatting</span></a></li><li id="n-Guidelines" class="mw-list-item"><a href="/wiki/Bohemia_Interactive_Community:Guidelines"><span>Guidelines</span></a></li><li id="n-Wiki-Maintenance" class="mw-list-item"><a href="/wiki/Category:Maintenance"><span>Wiki Maintenance</span></a></li><li id="n-Templates" class="mw-list-item"><a href="/wiki/Category:Templates"><span>Templates</span></a></li><li id="n-Help" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Help:Contents#Welcome_to_MediaWiki.org_help_pages" title="The place to find out"><span>Help</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-Bohemia_Interactive" class="vector-menu mw-portlet mw-portlet-Bohemia_Interactive vector-menu-portal portal"  >
+	<div
+		id="p-Bohemia_Interactive-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Bohemia Interactive</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Arma-Platform" class="mw-list-item"><a href="https://www.armaplatform.com/" rel="nofollow"><span>Arma Platform</span></a></li><li id="n-DayZ.com" class="mw-list-item"><a href="https://www.dayz.com/" rel="nofollow"><span>DayZ.com</span></a></li><li id="n-Ylands.com" class="mw-list-item"><a href="https://ylands.com/" rel="nofollow"><span>Ylands.com</span></a></li><li id="n-Forums" class="mw-list-item"><a href="https://forums.bohemia.net/" rel="nofollow"><span>Forums</span></a></li><li id="n-Feedback" class="mw-list-item"><a href="https://feedback.bistudio.com/" rel="nofollow"><span>Feedback</span></a></li></ul>
+		<div class="after-portlet after-portlet-Bohemia_Interactive"><div id="bohemia-promo" style="margin: 1em auto 0 -10px"></div></div>
+	</div>
+</div>
+
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal"  >
+	<div
+		id="p-tb-label"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">Tools</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="/wiki/Special:WhatLinksHere/PAA_File_Format" title="A list of all wiki pages that link here [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/wiki/Special:RecentChangesLinked/PAA_File_Format" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/wiki?title=PAA_File_Format&amp;oldid=373446" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="/wiki?title=PAA_File_Format&amp;action=info" title="More information about this page"><span>Page information</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+</nav>
+
+			</div>
+		</div>
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+		<div class="mw-table-of-contents-container">
+			<div class="vector-sticky-toc-container mw-sticky-header-element">
+				<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
+	<div id="sidebar-toc-label" class="sidebar-toc-header">
+		<p class="sidebar-toc-title">
+		Contents
+		<button class="vector-toc-uncollapse-button">move to sidebar</button>
+		<button class="vector-toc-collapse-button">hide</button>
+		</p>
+	</div>
+	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="sidebar-toc-list-item sidebar-toc-level-1">
+			<a href="#top-page" class="sidebar-toc-link">
+				<div class="sidebar-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-PAC_files"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#PAC_files">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">1</span>PAC files</div>
+			</a>
+			
+			<ul id="toc-PAC_files-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-OFP_Demo_Files"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#OFP_Demo_Files">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2</span>OFP Demo Files</div>
+			</a>
+			
+			<ul id="toc-OFP_Demo_Files-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Main_Format"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Main_Format">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3</span>Main Format</div>
+			</a>
+			
+			<ul id="toc-Main_Format-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-TypeOfPaX_(optional)"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#TypeOfPaX_(optional)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4</span>TypeOfPaX (optional)</div>
+			</a>
+			
+			<ul id="toc-TypeOfPaX_(optional)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Taggs"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Taggs">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5</span>Taggs</div>
+			</a>
+			
+				<button aria-controls="toc-Taggs-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Taggs subsection
+				</button>
+			
+			<ul id="toc-Taggs-sublist" class="sidebar-toc-list">
+				<li id="toc-General"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#General">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.1</span>General</div>
+			</a>
+			
+			<ul id="toc-General-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-AVGCTAGG"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#AVGCTAGG">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.2</span>AVGCTAGG</div>
+			</a>
+			
+			<ul id="toc-AVGCTAGG-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-MAXCTAGG"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#MAXCTAGG">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.3</span>MAXCTAGG</div>
+			</a>
+			
+			<ul id="toc-MAXCTAGG-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-FLAGTAGG"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#FLAGTAGG">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.4</span>FLAGTAGG</div>
+			</a>
+			
+			<ul id="toc-FLAGTAGG-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-SWIZTAGG"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#SWIZTAGG">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.5</span>SWIZTAGG</div>
+			</a>
+			
+			<ul id="toc-SWIZTAGG-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-PROCTAGG"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#PROCTAGG">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.6</span>PROCTAGG</div>
+			</a>
+			
+			<ul id="toc-PROCTAGG-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-OFFSTAGG"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#OFFSTAGG">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">5.7</span>OFFSTAGG</div>
+			</a>
+			
+			<ul id="toc-OFFSTAGG-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Palette"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Palette">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">6</span>Palette</div>
+			</a>
+			
+			<ul id="toc-Palette-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Mipmap"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Mipmap">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">7</span>Mipmap</div>
+			</a>
+			
+			<ul id="toc-Mipmap-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Compression"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Compression">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">8</span>Compression</div>
+			</a>
+			
+				<button aria-controls="toc-Compression-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Compression subsection
+				</button>
+			
+			<ul id="toc-Compression-sublist" class="sidebar-toc-list">
+				<li id="toc-Before_Arma_2"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Before_Arma_2">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">8.1</span>Before Arma 2</div>
+			</a>
+			
+			<ul id="toc-Before_Arma_2-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-After_Arma_2"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#After_Arma_2">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">8.2</span>After Arma 2</div>
+			</a>
+			
+			<ul id="toc-After_Arma_2-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Index_Palette_Compression"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Index_Palette_Compression">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">8.3</span>Index Palette Compression</div>
+			</a>
+			
+			<ul id="toc-Index_Palette_Compression-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Addenda"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Addenda">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">9</span>Addenda</div>
+			</a>
+			
+				<button aria-controls="toc-Addenda-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle">
+					Toggle Addenda subsection
+				</button>
+			
+			<ul id="toc-Addenda-sublist" class="sidebar-toc-list">
+				<li id="toc-Decompression_Code"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Decompression_Code">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">9.1</span>Decompression Code</div>
+			</a>
+			
+			<ul id="toc-Decompression_Code-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-HexDump"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#HexDump">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">9.2</span>HexDump</div>
+			</a>
+			
+			<ul id="toc-HexDump-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Alpha_channel_interpolation"
+			class="sidebar-toc-list-item sidebar-toc-level-2">
+			<a class="sidebar-toc-link" href="#Alpha_channel_interpolation">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">9.3</span>Alpha channel interpolation</div>
+			</a>
+			
+			<ul id="toc-Alpha_channel_interpolation-sublist" class="sidebar-toc-list">
+				<li id="toc-FLAGTAGG_=_1,_interpolated_alpha_channel_(default_behaviour)"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#FLAGTAGG_=_1,_interpolated_alpha_channel_(default_behaviour)">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">9.3.1</span>FLAGTAGG = 1, interpolated alpha channel (default behaviour)</div>
+			</a>
+			
+			<ul id="toc-FLAGTAGG_=_1,_interpolated_alpha_channel_(default_behaviour)-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-FLAGTAGG_=_2,_alpha_channel_interpolation_disabled"
+			class="sidebar-toc-list-item sidebar-toc-level-3">
+			<a class="sidebar-toc-link" href="#FLAGTAGG_=_2,_alpha_channel_interpolation_disabled">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">9.3.2</span>FLAGTAGG = 2, alpha channel interpolation disabled</div>
+			</a>
+			
+			<ul id="toc-FLAGTAGG_=_2,_alpha_channel_interpolation_disabled-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+		</li>
+	</ul>
+		</li>
+		<li id="toc-Bibliography"
+			class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="#Bibliography">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">10</span>Bibliography</div>
+			</a>
+			
+			<ul id="toc-Bibliography-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				<header class="mw-body-header">
+				
+				
+					<label
+						id="vector-toc-collapsed-button"
+						class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet mw-checkbox-hack-button"
+						for="vector-toc-collapsed-checkbox"
+						role="button"
+						aria-controls="toc-toggle-list"
+						data-event-name="vector.toc-toggle-list"
+						tabindex="0"
+						title="Table of Contents">
+						Toggle the table of contents
+					</label>
+				    <h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">PAA File Format</span></h1>
+				</header>
+				<nav class="vector-article-toolbar" aria-label="Tools"
+					role="navigation">
+					<div class="mw-article-toolbar-container">
+						<div id="left-navigation">
+							
+
+<div id="p-associated-pages" class="vector-menu mw-portlet mw-portlet-associated-pages vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="/wiki/PAA_File_Format" title="View the content page [c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="mw-list-item"><a href="/wiki/Talk:PAA_File_Format" rel="discussion" title="Discussion about the content page [t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-label="Change language variant"
+		
+	/>
+	<label
+		id="p-variants-label"
+		for="p-variants-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+						</div>
+						<div id="right-navigation" class="vector-collapsible ">
+							
+
+<div id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="/wiki/PAA_File_Format"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/wiki?title=PAA_File_Format&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/wiki?title=PAA_File_Format&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-has-collapsible-items"  title="More options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		
+		
+	/>
+	<label
+		id="p-cactions-label"
+		for="p-cactions-checkbox"
+		class="vector-menu-heading "
+		
+	>
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="/wiki/PAA_File_Format"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=PAA_File_Format&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="/wiki?title=PAA_File_Format&amp;action=history"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+						</div>
+					</div>
+				</nav>
+				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+					<div class="mw-body-subheader">
+					        <div class="mw-indicators">
+        </div>
+
+					    <div id="siteSub" class="noprint">From Bohemia Interactive Community</div>
+					</div>
+					<div id="contentSub"><div id="biki-top-categories">Category: <a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="biki-messagebox messagebox-bi"><div><a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive"><img alt="bi symbol white.png" src="/wikidata/images/thumb/3/3c/bi_symbol_white.png/28px-bi_symbol_white.png" decoding="async" width="28" height="30" srcset="/wikidata/images/thumb/3/3c/bi_symbol_white.png/42px-bi_symbol_white.png 1.5x, /wikidata/images/thumb/3/3c/bi_symbol_white.png/56px-bi_symbol_white.png 2x" data-file-width="621" data-file-height="662" /></a></div><div><b>Disclaimer: This page describes internal undocumented structures of <a href="/wiki/Bohemia_Interactive" title="Bohemia Interactive">Bohemia Interactive</a> software.</b><br />
+<p>		This page contains unofficial information.
+</p>
+		Some usage of this information may constitute a violation of the rights of Bohemia Interactive and is in no way endorsed or recommended by Bohemia Interactive.<br />Bohemia Interactive is not willing to tolerate use of such tools if it contravenes any general licenses granted to end users of this community wiki or BI products.</div></div>
+<div class=""><div class="toc-side"><mw:tocplace></mw:tocplace></div></div>
+<p>Of the many image file formats out there, such as jpeg, or gif, Bohemia Interactive choose to use a specially developed file format (paa) as the base texture file for all engine types.
+</p><p>The reason for this is the raw data within the file contain mipmaps which be passed directly to Microsoft's DirectX as a DXT1 picture (e.g) without further processing.
+</p><p>All engines except Elite also support JPG files (but they have no transparency). Most of encoded mipmap formats in pax files do.
+</p>
+<h3><span class="mw-headline" id="PAC_files">PAC files</span></h3>
+<p><var>.pac</var> files are (almost) synonomous with <var>.paa</var>.
+In the origins of Operation Flashpoint, <var>.paa</var> were meant to be two tone colors (black &amp; white or grayscale) and <var>.pa<b>c</b></var> = colour.
+</p><p>The distinction does not exist. All engines treat pac or paa equally. They are referred to as paX files in the rest of this document.
+</p><p>Note however that Arma 2's TGAviewer *cannot* read a palette index <var>.paa</var> extension. only <var>.pac</var> extensions (the contents can be identical).
+</p>
+<h3><span class="mw-headline" id="OFP_Demo_Files">OFP Demo Files</span></h3>
+<p>The initial 'proof of concept' for Operation Flashpoint released in 1997, was a demonstration of an island with models and textures.
+</p><p>These pax files can still be read by tgaviewer! (and pal2pace)
+</p><p>The *only* difference between these, and subsequent pax files is that the index pallet appears at beginning of file. In other words
+</p>
+<ul><li>There is NO header type, Pallet index is assumed.</li>
+<li>There are NO taggs.</li>
+<li>Other than this, demo files are 100% identical to OFP's Pallet index including the use of run length compression.</li></ul>
+<h3><span class="mw-headline" id="Main_Format">Main Format</span></h3>
+<p>Overall structure of a pax file is
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">overall</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">ushort</span><span class="w">		</span><span class="n">TypeOfPaX</span><span class="p">;</span><span class="w">	</span><span class="c1">// OPTIONAL</span>
+<span class="w">	</span><span class="n">Tagg</span><span class="w">		</span><span class="n">Taggs</span><span class="p">[...];</span><span class="w">	</span><span class="c1">// OPTIONAL</span>
+<span class="w">	</span><span class="n">Palette</span><span class="w">		</span><span class="n">Palette</span><span class="p">[...];</span><span class="w"></span>
+<span class="w">	</span><span class="n">MipMap</span><span class="w">		</span><span class="n">MipMaps</span><span class="p">[...];</span><span class="w"></span>
+<span class="w">	</span><span class="n">ushort</span><span class="w">		</span><span class="n">Always0</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+<p><br />
+</p>
+<h2><span id="TypeOfPaX_.28optional.29"></span><span class="mw-headline" id="TypeOfPaX_(optional)">TypeOfPaX (optional)</span></h2>
+<p>With the sole exception of OFP index palettes and demo, all paX files begin with a 2 byte 'type' signature.
+OFP index palettes have <i>no</i> type, they begin with tagg structures immediately. demo files have neither, and begin with the index pallet.
+</p>
+<table class="wikitable align-center">
+<tbody><tr>
+<th rowspan="2">PaX Type
+</th>
+<th colspan="6">Game
+</th></tr>
+<tr>
+<th>OFP<br />Demo
+</th>
+<th><span class="gvi2 gvi-ofp"><span class="icon"><a href="/wiki/Category:Introduced_with_Operation_Flashpoint_version_1.00" title="Category:Introduced with Operation Flashpoint version 1.00"><img alt="Logo A0.png" src="/wikidata/images/thumb/0/04/Logo_A0.png/30px-Logo_A0.png" decoding="async" width="30" height="15" srcset="/wikidata/images/thumb/0/04/Logo_A0.png/45px-Logo_A0.png 1.5x, /wikidata/images/thumb/0/04/Logo_A0.png/60px-Logo_A0.png 2x" data-file-width="400" data-file-height="200" /></a></span><span class="version"><a href="/wiki/Category:Introduced_with_Operation_Flashpoint_version_1.00" title="Category:Introduced with Operation Flashpoint version 1.00"> 1.00</a></span></span>
+</th>
+<th><span class="gvi2 gvi-arma1"><span class="icon"><a href="/wiki/Category:Introduced_with_Armed_Assault_version_1.00" title="Category:Introduced with Armed Assault version 1.00"><img alt="Logo A1 black.png" src="/wikidata/images/thumb/e/ef/Logo_A1_black.png/30px-Logo_A1_black.png" decoding="async" width="30" height="15" srcset="/wikidata/images/thumb/e/ef/Logo_A1_black.png/45px-Logo_A1_black.png 1.5x, /wikidata/images/thumb/e/ef/Logo_A1_black.png/60px-Logo_A1_black.png 2x" data-file-width="400" data-file-height="200" /></a></span><span class="version"><a href="/wiki/Category:Introduced_with_Armed_Assault_version_1.00" title="Category:Introduced with Armed Assault version 1.00"> 1.00</a></span></span>
+</th>
+<th><span class="gvi2 gvi-arma2"><span class="icon"><a href="/wiki/Category:Introduced_with_Arma_2_version_1.00" title="Category:Introduced with Arma 2 version 1.00"><img alt="Logo A2.png" src="/wikidata/images/thumb/9/97/Logo_A2.png/30px-Logo_A2.png" decoding="async" width="30" height="15" srcset="/wikidata/images/thumb/9/97/Logo_A2.png/45px-Logo_A2.png 1.5x, /wikidata/images/thumb/9/97/Logo_A2.png/60px-Logo_A2.png 2x" data-file-width="400" data-file-height="200" /></a></span><span class="version"><a href="/wiki/Category:Introduced_with_Arma_2_version_1.00" title="Category:Introduced with Arma 2 version 1.00"> 1.00</a></span></span>
+</th>
+<th>Oxygen&#160;2
+</th></tr>
+<tr>
+<td>0xFF01 DXT1
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0xFF02 DXT2
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0xFF03 DXT3
+</td>
+<td colspan="6" style="text-align: center"><img alt="Unknown" src="/wikidata/images/5/5e/Ico_unknown.png" decoding="async" title="Unknown" width="24" height="24" data-file-width="24" data-file-height="24" />
+</td></tr>
+<tr>
+<td>0xFF04 DXT4
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0xFF05 DXT5
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0x4444 RGBA 4:4:4:4
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0x1555 RGBA 5:5:5:1
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0x8888 RGBA 8:8:8:8
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr>
+<tr>
+<td>0x8080 GRAY w Alpha
+</td>
+<td><img alt="Unchecked" src="/wikidata/images/thumb/f/f6/Ico_none.png/24px-Ico_none.png" decoding="async" title="Unchecked" width="24" height="24" srcset="/wikidata/images/f/f6/Ico_none.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td>
+<td><img alt="Checked" src="/wikidata/images/thumb/c/c0/Ico_ok.png/24px-Ico_ok.png" decoding="async" title="Checked" width="24" height="24" srcset="/wikidata/images/c/c0/Ico_ok.png 1.5x" data-file-width="32" data-file-height="32" />
+</td></tr></tbody></table>
+<p>'<b>Index Pallets only occur in Operation Flashpoint and demo</b> Later versions of TGAViewer still 'understand' them IF and only IF they have .pac extensions. Under this circumstance they are translated as ARGB8888 (and saved as such)
+</p><p>Note that information on DXT formats can be found at <a rel="nofollow" class="external free" href="https://www.khronos.org/opengl/wiki/S3_Texture_Compression">https://www.khronos.org/opengl/wiki/S3_Texture_Compression</a>.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Taggs">Taggs</span></h2>
+<p>Taggs do not exist for demo pax files.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Tagg</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="n">signature</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w">	</span><span class="c1">// always &quot;GGAT&quot;</span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="n">name</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w">		</span><span class="c1">// name of the tagg in reversed order (for example: &quot;CGVA&quot;)</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">dataLen</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">byte</span><span class="w">	</span><span class="n">data</span><span class="p">[</span><span class="n">dataLen</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>Taggs are read until no "GGAT" signature is encountered. Palette structure follows.
+</p>
+<h3><span class="mw-headline" id="General">General</span></h3>
+<p>Structurally, all TAGG's are optional and can occur multiple times. In practice:
+</p>
+<ul><li>At least one TAGG exists for ALL types, including index palettes.</li>
+<li>Any TAGG if it occurs, only occurs, once.</li>
+<li>TAGG order of presentation is</li></ul>
+<pre>AVG		// always first
+MAX		// always 2nd etc...
+FLAG
+SWIZ or PROC (not seen together)
+OFFS	// always last
+</pre>
+<ul><li>ALL TAGG's begin with an AVG with the sole exception of *some* GREY .paX's</li>
+<li>MAX is almost follows an AVG</li>
+<li>FLAG, PROC, and SWIZ are entirely optional. They may or may not occur.</li>
+<li>PROC if present is only used in DXT1 types</li>
+<li>OFP Palette Indexes ONLY have an AVG</li>
+<li>OFFS is almost always present (if not, the engine builds it as required, when required, anyway)</li></ul>
+<h3><span class="mw-headline" id="AVGCTAGG">AVGCTAGG</span></h3>
+<p>Average Colour
+</p>
+<ul><li>This tag contains average color of texture, probably used in rendering the 8:8 Grey &amp; alpha textures.</li>
+<li>Always present, and always first in list with the sole exception of *some* GRAY .paX's</li></ul>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">  </span><span class="s">&quot;GGATCGVA&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ulong</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w">	</span><span class="c1">// 4 bytes</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w"> </span><span class="n">RGBA</span><span class="p">;</span><span class="w">	</span><span class="c1">// FF443D39</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<h3><span class="mw-headline" id="MAXCTAGG">MAXCTAGG</span></h3>
+<p>Generally always present. Always follows immediately after an AVG
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="s">&quot;GGATCXAM&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">len</span><span class="p">;</span><span class="w">	</span><span class="c1">// 4 bytes</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">data</span><span class="p">;</span><span class="w">	</span><span class="c1">// FFFFFFFFF no other value seen so far</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>Contains color of brightest pixel in texture?
+</p>
+<h3><span class="mw-headline" id="FLAGTAGG">FLAGTAGG</span></h3>
+<p>Optional, but will always occur immediately after a MAXC when present
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="s">&quot;GGATGALF&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">len</span><span class="p">;</span><span class="w">	</span><span class="c1">// 4 bytes</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">range</span><span class="p">;</span><span class="w">	</span><span class="c1">// 0 to 2</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>Marks if texture contains transparency. Value 1 means basic transparency, 2 means alpha channel is not interpolated.
+This flag should be always present in LOD textures with 1-bit alpha with value of 2 or there will be "ghost outlines" on LOD textures when viewed from distance.
+Note that this flag must be present in texture file when binarizing model, because Binarize stores information about how to render textures in actual P3D file.
+</p>
+<h3><span class="mw-headline" id="SWIZTAGG">SWIZTAGG</span></h3>
+<p>Optional
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="s">&quot;GGATZIWS&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">len</span><span class="p">;</span><span class="w">	</span><span class="c1">// 4 bytes</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">data</span><span class="p">;</span><span class="w">	</span><span class="c1">// 0x05040203</span>
+<span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>Swizzle is apparently used to modify texture components processing like swizzle modifiers in pixel shaders.
+For example ArmA's sky texture has green channel stored in alpha channel and inversed to take advantage from feature that in DXT5 64 bits are used for alpha channel in each block and 64 bits for RBG, giving double the accuracy to green channel as opposed to storing texture just normally.
+</p><p>Exact format of swizzle data is still unknown.
+swizzle data:
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">channelSwizzleA</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">channelSwizzleR</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">channelSwizzleG</span><span class="p">;</span><span class="w"></span>
+<span class="kt">char</span><span class="w"> </span><span class="n">channelSwizzleB</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+<p>format of swizzle char:
+</p>
+<pre>bits 7-4 = 0;
+bit 3 - "1" flag. All channel data must be set to 0xff;
+bit 2 - "negate flag". Channel data must be negated.
+bit 1-0 - number of color channel:
+00 - Alpha channel
+01 - Red channel
+10 - Green channel
+11 - Blue channel
+</pre>
+<p>for example (*_nohq.paa textures)
+</p><p>swizzle data is:
+</p>
+<pre>0x05 - Alpha, Negated, stored in Red;
+0x04 - Red, Negated, stored in Alpha;
+0x02 - Green, Stored as is;
+0x03 - Blue, Stored as is;
+</pre>
+<h3><span class="mw-headline" id="PROCTAGG">PROCTAGG</span></h3>
+<p>Only ever seen with some DXT1 types
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="s">&quot;GGATCORP&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ulong</span><span class="w">	</span><span class="n">len</span><span class="p">;</span><span class="w">	</span><span class="c1">//  strlen(text)</span>
+<span class="w">	</span><span class="kt">char</span><span class="w">	</span><span class="n">text</span><span class="w">	</span><span class="c1">// NOT ASCIIz</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>this is a non asciiz string (not zero terminated)
+</p><p>Example:
+</p>
+<pre>x = (u + 1) * 0.5;
+y = (v + 1) * 0.5;
+
+if (y &lt; 0.5) then
+{
+	sharpOut = 20;
+	sharpIn = 60;
+
+	offset = x - 0.5;
+	if (offset &lt; 0) then
+	{
+		edge = (1 + offset)^sharpOut;
+	}
+	else
+	{
+		edge = (1 - offset)^sharpIn;
+	};
+
+	res = edge * y * 2;
+}
+else
+{
+	sharpOut = 20 - 40 * (y - 0.5);
+	sharpIn = 60 - 125 * (y - 0.5);
+
+	offset = x - 0.5;
+	if (offset &lt; 0) then
+	{
+		edge = (1 + offset)^sharpOut;
+	}
+	else
+	{
+		edge = (1 - offset)^sharpIn;
+	};
+
+	res = edge;
+	sdCoef = y * 2 - 1;
+	shoreDisappear = 1 - sdCoef^2;
+	res = res * shoreDisappear;
+};
+
+a = 1;
+r = res;
+g = res;
+b = res;
+</pre>
+<h3><span class="mw-headline" id="OFFSTAGG">OFFSTAGG</span></h3>
+<p>Almost always present
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="kt">char</span><span class="w">  </span><span class="s">&quot;GGATSFFO&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">ulong</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w">			</span><span class="c1">// 16 * sizeof(ulong)</span>
+<span class="w">	</span><span class="n">ulong</span><span class="w"> </span><span class="n">offsets</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>Example:
+</p>
+<pre>= 6 entries. last 10 unused
+256 x 128	Size = 16384
+128 x 64	Size = 4096
+64 x 32	Size = 1024
+32 x 16	Size = 256
+16 x 8		Size = 64
+8 x 4		Size = 16
+</pre>
+<p>MipMap data is presented in 'blocks'. One or more 'blocks' exist in a pax file.
+</p><p>This tag declares where each of these blocks are in the file, relative to start of file.
+</p><p>The location of each block is already known, relative to the size of the previous block (if any). So, although almost always present in pax files, it is use, is redundant.
+</p><p>This tag always contains 16 ULONG offsets. Each one is a hard offset to actual mipmap data relative to start of file.
+</p><p>Not all entries are used (obviously) since most pax files contain less than 16 mipmaps. Unused offsets contain the value 0x00000000.
+There are no known examples of splattered offset entries. All offsets after the first 0 entry are 0 as well.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Palette">Palette</span></h2>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Palette</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">ushort</span><span class="w">	</span><span class="n">nPaletteTriplets</span><span class="p">;</span><span class="w">					</span><span class="c1">// always 0 except for index palette type</span>
+<span class="w">	</span><span class="n">bytes</span><span class="w">	</span><span class="n">BGR_Palette</span><span class="p">[</span><span class="n">nPaletteTriplets</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span><span class="w">	</span><span class="c1">// only exists if nPaletteTriplets &gt; 0</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>palette triplets when they exist, consist of <b>BGR</b> values. Note the reversal from the expected order.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Mipmap">Mipmap</span></h2>
+<p>Mipmaps are in contiguous blocks that extend to end of file.
+</p><p>There is nothing strange about Mipmaps. Each mipmap is simply a rectangular texture (almost always square) and each one conforms to 2^n dimensions.
+</p><p>Each mipmap defines increasingly poorer resolution. The highest (first) mimpap is THE texture, each successively smaller one is one quarter the size.
+It progresses in smallness down to a minimum of 2 x any other 2^n or, any other 2^n x 2. For a square texture, this is simply a 2 x 2 matrix.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">Mipmap</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">ushort</span><span class="w">	</span><span class="n">width</span><span class="p">;</span><span class="w">		</span><span class="c1">// width of this mipmap</span>
+<span class="w">	</span><span class="n">ushort</span><span class="w">	</span><span class="n">height</span><span class="p">;</span><span class="w">		</span><span class="c1">// height of this mipmap</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">INDEX</span><span class="w"> </span><span class="n">PALLETE</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x4D2</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x223D</span><span class="p">)</span><span class="w"> </span><span class="c1">// special 1234 x 8765 signature</span>
+<span class="w">		</span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">ushort</span><span class="w">	</span><span class="n">width</span><span class="p">;</span><span class="w">		</span><span class="c1">// actual width</span>
+<span class="w">			</span><span class="n">ushort</span><span class="w">	</span><span class="n">height</span><span class="p">;</span><span class="w">		</span><span class="c1">// actual height</span>
+<span class="w">			</span><span class="c1">// use -signed- lzss compression for this block (introduced for for resistance pax files.</span>
+<span class="w">		</span><span class="p">}</span><span class="w"></span>
+<span class="w">		</span><span class="c1">//  else use runlength Compression for this block // used by demo and cwc pax files</span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"></span>
+<span class="w">	</span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">byte</span><span class="w">	</span><span class="n">size</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">	</span><span class="c1">// size of texture data in file. this is 24-bit unsigned integer.</span>
+<span class="w">		</span><span class="n">byte</span><span class="w">	</span><span class="n">data</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w">	</span><span class="c1">// actual texture data compressed or otherwise</span>
+<span class="w">	</span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+<p>The last mipmap is a dummy consisting of zero width and height with NO FURTHER DATA
+</p><p>The size triplet reflects the size of <b>compressed</b> data in the file <b>not</b> necessarily the actual size of the data.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Compression">Compression</span></h2>
+<p><b>ALL</b> non DXT signatures are unconditionally compressed using <b>signed</b> LZSS. Index Pallets use this too, OR, runlength encoding.
+</p><p>There are two wrinkles to LZSS compression not encountered in other uses of the same algorithm (pbo, p3d, wrp eg).
+</p><p><br />
+</p>
+<ul><li>The &gt;1024 rule does not apply. ALL data is compressed. The end result is the smaller box sizes are most often larger on disk.</li>
+<li>The checksum following the data (all data sizes are actually -4 their 'real' length) is SIGNED addititive. All other lzss checksums used elsewhere in bis are UNsigned additive.</li></ul>
+<p><br />
+Example:
+</p>
+<pre>Type: RGBA 4:4:4:4 texture
+AVGC: F5A9A9AB
+256 x  128 Real Size 65536. Size in file  11770
+128 x   64 Real Size 16384. Size in file   3521
+ 64 x   32 Real Size  4096. Size in file   1148
+ 32 x   16 Real Size  1024. Size in file    407
+ 16 x    8 Real Size   256. Size in file    169
+  8 x    4 Real Size    64. Size in file     57
+  4 x    2 Real Size    16. Size in file     22 &lt;&lt;&lt;&lt;&lt;
+</pre>
+<p>the result of decompression of any type (lzo, lzss or runlength is <b>encoded</b> data. The encoding is, perhaps obviously,dependent on the paxType:
+</p><p><br />
+<b>encoded</b> sizes are a further means of compression.
+</p>
+<ul><li>width x height  is the number of pixels to display. Since all output to a screen is ultimately expressed as RGBA 4 byte integers.</li>
+<li>width x height x 4 is the size of the ultimate output IN BYTES.</li></ul>
+<p>Not so the <b>encoded</b> array.
+</p>
+<ul><li>INDEX		width * height		// each byte is an index to a color table</li>
+<li>DXT1		width * height / 2	// 1 nibble per pixel</li>
+<li>DXT2		width * height		// not used</li>
+<li>DXT3		width * height		// not used</li>
+<li>DXT4		width * height		// not used</li>
+<li>DXT5		width * height		// one byte per pixel</li></ul>
+<ul><li>RGB4444	width * height * 2	// 4 nibbles per color</li>
+<li>RGB5551	width * height * 2	// ditto</li>
+<li>RGB565	width * height * 2	// ditto (not used)</li>
+<li>GREY		width * height * 2	// one byte alpha, one byte 'grey'</li>
+<li>RGB8888	width * height * 4	// straight rgba output (un-encoded)</li></ul>
+<h3><span class="mw-headline" id="Before_Arma_2">Before Arma 2</span></h3>
+<p>DXT textures are stored "as is" in the file. Therefore the DXT data could be directly passed to the graphic hardware.
+For software decoding of DXT textures see <a rel="nofollow" class="external text" href="http://code.google.com/p/libsquish/">DXTn compress/decompress</a>
+</p>
+<h3><span class="mw-headline" id="After_Arma_2">After Arma 2</span></h3>
+<p>DXT formats are <b>potentially</b> compressed.
+</p><p>(All other formats remain the same with unconditional <b>lzss</b> compression)
+</p><p>Arma 2 introduces <b>LZO</b> compression for DXT. The criteria for DXT-LZO compression is having the top bit of the width paramater set.
+</p><p>Note that under this circumstance, the width bit must be masked before any size calculations
+</p><p>This bit is set when size on disk for dxt formats&#160;!= expected size . (See above table). It is either a 'safety bit' for the unusual circumstance of size being same, or, simply a flag to indicate lzo compression.
+</p><p>Either way, there are (currently) no known instances of dxt compression where sizes are same, and quite obviously, all unequal sizes must, by defintion, be lzo compresssed.
+</p><p>Note also, that this is, truly, conditional compression. Only larger dimensions (256x256) eg are treated in this manner. Lesser value mipmaps in the same pax file, remain un altered.
+</p>
+<h3><span class="mw-headline" id="Index_Palette_Compression">Index Palette Compression</span></h3>
+<p>If the file doesn't start with a known PaX type the data array of the mipmaps contain the indices to the color palette (which appears just before mipmaps and only for palette type).
+</p><p><b>TWO</b> (2) types of compression are in force determined by the special structure of index pallette mipmaps (see above)
+</p>
+<ul><li>Standard LZSS.</li></ul>
+<p>if the signature for width and height IS 1234 x 8765 then standard lzss compression is used, using, the next four bytes as width and height.
+</p><p>otherwise:
+</p><p>A very basic "compression", which even can make the data slightly bigger, is used. The data is split into blocks of the following structure:
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">block</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">byte</span><span class="w"> </span><span class="n">flag</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">byte</span><span class="w"> </span><span class="n">data</span><span class="p">[...];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>The flag can be of two different types. If the most significant bit of flag is zero, it tells you how much bytes to read.
+If flag is 0x05 for example you have to read 6 bytes (always one more then the value of flag).
+</p><p>If the most significant bit of flag is one it tells you how often the next byte is repeated.
+If flag is 0x82 for example the value after the flag byte is repeated 3 times (always one more than (flagvalue - 0x80)).
+</p><p>Note that with this, special, compression, there is no checksum.
+</p><p>Index palette Mipmaps can have mixtures of both types.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Addenda">Addenda</span></h2>
+<h3><span class="mw-headline" id="Decompression_Code">Decompression Code</span></h3>
+<p>see <a href="/wiki/Compressed_LZSS_File_Format" title="Compressed LZSS File Format">Compressed LZSS File Format</a>
+</p>
+<h3><span class="mw-headline" id="HexDump">HexDump</span></h3>
+<p>The 0x4747 format mentioned in this picture indicates index palette format, because 0x4747 is the "GG" of "GGAT" signature.
+</p><p><a href="/wiki/File:Paacformat.gif" class="image"><img alt="Paacformat.gif" src="/wikidata/images/1/1f/Paacformat.gif" decoding="async" width="621" height="509" data-file-width="621" data-file-height="509" /></a>
+</p>
+<h3><span class="mw-headline" id="Alpha_channel_interpolation">Alpha channel interpolation</span></h3>
+<p>These two images visualize difference between alpha channel interpolation (FLAGTAGG header tag value).
+</p>
+<h4><span id="FLAGTAGG_.3D_1.2C_interpolated_alpha_channel_.28default_behaviour.29"></span><span class="mw-headline" id="FLAGTAGG_=_1,_interpolated_alpha_channel_(default_behaviour)">FLAGTAGG = 1, interpolated alpha channel (default behaviour)</span></h4>
+<p><a href="/wiki/File:paa_alpha_channel_default.jpg" class="image"><img alt="paa alpha channel default.jpg" src="/wikidata/images/d/da/paa_alpha_channel_default.jpg" decoding="async" width="800" height="600" data-file-width="800" data-file-height="600" /></a>
+</p>
+<h4><span id="FLAGTAGG_.3D_2.2C_alpha_channel_interpolation_disabled"></span><span class="mw-headline" id="FLAGTAGG_=_2,_alpha_channel_interpolation_disabled">FLAGTAGG = 2, alpha channel interpolation disabled</span></h4>
+<p><a href="/wiki/File:paa_alpha_channel_no_interpolation.jpg" class="image"><img alt="paa alpha channel no interpolation.jpg" src="/wikidata/images/9/9f/paa_alpha_channel_no_interpolation.jpg" decoding="async" width="800" height="600" data-file-width="800" data-file-height="600" /></a>
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Bibliography">Bibliography</span></h2>
+<ul><li>Feersum's original posting on BI forums: <span title="Old link: http&#58;//www.flashpoint1985.com/cgi-bin/ikonboard311/ikonboard.cgi?;act=ST;f=50;t=38131"><i>paa/pac texture format documentation</i> <sub style="font-size: .8em">(dead link)</sub></span></li>
+<li>MSDN documentation on DXT1 textures: <a rel="nofollow" class="external text" href="https://learn.microsoft.com/en-us/windows/win32/direct3d9/opaque-and-1-bit-alpha-textures">DirectX: Opaque and 1-Bit Alpha Textures</a></li>
+<li>Squish Compression <a rel="nofollow" class="external text" href="https://www.sjbrown.co.uk/posts/dxt-compression-techniques/">DXT Compression Techniques</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20260326011838
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.208 seconds
+Real time usage: 2.320 seconds
+Preprocessor visited node count: 8765/1000000
+Post‐expand include size: 19764/20480000 bytes
+Template argument size: 27562/20480000 bytes
+Highest expansion depth: 20/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 12882/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 2233.759      1 -total
+  1.70%   37.965     45 Template:Icon
+  1.31%   29.350      8 Template:Link
+  0.98%   21.944      1 Template:Feature
+  0.86%   19.138      3 Template:GVI
+  0.82%   18.393      5 Template:Link/External
+  0.78%   17.465      1 Template:Messagebox/BI
+  0.68%   15.130      1 Template:Messagebox
+  0.50%   11.177     21 Template:Name
+  0.29%    6.404      6 Template:hl
+-->
+
+<!-- Saved in parser cache with key community:pcache:idhash:3635-0!canonical and timestamp 20260326011836 and revision id 373446.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://community.bistudio.com/wiki?title=PAA_File_Format&amp;oldid=373446">https://community.bistudio.com/wiki?title=PAA_File_Format&amp;oldid=373446</a>"</div></div>
+					<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:Real_Virtuality_File_Formats" title="Category:Real Virtuality File Formats">Real Virtuality File Formats</a></li></ul></div></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 8 May 2025, at 12:27.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/wiki/Bohemia_Interactive_Community:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/wiki/Bohemia_Interactive_Community:About">About Bohemia Interactive Community</a></li>
+	<li id="footer-places-disclaimer"><a href="/wiki/Bohemia_Interactive_Community:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/wikidata/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wikidata/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wikidata/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+
+<script>
+		let bodies = document.getElementsByTagName('body');
+		if (bodies && bodies[0])
+		{
+			let divHeader = document.createElement('div');
+			divHeader.setAttribute('id', 'bohemia-header');
+			divHeader.innerHTML = '<div id="bohemia-header"><main-header v-bind:user-data="window.userData" login-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/login" logout-path="https://community.bistudio.com/wiki/Special:Bohemia/redirect/auth/logout"></main-header></div>';
+
+
+			let body = bodies[0];
+			body.insertBefore(divHeader, body.firstChild);
+		}
+		</script>
+		<script async src="https://static.bistudio.com/bohemia/header/js/all.min.js"></script>
+			<script>
+					window.userData = null;
+			</script>
+			
+			<script>
+			   document.onreadystatechange = function () {
+				  if (document.readyState === 'complete') {
+					  var f = document.createElement('iframe');
+					  f.src = 'https://data.bistudio.com/pbp/index.php';
+					  f.width = '100%';
+					  f.height = 140;
+					  f.frameborder = 0;
+					  f.style.border = 0;
+					  f.scrolling = 'no';
+
+					  var c = document.getElementById('bohemia-promo');
+					  if (c)
+					    c.appendChild(f);
+				  }
+				}
+			</script>
+		
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.208","walltime":"2.320","ppvisitednodes":{"value":8765,"limit":1000000},"postexpandincludesize":{"value":19764,"limit":20480000},"templateargumentsize":{"value":27562,"limit":20480000},"expansiondepth":{"value":20,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":12882,"limit":5000000},"timingprofile":["100.00% 2233.759      1 -total","  1.70%   37.965     45 Template:Icon","  1.31%   29.350      8 Template:Link","  0.98%   21.944      1 Template:Feature","  0.86%   19.138      3 Template:GVI","  0.82%   18.393      5 Template:Link/External","  0.78%   17.465      1 Template:Messagebox/BI","  0.68%   15.130      1 Template:Messagebox","  0.50%   11.177     21 Template:Name","  0.29%    6.404      6 Template:hl"]},"cachereport":{"timestamp":"20260326011838","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":2525});});</script>
+</body>
+</html>
